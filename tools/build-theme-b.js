@@ -39,6 +39,13 @@ html = html.replace(/assets\/img\/([a-z0-9-]+?)-a(-thumb)?\.webp/g, function (m,
   return 'assets/img/' + slot + '-b' + (thumb || '') + '.webp';
 });
 
+// 4a. Open Graph и canonical: адрес темы B и её превью-картинка
+replaceOnce('<link rel="canonical" href="https://panchishen.github.io/uvildy-kinetic-energy/">',
+            '<link rel="canonical" href="https://panchishen.github.io/uvildy-kinetic-energy/b/">');
+replaceOnce('<meta property="og:url" content="https://panchishen.github.io/uvildy-kinetic-energy/">',
+            '<meta property="og:url" content="https://panchishen.github.io/uvildy-kinetic-energy/b/">');
+replaceOnce('assets/img/og-a.jpg', 'assets/img/og-b.jpg');
+
 // 5. Переключатель тем: активен «Вариант 2»
 replaceOnce(
   '<a class="theme-switch__opt is-active" href="./" aria-current="page">Вариант 1</a>\n  <a class="theme-switch__opt" href="b/">Вариант 2</a>',
