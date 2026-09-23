@@ -49,14 +49,14 @@
 
   --color-text-primary: #0F1E2E;
   --color-text-secondary: #5B6B7A;
-  --color-text-tertiary: #6F7D8A;
+  --color-text-tertiary: #65717D; /* было #6F7D8A — контраст 4.5:1 (Lighthouse) */
   --color-text-on-action: #FFFFFF;
   --color-text-on-inverse: #FFFFFF;
   --color-text-on-inverse-muted: rgba(255, 255, 255, .84);
   --color-text-on-accent: #0F1E2E;
   --color-text-on-cta: #FFFFFF;
 
-  --color-heading-accent: #0A7FBF;
+  --color-heading-accent: #0975B0; /* было #0A7FBF — контраст 4.5:1 */
 
   --color-action-cta: #C2410C;
   --color-action-cta-hover: #9A3412;

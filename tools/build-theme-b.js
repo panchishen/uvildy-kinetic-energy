@@ -23,10 +23,10 @@ function replaceOnce(from, to) {
 replaceOnce('<html lang="ru">', '<html lang="ru" data-theme="b">');
 
 // 2. Шрифты темы B: Lora 600 (+ курсив для цитаты), Golos Text 400/500/600
-html = html.replace(
-  /<link href="https:\/\/fonts\.googleapis\.com\/css2\?[^"]*" rel="stylesheet">/,
-  '<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&family=Golos+Text:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet">'
-);
+//    Адрес встречается трижды: preload, неблокирующий stylesheet и <noscript>.
+const fontsA = /https:\/\/fonts\.googleapis\.com\/css2\?[^"]*/g;
+if ((html.match(fontsA) || []).length !== 3) throw new Error('Ожидалось 3 ссылки на шрифты Google');
+html = html.replace(fontsA, 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&family=Golos+Text:wght@400;500;600&display=swap&subset=cyrillic');
 
 // 3. Относительные пути: страница лежит на уровень глубже
 html = html

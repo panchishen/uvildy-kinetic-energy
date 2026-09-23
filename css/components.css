@@ -598,7 +598,7 @@ form.is-sent .form-sent { display: flex; }
 .mega-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
 .mega-menu__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grid-gutter); }
 .mega-menu__col { display: flex; flex-direction: column; gap: var(--space-8); }
-.mega-menu__col h3 { color: var(--color-text-primary); }
+.mega-menu__col .mega-menu__title { color: var(--color-text-primary); }
 .mega-menu__col a { color: var(--color-text-secondary); font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-small); }
 .mega-menu__col a:hover { color: var(--color-action-primary); }
 /* Пункты шапки, которые на узких экранах переезжают в меню (см. responsive.css) */
@@ -729,7 +729,7 @@ form.is-sent .form-sent { display: flex; }
 .footer__inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-24); }
 .footer__columns { width: 100%; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--grid-gutter); align-items: start; }
 .footer__col { display: flex; flex-direction: column; gap: var(--space-8); }
-.footer__col h3 { color: var(--color-text-on-inverse); }
+.footer__col h2 { color: var(--color-text-on-inverse); }
 .footer__pay { display: flex; gap: var(--space-8); padding-top: var(--space-16); }
 .pay-plate { height: 28px; border-radius: 4px; background: var(--color-surface-card); display: flex; align-items: center; justify-content: center; }
 .pay-plate img { display: block; }

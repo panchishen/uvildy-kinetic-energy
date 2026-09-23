@@ -14,8 +14,8 @@
   --color-surface-scrim: rgba(31, 42, 36, .56);
 
   --color-text-primary: #1F2A24;
-  --color-text-secondary: #66705F;
-  --color-text-tertiary: #7C8476;
+  --color-text-secondary: #606959; /* было #66705F — контраст 4.5:1 на песке */
+  --color-text-tertiary: #63695E; /* было #7C8476 — контраст 4.5:1 */
   --color-text-on-action: #FFFFFF;
   --color-text-on-inverse: #F6F1E8;
   --color-text-on-inverse-muted: rgba(246, 241, 232, .84);

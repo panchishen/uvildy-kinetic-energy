@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&display=swap&subset=cyrillic">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&display=swap&subset=cyrillic" rel="stylesheet"></noscript>
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/themes/b.css">
@@ -120,13 +122,13 @@
     <div class="container">
       <div class="mega-menu__grid">
         <div class="mega-menu__col">
-          <h3 class="text-h4">Программы</h3>
+          <p class="text-h4 mega-menu__title">Программы</p>
           <a href="#">Медицинские программы</a>
           <a href="#">Эндоэкологическая реабилитация</a>
           <a href="#">СПА-программы</a>
         </div>
         <div class="mega-menu__col">
-          <h3 class="text-h4">Лечение</h3>
+          <p class="text-h4 mega-menu__title">Лечение</p>
           <a href="#">Цены на медицинские услуги</a>
           <a href="#">Лечебные процедуры</a>
           <a href="#">SPA &amp; WELLNESS</a>
@@ -136,7 +138,7 @@
           <a href="#">Консультации врачей</a>
         </div>
         <div class="mega-menu__col">
-          <h3 class="text-h4">Гостям</h3>
+          <p class="text-h4 mega-menu__title">Гостям</p>
           <a href="#">Номерной фонд</a>
           <a href="#">Кафе и рестораны</a>
           <a href="#">Развлечение</a>
@@ -146,7 +148,7 @@
           <a href="#">Памятка для гостей</a>
         </div>
         <div class="mega-menu__col">
-          <h3 class="text-h4">О санатории</h3>
+          <p class="text-h4 mega-menu__title">О санатории</p>
           <a href="#">Контакты</a>
           <a href="#">Спецпредложения</a>
           <a href="#">Цены</a>
@@ -222,26 +224,26 @@
         <!-- Галерея -->
         <div class="hero__gallery">
           <div class="hero__main-media">
-            <img src="assets/img/hero-1-a.webp" alt="Гости на прогулке у озера Увильды" width="690" height="518">
+            <img src="assets/img/hero-1-a.webp" alt="Гости на прогулке у озера Увильды" width="690" height="518" fetchpriority="high">
             <button class="btn btn--inverse btn--sm hero__video-btn" type="button" data-hero-video>
               Видео
               <svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg>
             </button>
           </div>
           <div class="hero__thumbs" data-hero-thumbs>
-            <button type="button" class="hero-thumb is-active">
+            <button type="button" class="hero-thumb is-active" aria-label="Фото 1 из 5">
               <img src="assets/img/hero-1-a-thumb.webp" alt="" width="130" height="96">
             </button>
-            <button type="button" class="hero-thumb">
+            <button type="button" class="hero-thumb" aria-label="Фото 2 из 5">
               <img src="assets/img/hero-2-a-thumb.webp" alt="" width="130" height="96">
             </button>
-            <button type="button" class="hero-thumb">
+            <button type="button" class="hero-thumb" aria-label="Фото 3 из 5">
               <img src="assets/img/hero-3-a-thumb.webp" alt="" width="130" height="96">
             </button>
-            <button type="button" class="hero-thumb">
+            <button type="button" class="hero-thumb" aria-label="Фото 4 из 5">
               <img src="assets/img/hero-4-a-thumb.webp" alt="" width="130" height="96">
             </button>
-            <button type="button" class="hero-thumb">
+            <button type="button" class="hero-thumb" aria-label="Фото 5 из 5">
               <img src="assets/img/hero-5-a-thumb.webp" alt="" width="130" height="96">
             </button>
           </div>
@@ -304,7 +306,7 @@
   <section class="container" id="block-3" style="padding-block: var(--space-section);">
     <div class="b3__grid">
       <div class="b3__media">
-        <img src="assets/img/doctor-lead-a.webp" alt="Чернова Светлана Евгеньевна, руководитель программы «Энергия движения»" width="384" height="480">
+        <img src="assets/img/doctor-lead-a.webp" alt="Чернова Светлана Евгеньевна, руководитель программы «Энергия движения»" width="384" height="480" loading="lazy" decoding="async">
         <button class="play-btn b3__play" type="button" aria-label="Смотреть видеообращение руководителя">
           <svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg>
         </button>
@@ -433,7 +435,7 @@
             </div>
           </div>
           <div class="b4__card-media">
-            <img src="assets/img/indications-1-a.webp" alt="Врач показывает модель позвоночника" width="362" height="452" data-indication-image>
+            <img src="assets/img/indications-1-a.webp" alt="Врач показывает модель позвоночника" width="362" height="452" data-indication-image loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -449,7 +451,7 @@
       </div>
       <div class="b5__grid">
         <div class="b5__media">
-          <img src="assets/img/approach-photo-a.webp" alt="Процедура на колене крупным планом" width="384" height="480">
+          <img src="assets/img/approach-photo-a.webp" alt="Процедура на колене крупным планом" width="384" height="480" loading="lazy" decoding="async">
         </div>
         <div class="b5__text">
           <div class="b5__criteria">
@@ -501,7 +503,7 @@
       <div>
         <div class="slider-track" data-slider>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/diag-1-a.webp" alt="Приём невролога" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/diag-1-a.webp" alt="Приём невролога" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Сопровождение лечащего врача</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Диагностика и консультативное сопровождение невролога на протяжении всей программы.</p>
@@ -509,7 +511,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/diag-2-a.webp" alt="Кинезиологическая диагностика" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/diag-2-a.webp" alt="Кинезиологическая диагностика" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Кинезиологическая диагностика</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Мануально-мышечное тестирование: находим структурные причины боли.</p>
@@ -517,7 +519,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/diag-3-a.webp" alt="Анализы в лаборатории" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/diag-3-a.webp" alt="Анализы в лаборатории" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Необходимые анализы</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Анализ крови по ключевым показателям.</p>
@@ -525,7 +527,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/diag-4-a.webp" alt="Функциональная диагностика" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/diag-4-a.webp" alt="Функциональная диагностика" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Функциональная диагностика</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Оценка подвижности суставов, осанки и мышечного баланса — до и после программы.</p>
@@ -533,7 +535,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/diag-5-a.webp" alt="Консультация физиотерапевта" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/diag-5-a.webp" alt="Консультация физиотерапевта" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Консультация физиотерапевта</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Подбор аппаратных процедур с учётом диагноза и противопоказаний.</p>
@@ -568,7 +570,7 @@
       <div>
         <div class="slider-track" data-slider>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/treat-1-a.webp" alt="Ударно-волновая терапия" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/treat-1-a.webp" alt="Ударно-волновая терапия" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Ударно-волновая терапия</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Неинвазивный метод: акустические волны снимают боль и запускают восстановление тканей.</p>
@@ -576,7 +578,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/treat-2-a.webp" alt="Магнитотерапия BTL" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/treat-2-a.webp" alt="Магнитотерапия BTL" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Магнитотерапия BTL</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Быстро и без лекарств снимает острую боль, восстанавливает кровообращение и лимфоток, ускоряет заживление после травм и операций.</p>
@@ -584,7 +586,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/treat-3-a.webp" alt="Радоновые ванны" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/treat-3-a.webp" alt="Радоновые ванны" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Радоновые ванны</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Природный фактор курорта: налаживают обмен веществ, укрепляют иммунитет, снимают воспаление.</p>
@@ -592,7 +594,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/treat-4-a.webp" alt="Лазеротерапия" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/treat-4-a.webp" alt="Лазеротерапия" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Лазеротерапия</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Лазер активирует обменные процессы: улучшает микроциркуляцию, стимулирует восстановление тканей, снижает боль.</p>
@@ -613,7 +615,7 @@
         <h3 class="plaque__title text-h3">Уникальные процедуры — по назначению врача</h3>
         <div class="plaque__items">
           <div class="plaque__item">
-            <div class="plaque__item-media"><img src="assets/img/mud-suit-a.webp" alt="Грязевые костюмы" width="384" height="288"></div>
+            <div class="plaque__item-media"><img src="assets/img/mud-suit-a.webp" alt="Грязевые костюмы" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="plaque__item-text">
               <span class="badge-pill badge-pill--included text-overline">Входит в программу</span>
               <h4 class="text-h4">Грязевые костюмы</h4>
@@ -638,7 +640,7 @@
               </ul>
               <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
             </div>
-            <div class="plaque__item-media"><img src="assets/img/lympho-a.webp" alt="Лимфотропная терапия" width="384" height="288"></div>
+            <div class="plaque__item-media"><img src="assets/img/lympho-a.webp" alt="Лимфотропная терапия" width="384" height="288" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>
@@ -658,7 +660,7 @@
       <div>
         <div class="slider-track" data-slider>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/regen-1-a.webp" alt="Плазмолифтинг" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/regen-1-a.webp" alt="Плазмолифтинг" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Плазмолифтинг</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Новейшая технология для лечения острых болей при поражении костно-мышечной и суставно-связочной систем.</p>
@@ -666,7 +668,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/regen-2-a.webp" alt="Карбокситерапия" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/regen-2-a.webp" alt="Карбокситерапия" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Карбокситерапия</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Улучшает кровообращение и стимулирует регенерацию тканей.</p>
@@ -674,7 +676,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/regen-3-a.webp" alt="Гальваногрязелечение" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/regen-3-a.webp" alt="Гальваногрязелечение" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Гальваногрязелечение</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Сочетает воздействие лечебной грязи и низкочастотного гальванического тока.</p>
@@ -682,7 +684,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/regen-4-a.webp" alt="Лимфодренаж" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/regen-4-a.webp" alt="Лимфодренаж" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Лимфодренаж</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Воздействует не только на лимфатическую и венозную системы, но и на межклеточный обмен — уходят отёки и застой.</p>
@@ -714,7 +716,7 @@
       <div>
         <div class="slider-track" data-slider>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/wellness-1-a.webp" alt="Скандинавская ходьба" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/wellness-1-a.webp" alt="Скандинавская ходьба" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Скандинавская ходьба</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Регулирует вес, улучшает работу сердца и сосудов. Маршруты — по берегу озера Увильды.</p>
@@ -722,7 +724,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/wellness-2-a.webp" alt="Суставная гимнастика" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/wellness-2-a.webp" alt="Суставная гимнастика" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Суставная гимнастика</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Профилактика, лечение и восстановление после болезней и травм с помощью упражнений.</p>
@@ -730,7 +732,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/wellness-3-a.webp" alt="Дыхательная гимнастика" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/wellness-3-a.webp" alt="Дыхательная гимнастика" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Дыхательная гимнастика</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Увеличивает жизненную ёмкость лёгких и снижает артериальное давление.</p>
@@ -738,7 +740,7 @@
             </div>
           </div>
           <div class="proc-card card card--hover">
-            <div class="proc-card__media"><img src="assets/img/wellness-4-a.webp" alt="Йога" width="384" height="288"></div>
+            <div class="proc-card__media"><img src="assets/img/wellness-4-a.webp" alt="Йога" width="384" height="288" loading="lazy" decoding="async"></div>
             <div class="proc-card__body">
               <h3 class="text-h3">Йога</h3>
               <p class="text-small" style="color:var(--color-text-secondary);">Мягкая практика для гибкости и баланса; упражнения адаптируются под состояние суставов.</p>
@@ -783,7 +785,7 @@
         </div>
       </div>
       <div class="b9__video">
-        <img src="assets/img/result-bg-a.webp" alt="Гостья на тёплой лежанке после процедуры" width="690" height="500">
+        <img src="assets/img/result-bg-a.webp" alt="Гостья на тёплой лежанке после процедуры" width="690" height="500" loading="lazy" decoding="async">
         <button class="play-btn" type="button" aria-label="Смотреть видео о программе">
           <svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg>
         </button>
@@ -851,11 +853,11 @@
           <div class="b10__snapshots">
             <div class="before-after">
               <div class="before-after__item">
-                <img src="assets/img/mri-case-1-before.webp" alt="МРТ до лечения" width="282" height="282">
+                <img src="assets/img/mri-case-1-before.webp" alt="МРТ до лечения" width="282" height="282" loading="lazy" decoding="async">
                 <span class="badge-pill before-after__cap text-overline" style="background: var(--color-accent); color: var(--color-text-on-accent);">До</span>
               </div>
               <div class="before-after__item">
-                <img src="assets/img/mri-case-1-after.webp" alt="МРТ после лечения" width="282" height="282">
+                <img src="assets/img/mri-case-1-after.webp" alt="МРТ после лечения" width="282" height="282" loading="lazy" decoding="async">
                 <span class="badge-pill before-after__cap text-overline" style="background: var(--color-accent); color: var(--color-text-on-accent);">После</span>
               </div>
             </div>
@@ -1043,7 +1045,7 @@
   <!-- Блок 13. Дистанционный анализ МРТ -->
   <section class="container" id="block-13" style="padding-block: var(--space-section);">
     <div class="b13__banner">
-      <img src="assets/img/mri-banner-a.webp" alt="Врач анализирует снимок МРТ на мониторе" width="1200" height="514">
+      <img src="assets/img/mri-banner-a.webp" alt="Врач анализирует снимок МРТ на мониторе" width="1200" height="514" loading="lazy" decoding="async">
       <div class="b13__card">
         <div class="b13__copy">
           <h2 class="text-h2">Дистанционный анализ МРТ перед началом лечения</h2>
@@ -1072,7 +1074,7 @@
       <div>
         <div class="slider-track" data-slider>
           <div class="doctor-card card card--hover">
-            <div class="doctor-card__media"><img src="assets/img/doc-1-a.webp" alt="Чернова Светлана Евгеньевна" width="282" height="353"></div>
+            <div class="doctor-card__media"><img src="assets/img/doc-1-a.webp" alt="Чернова Светлана Евгеньевна" width="282" height="353" loading="lazy" decoding="async"></div>
             <div class="doctor-card__body">
               <span class="name text-h4">Чернова Светлана Евгеньевна</span>
               <span class="role text-small">Руководитель программы «Энергия движения»</span>
@@ -1080,7 +1082,7 @@
             </div>
           </div>
           <div class="doctor-card card card--hover">
-            <div class="doctor-card__media"><img src="assets/img/doc-2-a.webp" alt="Попова Ирина Евгеньевна" width="282" height="353"></div>
+            <div class="doctor-card__media"><img src="assets/img/doc-2-a.webp" alt="Попова Ирина Евгеньевна" width="282" height="353" loading="lazy" decoding="async"></div>
             <div class="doctor-card__body">
               <span class="name text-h4">Попова Ирина Евгеньевна</span>
               <span class="role text-small">Заместитель генерального директора — главный врач, врач-терапевт, рефлексотерапевт, врач-диетолог</span>
@@ -1088,7 +1090,7 @@
             </div>
           </div>
           <div class="doctor-card card card--hover">
-            <div class="doctor-card__media"><img src="assets/img/doc-3-a.webp" alt="Кондальская Юлия Олеговна" width="282" height="353"></div>
+            <div class="doctor-card__media"><img src="assets/img/doc-3-a.webp" alt="Кондальская Юлия Олеговна" width="282" height="353" loading="lazy" decoding="async"></div>
             <div class="doctor-card__body">
               <span class="name text-h4">Кондальская Юлия Олеговна</span>
               <span class="role text-small">Заместитель главного врача по медицинской части, врач-терапевт, кардиолог</span>
@@ -1096,7 +1098,7 @@
             </div>
           </div>
           <div class="doctor-card card card--hover">
-            <div class="doctor-card__media"><img src="assets/img/doc-4-a.webp" alt="Веригина Мария Михайловна" width="282" height="353"></div>
+            <div class="doctor-card__media"><img src="assets/img/doc-4-a.webp" alt="Веригина Мария Михайловна" width="282" height="353" loading="lazy" decoding="async"></div>
             <div class="doctor-card__body">
               <span class="name text-h4">Веригина Мария Михайловна</span>
               <span class="role text-small">Заведующая консультативно-диагностическим отделением, врач-терапевт</span>
@@ -1127,21 +1129,21 @@
       </div>
       <div class="slider-track">
         <div class="article-card card card--hover">
-          <div class="article-card__media"><img src="assets/img/dir-1-a.webp" alt="Ортопедическая реабилитация" width="384" height="240"></div>
+          <div class="article-card__media"><img src="assets/img/dir-1-a.webp" alt="Ортопедическая реабилитация" width="384" height="240" loading="lazy" decoding="async"></div>
           <div class="article-card__body">
             <span class="title text-h4">Ортопедическая реабилитация</span>
             <span class="text text-small">Восстановление подвижности и снижение боли после травм, операций и заболеваний суставов.</span>
           </div>
         </div>
         <div class="article-card card card--hover">
-          <div class="article-card__media"><img src="assets/img/dir-2-a.webp" alt="Реабилитация после эндопротезирования" width="384" height="240"></div>
+          <div class="article-card__media"><img src="assets/img/dir-2-a.webp" alt="Реабилитация после эндопротезирования" width="384" height="240" loading="lazy" decoding="async"></div>
           <div class="article-card__body">
             <span class="title text-h4">Реабилитация после эндопротезирования</span>
             <span class="text text-small">Успешная операция — начало пути. Учим двигаться с новым суставом, возвращаем активность и уверенность в шаге.</span>
           </div>
         </div>
         <div class="article-card card card--hover">
-          <div class="article-card__media"><img src="assets/img/dir-3-a.webp" alt="Боли в спине" width="384" height="240"></div>
+          <div class="article-card__media"><img src="assets/img/dir-3-a.webp" alt="Боли в спине" width="384" height="240" loading="lazy" decoding="async"></div>
           <div class="article-card__body">
             <span class="title text-h4">Боли в спине</span>
             <span class="text text-small">Больная спина — проблема всех возрастов: от сидячей работы страдают студенты, сотрудники средних лет и наши родители.</span>
@@ -1161,25 +1163,25 @@
       <div>
         <div class="slider-track" data-slider>
           <a href="#" class="photo-card">
-            <img src="assets/img/checkup-1-a.webp" alt="Кардио" width="282" height="352">
+            <img src="assets/img/checkup-1-a.webp" alt="Кардио" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__badge badge-pill text-overline">Дополнительно</span>
             <span class="photo-card__caption"><span class="title text-h3">Кардио</span><span class="text text-small">Выявление метаболического синдрома и риска сердечно-сосудистых заболеваний.</span></span>
           </a>
           <a href="#" class="photo-card">
-            <img src="assets/img/checkup-2-a.webp" alt="Здоровье лёгких" width="282" height="352">
+            <img src="assets/img/checkup-2-a.webp" alt="Здоровье лёгких" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__badge badge-pill text-overline">Дополнительно</span>
             <span class="photo-card__caption"><span class="title text-h3">Здоровье лёгких</span><span class="text text-small">Проверка органов дыхания — особенно после перенесённых вирусных заболеваний.</span></span>
           </a>
           <a href="#" class="photo-card">
-            <img src="assets/img/checkup-3-a.webp" alt="Эндокринологический статус" width="282" height="352">
+            <img src="assets/img/checkup-3-a.webp" alt="Эндокринологический статус" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__badge badge-pill text-overline">Дополнительно</span>
             <span class="photo-card__caption"><span class="title text-h3">Эндокрино&shy;логический статус</span><span class="text text-small">Выявление гормонального дисбаланса.</span></span>
           </a>
           <a href="#" class="photo-card">
-            <img src="assets/img/checkup-4-a.webp" alt="Нарушение сна" width="282" height="352">
+            <img src="assets/img/checkup-4-a.webp" alt="Нарушение сна" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__badge badge-pill text-overline">Дополнительно</span>
             <span class="photo-card__caption"><span class="title text-h3">Нарушение сна</span><span class="text text-small">Поиск причины расстройства сна и план восстановления.</span></span>
@@ -1207,12 +1209,12 @@
           </div>
           <a href="#block-29" class="btn btn--primary">Начать оздоровление</a>
         </div>
-        <div class="b17__media"><img src="assets/img/family-hero-a.webp" alt="Семья на прогулке у озера Увильды" width="690" height="518"></div>
+        <div class="b17__media"><img src="assets/img/family-hero-a.webp" alt="Семья на прогулке у озера Увильды" width="690" height="518" loading="lazy" decoding="async"></div>
       </div>
       <div class="b17__gallery">
-        <div class="b17__gallery-item"><img src="assets/img/gallery-1-a.webp" alt="Терраса у озера" width="336" height="251"></div>
-        <div class="b17__gallery-item"><img src="assets/img/gallery-2-a.webp" alt="Общая гостиная курорта" width="336" height="251"></div>
-        <div class="b17__gallery-item"><img src="assets/img/gallery-3-a.webp" alt="Территория курорта у воды" width="336" height="251"></div>
+        <div class="b17__gallery-item"><img src="assets/img/gallery-1-a.webp" alt="Терраса у озера" width="336" height="251" loading="lazy" decoding="async"></div>
+        <div class="b17__gallery-item"><img src="assets/img/gallery-2-a.webp" alt="Общая гостиная курорта" width="336" height="251" loading="lazy" decoding="async"></div>
+        <div class="b17__gallery-item"><img src="assets/img/gallery-3-a.webp" alt="Территория курорта у воды" width="336" height="251" loading="lazy" decoding="async"></div>
         <div class="gallery-counter">
           <span class="count text-h4">2 / 21</span>
           <div class="slider-controls">
@@ -1231,22 +1233,22 @@
       <div>
         <div class="slider-track" data-slider>
           <a href="#" class="photo-card">
-            <img src="assets/img/prog-1-a.webp" alt="Базовая программа" width="282" height="352">
+            <img src="assets/img/prog-1-a.webp" alt="Базовая программа" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__caption"><span class="title text-h3">Базовая программа</span><span class="text text-small">повышение иммунитета</span></span>
           </a>
           <a href="#" class="photo-card">
-            <img src="assets/img/prog-2-a.webp" alt="Антистресс" width="282" height="352">
+            <img src="assets/img/prog-2-a.webp" alt="Антистресс" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__caption"><span class="title text-h3">Антистресс</span><span class="text text-small">снятие стрессовых нагрузок</span></span>
           </a>
           <a href="#" class="photo-card">
-            <img src="assets/img/prog-3-a.webp" alt="Моделирование тела" width="282" height="352">
+            <img src="assets/img/prog-3-a.webp" alt="Моделирование тела" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__caption"><span class="title text-h3">Моделирование тела</span><span class="text text-small">коррекция силуэта</span></span>
           </a>
           <a href="#" class="photo-card">
-            <img src="assets/img/prog-4-a.webp" alt="СПА-путешествие" width="282" height="352">
+            <img src="assets/img/prog-4-a.webp" alt="СПА-путешествие" width="282" height="352" loading="lazy" decoding="async">
             <span class="photo-card__gradient"></span>
             <span class="photo-card__caption"><span class="title text-h3">СПА-путешествие</span><span class="text text-small">релаксация и восстановление</span></span>
           </a>
@@ -1287,7 +1289,7 @@
         <a href="#" class="btn btn--primary">Записаться на видеоконференцию</a>
       </div>
       <div class="b19__media">
-        <img src="assets/img/video-consult-a.webp" alt="Врач на видеоконсультации" width="588" height="331" style="width:100%; height:100%; object-fit:cover;">
+        <img src="assets/img/video-consult-a.webp" alt="Врач на видеоконсультации" width="588" height="331" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -1302,24 +1304,24 @@
       <div class="slider-wrap slider-wrap--gap">
         <div class="slider-track" data-slider>
           <div class="video-card video-card--review">
-            <img src="assets/img/review-video-1-a.webp" alt="Видеоотзыв пациентки" width="282" height="477">
+            <img src="assets/img/review-video-1-a.webp" alt="Видеоотзыв пациентки" width="282" height="477" loading="lazy" decoding="async">
             <span class="video-card__gradient"></span>
             <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--review">
-            <img src="assets/img/review-video-2-a.webp" alt="Видеоотзыв пациента" width="282" height="477">
+            <img src="assets/img/review-video-2-a.webp" alt="Видеоотзыв пациента" width="282" height="477" loading="lazy" decoding="async">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h4">«За месяц терапии состояние значительно улучшилось, боль практически ушла. Я оставила трость и сняла ортез.»</span>
             <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--review">
-            <img src="assets/img/review-video-3-a.webp" alt="Видеоотзыв пациентки" width="282" height="477">
+            <img src="assets/img/review-video-3-a.webp" alt="Видеоотзыв пациентки" width="282" height="477" loading="lazy" decoding="async">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h4">«Колено абсолютно хорошее, стабильное.»</span>
             <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--review">
-            <img src="assets/img/review-video-4-a.webp" alt="Видеоотзыв пациентов" width="282" height="477">
+            <img src="assets/img/review-video-4-a.webp" alt="Видеоотзыв пациентов" width="282" height="477" loading="lazy" decoding="async">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h4">«Спасибо большое!»</span>
             <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
@@ -1340,7 +1342,7 @@
   <section class="container" id="block-21" style="padding-block: var(--space-section);" data-opinions>
     <div class="b21__grid">
       <div class="b21__media">
-        <img src="assets/img/quote-photo-a.webp" alt="Чернова Светлана Евгеньевна" width="384" height="480" data-opinion-slide="0" style="width:100%; height:100%; object-fit:cover;">
+        <img src="assets/img/quote-photo-a.webp" alt="Чернова Светлана Евгеньевна" width="384" height="480" data-opinion-slide="0" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async">
         <img src="assets/img/quote-photo-2-a.webp" alt="Попова Ирина Евгеньевна" width="384" height="480" data-opinion-slide="1" hidden loading="lazy" style="width:100%; height:100%; object-fit:cover;">
         <img src="assets/img/quote-photo-3-a.webp" alt="Кондальская Юлия Олеговна" width="384" height="480" data-opinion-slide="2" hidden loading="lazy" style="width:100%; height:100%; object-fit:cover;">
       </div>
@@ -1415,19 +1417,19 @@
       <div>
         <div class="slider-track" data-slider>
           <div class="video-card video-card--podcast">
-            <img src="assets/img/podcast-1-a.webp" alt="Подкаст: грыжа диска" width="384" height="216">
+            <img src="assets/img/podcast-1-a.webp" alt="Подкаст: грыжа диска" width="384" height="216" loading="lazy" decoding="async">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h3">Грыжа диска: когда нужна операция, а когда — нет</span>
             <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--podcast">
-            <img src="assets/img/podcast-2-a.webp" alt="Подкаст: артроз колена" width="384" height="216">
+            <img src="assets/img/podcast-2-a.webp" alt="Подкаст: артроз колена" width="384" height="216" loading="lazy" decoding="async">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h3">Артроз колена: что реально помогает</span>
             <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--podcast">
-            <img src="assets/img/podcast-3-a.webp" alt="Подкаст: реабилитация после эндопротезирования" width="384" height="216">
+            <img src="assets/img/podcast-3-a.webp" alt="Подкаст: реабилитация после эндопротезирования" width="384" height="216" loading="lazy" decoding="async">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h3">Реабилитация после эндопротезирования: первые 6 месяцев</span>
             <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
@@ -1445,7 +1447,7 @@
   <section class="container" id="block-24" style="padding-block: var(--space-section);">
     <div class="b24__grid">
       <div class="b24__media">
-        <img src="assets/img/diag-5-a.webp" alt="Физиотерапевт объясняет гостю план процедур" width="486" height="452" style="width:100%; height:100%; object-fit:cover;">
+        <img src="assets/img/diag-5-a.webp" alt="Физиотерапевт объясняет гостю план процедур" width="486" height="452" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async">
       </div>
       <div class="b24__text">
         <div>
@@ -1662,7 +1664,7 @@
   <!-- Блок 29. Форма «Получите понятную стратегию лечения» -->
   <section class="container" id="block-29" style="padding-block: var(--space-section);">
     <div class="b29__banner">
-      <img src="assets/img/form-photo-a.webp" alt="Врач курорта с планшетом" width="1200" height="580">
+      <img src="assets/img/form-photo-a.webp" alt="Врач курорта с планшетом" width="1200" height="580" loading="lazy" decoding="async">
       <div class="b29__panel">
         <div class="b29__copy">
           <h2 class="text-h2">Получите понятную стратегию лечения</h2>
@@ -1715,7 +1717,7 @@
         <div>
           <div class="slider-track" data-slider>
             <div class="article-card card card--hover">
-              <div class="article-card__media"><img src="assets/img/article-1-a.webp" alt="Врач-вертебролог" width="384" height="240"></div>
+              <div class="article-card__media"><img src="assets/img/article-1-a.webp" alt="Врач-вертебролог" width="384" height="240" loading="lazy" decoding="async"></div>
               <div class="article-card__body">
                 <span class="title text-h4">Врач-вертебролог: кто это и что лечит простыми словами</span>
                 <span class="text text-small">Вертебролог специализируется на диагностике и лечении заболеваний позвоночника.</span>
@@ -1723,7 +1725,7 @@
               </div>
             </div>
             <div class="article-card card card--hover">
-              <div class="article-card__media"><img src="assets/img/article-2-a.webp" alt="Можно ли вправить грыжу позвоночника руками" width="384" height="240"></div>
+              <div class="article-card__media"><img src="assets/img/article-2-a.webp" alt="Можно ли вправить грыжу позвоночника руками" width="384" height="240" loading="lazy" decoding="async"></div>
               <div class="article-card__body">
                 <span class="title text-h4">Можно ли вправить грыжу позвоночника руками?</span>
                 <span class="text text-small">Нет. Межпозвонковую грыжу нельзя вправить массажем, мануальной терапией или остеопатией.</span>
@@ -1731,7 +1733,7 @@
               </div>
             </div>
             <div class="article-card card card--hover">
-              <div class="article-card__media"><img src="assets/img/article-3-a.webp" alt="Радоновые ванны" width="384" height="240"></div>
+              <div class="article-card__media"><img src="assets/img/article-3-a.webp" alt="Радоновые ванны" width="384" height="240" loading="lazy" decoding="async"></div>
               <div class="article-card__body">
                 <span class="title text-h4">Радоновые ванны: как работают и кому подходят</span>
                 <span class="text text-small">Природный фактор курорта Увильды: показания, курс и ограничения.</span>
@@ -1832,14 +1834,14 @@
   <div class="container footer__inner">
     <div class="footer__columns">
       <div class="footer__col">
-        <h3 class="text-h4">Программы</h3>
+        <h2 class="text-h4">Программы</h2>
         <a class="link--footer" href="#">Медицинские программы</a>
         <a class="link--footer" href="#">Эндоэкологическая реабилитация</a>
         <a class="link--footer" href="#">СПА-программы</a>
         <div class="footer__pay">
-          <span class="pay-plate" style="width:45px"><img src="assets/icons/brand/mastercard-official.svg" alt="Mastercard" width="29" height="23"></span>
-          <span class="pay-plate" style="width:67px"><img src="assets/icons/brand/mir.svg" alt="Мир" width="58" height="17"></span>
-          <span class="pay-plate" style="width:34px"><img src="assets/icons/brand/sbp-mark.svg" alt="СБП" width="22" height="22"></span>
+          <span class="pay-plate" style="width:45px"><img src="assets/icons/brand/mastercard-official.svg" alt="Mastercard" width="29" height="23" loading="lazy" decoding="async"></span>
+          <span class="pay-plate" style="width:67px"><img src="assets/icons/brand/mir.svg" alt="Мир" width="58" height="17" loading="lazy" decoding="async"></span>
+          <span class="pay-plate" style="width:34px"><img src="assets/icons/brand/sbp-mark.svg" alt="СБП" width="22" height="22" loading="lazy" decoding="async"></span>
         </div>
         <div class="footer__rating">
           <div class="footer__rating-row">
@@ -1852,7 +1854,7 @@
       </div>
 
       <div class="footer__col">
-        <h3 class="text-h4">Лечение</h3>
+        <h2 class="text-h4">Лечение</h2>
         <a class="link--footer" href="#">Цены на медицинские услуги</a>
         <a class="link--footer" href="#">Лечебные процедуры</a>
         <a class="link--footer" href="#">SPA &amp; WELLNESS</a>
@@ -1863,7 +1865,7 @@
       </div>
 
       <div class="footer__col">
-        <h3 class="text-h4">Гостям</h3>
+        <h2 class="text-h4">Гостям</h2>
         <a class="link--footer" href="#">Номерной фонд</a>
         <a class="link--footer" href="#">Кафе и рестораны</a>
         <a class="link--footer" href="#">Развлечение</a>
@@ -1874,7 +1876,7 @@
       </div>
 
       <div class="footer__col">
-        <h3 class="text-h4">О санатории</h3>
+        <h2 class="text-h4">О санатории</h2>
         <a class="link--footer" href="#">Контакты</a>
         <a class="link--footer" href="#">Спецпредложения</a>
         <a class="link--footer" href="#">Цены</a>
@@ -1887,7 +1889,7 @@
       </div>
 
       <div class="footer__col footer__contact">
-        <h3 class="text-h4">Контакты</h3>
+        <h2 class="text-h4">Контакты</h2>
         <div class="footer__contact-row">
           <span class="label">Отдел бронирования · 9:00–19:00</span>
           <span class="value">+7 (351) 225-16-16</span>
@@ -1906,11 +1908,11 @@
         </div>
         <a href="#" class="btn btn--inverse btn--full" style="justify-content:flex-start;">Заказать звонок</a>
         <div class="footer__social">
-          <a class="icon-btn icon-btn--brand icon-btn--vk" href="#" aria-label="VK"><img src="assets/icons/brand/btn-vk.svg" alt="" width="24" height="24"></a>
-          <a class="icon-btn icon-btn--brand icon-btn--telegram" href="#" aria-label="Telegram"><img src="assets/icons/brand/btn-telegram.svg" alt="" width="24" height="24"></a>
-          <a class="icon-btn icon-btn--brand icon-btn--ok" href="#" aria-label="Одноклассники"><img src="assets/icons/brand/btn-ok.svg" alt="" width="24" height="24"></a>
-          <a class="icon-btn icon-btn--brand icon-btn--rutube" href="#" aria-label="Rutube"><img src="assets/icons/brand/btn-rutube.svg" alt="" width="24" height="24"></a>
-          <a class="icon-btn icon-btn--brand icon-btn--max" href="#" aria-label="MAX"><img src="assets/icons/brand/btn-max.svg" alt="" width="24" height="24"></a>
+          <a class="icon-btn icon-btn--brand icon-btn--vk" href="#" aria-label="VK"><img src="assets/icons/brand/btn-vk.svg" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
+          <a class="icon-btn icon-btn--brand icon-btn--telegram" href="#" aria-label="Telegram"><img src="assets/icons/brand/btn-telegram.svg" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
+          <a class="icon-btn icon-btn--brand icon-btn--ok" href="#" aria-label="Одноклассники"><img src="assets/icons/brand/btn-ok.svg" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
+          <a class="icon-btn icon-btn--brand icon-btn--rutube" href="#" aria-label="Rutube"><img src="assets/icons/brand/btn-rutube.svg" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
+          <a class="icon-btn icon-btn--brand icon-btn--max" href="#" aria-label="MAX"><img src="assets/icons/brand/btn-max.svg" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
         </div>
       </div>
     </div>
