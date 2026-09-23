@@ -76,7 +76,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   /* Панель мессенджеров сворачивается в одну кнопку в правом нижнем углу:
      справа у контейнера меньше 120 px и столбик из 6 кнопок ложится на контент */
   .messenger-panel { top: auto; bottom: 24px; transform: none; align-items: center; }
-  .messenger-panel__toggle { display: inline-flex; width: 48px; height: 48px; }
+  .messenger-panel .messenger-panel__toggle { display: inline-flex; width: 48px; height: 48px; }
   .messenger-panel__items {
     visibility: hidden; opacity: 0; transform: translateY(8px);
     transition: opacity var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease), visibility var(--motion-base);
@@ -329,4 +329,43 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   /* Переключатель вариантов (презентация): внизу слева над панелью бронирования, чтобы не закрывать шапку и крошки */
   .theme-switch { top: auto; right: auto; left: var(--container-padding); bottom: calc(var(--booking-bar-h) + var(--space-16) + 8px); }
   .theme-switch__opt { padding: 6px 10px; }
+}
+
+/* Телефон: длинные подписи кнопок переносятся, а не вылезают за экран */
+@media (max-width: 767px) {
+  .btn { white-space: normal; text-align: center; height: auto; min-height: var(--size-control); padding-block: var(--space-8); }
+  .btn--sm { min-height: var(--size-control-sm); }
+}
+
+/* Узкие телефоны < 360 (iPhone SE 1-го поколения, 320) */
+@media (max-width: 359px) {
+  .header .btn--sm { padding-inline: var(--space-12); }
+  .header__row { gap: var(--space-8); }
+  .b9__discs-cards { grid-template-columns: 1fr; }
+}
+
+/* Телефон: зоны нажатия не меньше 44 × 44 (чек-лист фазы) — визуально элементы почти не меняются */
+@media (max-width: 767px) {
+  :root { --size-control-sm: 44px; --size-anchors: 54px; }
+  .topbar { height: 44px; gap: 0; padding-inline: var(--space-4); }
+  .topbar__spacer { display: none; }
+  .topbar__promo { flex: 1 1 auto; text-align: center; }
+  .topbar__nav, .topbar__close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .topbar__promo { padding-block: 13px; }
+  .header__logo { height: 44px; padding-block: 4px; }
+  .breadcrumbs { padding-block: var(--space-4); }
+  .breadcrumbs a { display: inline-block; padding-block: 14px; }
+  .breadcrumbs ol { flex-wrap: nowrap; white-space: nowrap; overflow-x: auto; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--container-padding)); padding-inline: var(--container-padding); }
+  .breadcrumbs ol::-webkit-scrollbar { display: none; }
+  .anchor-nav__row { height: calc(var(--size-anchors) - 2px); }
+  .anchor-chip { min-height: 44px; display: inline-flex; align-items: center; }
+  .footer__col { gap: 0; }
+  .footer__col > a.link--footer, .footer__legal a { min-height: 44px; display: flex; align-items: center; }
+  .footer__col h2 { margin-bottom: var(--space-4); }
+  .footer__social .icon-btn--brand, .messenger-panel__items .icon-btn--brand { width: 44px; height: 44px; }
+  .theme-switch__opt { min-height: 44px; display: inline-flex; align-items: center; }
+  .accordion__head { min-height: 44px; }
+  .license-strip .link--text, .b31__secondary-item-text .link--text { display: inline-block; padding-block: 10px; }
+  .hero-thumb { min-height: 44px; }
 }
