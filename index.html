@@ -1312,7 +1312,225 @@
     </div>
   </section>
 
-  <!-- TODO: блоки 24–32 (см. 00-docs/content-map.md) — следующие сессии вёрстки -->
+  <!-- Блок 24. Наш подход к лечению (SEO) -->
+  <section class="container" id="block-24" style="padding-block: var(--space-section);">
+    <div style="display:flex; gap: var(--grid-gutter); align-items:stretch;">
+      <div style="width:486px; flex-shrink:0; border-radius: var(--radius-media); overflow:hidden;">
+        <img src="assets/img/diag-5-a.webp" alt="Физиотерапевт объясняет гостю план процедур" width="486" height="452" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div style="flex:1 0 0; min-width:0; padding-left: var(--space-48); display:flex; flex-direction:column; gap: var(--space-32);">
+        <div>
+          <h2 class="text-h2">Наш подход к лечению: от первой консультации до реабилитации</h2>
+          <p class="text-lead" style="margin-top: var(--space-16);">Мы придерживаемся принципа <strong style="color: var(--color-heading-accent);">«только необходимое»</strong>: каждое обследование и исследование — по показаниям, исходя из сути проблемы, без избыточных назначений.</p>
+        </div>
+        <div style="display:flex; gap: var(--grid-gutter); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border); padding-block: var(--space-24);">
+          <div style="flex:1 0 0;"><span class="text-number" style="display:block; color: var(--color-heading-accent);">7</span><span class="text-small" style="color: var(--color-text-secondary);">видов диагностики</span></div>
+          <div style="flex:1 0 0;"><span class="text-number" style="display:block; color: var(--color-heading-accent);">68</span><span class="text-small" style="color: var(--color-text-secondary);">процедур в индивидуальной схеме</span></div>
+          <div style="flex:1 0 0;"><span class="text-number" style="display:block; color: var(--color-heading-accent);">3</span><span class="text-small" style="color: var(--color-text-secondary);">этапа лечения</span></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap: var(--space-16);">
+          <p class="text-body">Диагностика занимает первые дни заезда: осмотр невролога, кинезиологическое тестирование, анализы, функциональные пробы. По результатам врач составляет схему и объясняет, что и зачем назначено.</p>
+          <p class="text-body">Лечение идёт тремя этапами — процедуры, восстановление, оздоровление всего организма, — а сопровождение врача не заканчивается с отъездом: вы уезжаете с рекомендациями и планом поддержки результата.</p>
+        </div>
+        <a href="#" class="btn btn--secondary" style="align-self:flex-start;">Читать полностью</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 25. Стоимость услуг (SEO) -->
+  <section class="container" id="block-25" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <h2 class="text-h2">Стоимость услуг</h2>
+      <div style="background: var(--color-action-soft); border-radius: var(--radius-card); padding: var(--space-16) var(--space-24); display:flex; align-items:center; justify-content:space-between; gap: var(--space-16); flex-wrap:wrap;">
+        <p class="text-body"><strong>Программа «Энергия движения»</strong> — от 8 000 ₽ / сутки с проживанием · 7 / 10 / 14 дней</p>
+        <a href="#booking-widget" class="btn btn--primary btn--sm">Забронировать</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap: var(--space-16);">
+        <div style="width:384px; height:48px; display:flex; align-items:center; gap: var(--space-8); border:1px solid var(--color-border-control); border-radius: var(--radius-input); padding-inline: var(--space-16); background: var(--color-surface-card);">
+          <span class="text-body" style="flex:1 0 0; color: var(--color-text-tertiary);">Поиск по названию</span>
+          <svg class="icon" width="24" height="24" style="color: var(--color-text-secondary);"><use href="#icon-search"></use></svg>
+        </div>
+        <div data-accordion>
+          <div class="accordion__row is-open">
+            <button class="accordion__head" type="button" aria-expanded="true">
+              <span class="title text-h3">Приём врача-специалиста</span>
+              <span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-minus"></use></svg></span>
+            </button>
+            <div class="accordion__panel">
+              <div class="price-row text-body"><span class="name">Приём невролога первичный</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+              <div class="price-row text-body"><span class="name">Приём невролога повторный</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+              <div class="price-row text-body"><span class="name">Консультация физиотерапевта</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+            </div>
+          </div>
+          <div class="accordion__row">
+            <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Телеконсультации</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+            <div class="accordion__panel">
+              <div class="price-row text-body"><span class="name">Видеоконсультация с врачом</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+            </div>
+          </div>
+          <div class="accordion__row">
+            <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Врачебные манипуляции и процедуры</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+            <div class="accordion__panel">
+              <div class="price-row text-body"><span class="name">Внутрисуставная инъекция</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+            </div>
+          </div>
+          <div class="accordion__row">
+            <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Физиотерапевтические процедуры</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+            <div class="accordion__panel">
+              <div class="price-row text-body"><span class="name">Магнитотерапия</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+            </div>
+          </div>
+          <div class="accordion__row">
+            <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Травматология</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+            <div class="accordion__panel">
+              <div class="price-row text-body"><span class="name">Тейпирование</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+            </div>
+          </div>
+          <div class="accordion__row">
+            <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Ортопедия</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+            <div class="accordion__panel">
+              <div class="price-row text-body"><span class="name">Подбор ортопедических стелек</span><span class="leader"></span><span class="price tabular-nums">по запросу</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 26. Награды -->
+  <section class="b4" id="block-26" style="padding-block: var(--space-48); background: var(--color-surface-section);">
+    <div class="container" style="display:flex; gap: var(--grid-gutter); align-items:stretch;">
+      <div class="award-card card">
+        <span class="award-card__logo"></span>
+        <span class="title text-h4">Russian Hospitality Awards 2025</span>
+        <span class="text text-small">лучший отель-санаторий</span>
+      </div>
+      <div class="award-card card">
+        <span class="award-card__logo"></span>
+        <span class="title text-h4">9.5 / 10</span>
+        <span class="text text-small">3650 отзывов гостей</span>
+      </div>
+      <div class="award-card card">
+        <span class="award-card__logo"></span>
+        <span class="title text-h4">Рейтинг в Яндексе 5,0</span>
+        <span class="text text-small">«Хорошее место»</span>
+      </div>
+      <div class="award-card card">
+        <span class="award-card__logo"></span>
+        <span class="title text-h4">Оценка в 2ГИС 4,9</span>
+        <span class="text text-small">по отзывам пользователей</span>
+      </div>
+      <div class="award-card card">
+        <span class="award-card__logo"></span>
+        <span class="title text-h4">ПроДокторов</span>
+        <span class="text text-small">рейтинг врачей</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 27. Отзывы -->
+  <section class="container" id="block-27" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div style="display:flex; flex-direction:column; gap: var(--space-24);">
+        <div>
+          <h2 class="text-h2">Нам доверяют более 20 лет</h2>
+          <p class="text-lead" style="color: var(--color-text-secondary);">Что говорят гости, которые уже прошли лечение.</p>
+        </div>
+        <div style="display:flex; gap: var(--space-16); flex-wrap:wrap;">
+          <div class="rating-plaque card"><span class="value text-h4">5,0</span><span class="label text-small">Яндекс Карты</span><span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span></div>
+          <div class="rating-plaque card"><span class="value text-h4">4,9</span><span class="label text-small">2ГИС</span><span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span></div>
+          <div class="rating-plaque card"><span class="value text-h4">9.5 / 10</span><span class="label text-small">по 3650 отзывам</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="slider-track" data-slider>
+          <div class="review-card card">
+            <div class="review-card__head">
+              <span class="review-card__avatar"><svg class="icon" width="20" height="20"><use href="#icon-user"></use></svg></span>
+              <span class="review-card__who"><span class="name text-h4">Гостья курорта</span><span class="date text-caption">август 2026</span></span>
+            </div>
+            <span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span>
+            <p class="review-card__text text-body">За месяц терапии состояние значительно улучшилось, боль практически ушла. Оставила трость, сняла ортез.</p>
+            <a href="#" class="btn btn--ghost btn--sm">Читать полностью</a>
+          </div>
+          <div class="review-card card">
+            <div class="review-card__head">
+              <span class="review-card__avatar"><svg class="icon" width="20" height="20"><use href="#icon-user"></use></svg></span>
+              <span class="review-card__who"><span class="name text-h4">Гость курорта</span><span class="date text-caption">июль 2026</span></span>
+            </div>
+            <span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span>
+            <p class="review-card__text text-body">Отзыв о лечении спины / суставов — курируемая копия с Яндекс Карт курорта.</p>
+            <a href="#" class="btn btn--ghost btn--sm">Читать полностью</a>
+          </div>
+          <div class="review-card card">
+            <div class="review-card__head">
+              <span class="review-card__avatar"><svg class="icon" width="20" height="20"><use href="#icon-user"></use></svg></span>
+              <span class="review-card__who"><span class="name text-h4">Гостья курорта</span><span class="date text-caption">июнь 2026</span></span>
+            </div>
+            <span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span>
+            <p class="review-card__text text-body">Отзыв о лечении спины / суставов — курируемая копия с Яндекс Карт курорта.</p>
+            <a href="#" class="btn btn--ghost btn--sm">Читать полностью</a>
+          </div>
+        </div>
+        <div class="slider-row">
+          <div style="display:flex; gap: var(--space-12); align-items:center;">
+            <a href="#" class="btn btn--secondary">Больше отзывов на Яндекс Картах</a>
+            <a href="#" class="btn btn--ghost">Оставить отзыв</a>
+          </div>
+          <div class="slider-controls">
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущий отзыв" disabled data-slider-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующий отзыв" data-slider-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 28. Часто задаваемые вопросы -->
+  <section class="b4" id="block-28" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+    <div class="container" style="display:flex; flex-direction:column; gap: var(--space-24);">
+      <h2 class="text-h2">Часто задаваемые вопросы</h2>
+      <div data-accordion data-accordion-exclusive>
+        <div class="accordion__row is-open">
+          <button class="accordion__head" type="button" aria-expanded="true">
+            <span class="title text-h3">Когда нужно обращаться к травматологу-ортопеду?</span>
+            <span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-minus"></use></svg></span>
+          </button>
+          <div class="accordion__panel text-body">При любых травмах и заболеваниях костей, суставов, мышц, связок и сухожилий. Специалист совмещает помощь при травмах и плановое лечение хронических заболеваний опорно-двигательного аппарата.</div>
+        </div>
+        <div class="accordion__row">
+          <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Всегда ли нужна операция?</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+          <div class="accordion__panel text-body">Нет. При многих грыжах, протрузиях и артрозах консервативное лечение снимает боль и возвращает подвижность. Решение принимает врач по снимкам и осмотру — отправьте МРТ, и мы скажем, подходит ли программа.</div>
+        </div>
+        <div class="accordion__row">
+          <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Можно ли приехать с готовыми результатами МРТ или КТ?</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+          <div class="accordion__panel text-body">Да, и это ускорит диагностику. Снимки давностью до 6 месяцев принимаем без повторного исследования; можно отправить их заранее.</div>
+        </div>
+        <div class="accordion__row">
+          <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Сколько длится реабилитация?</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+          <div class="accordion__panel text-body">Минимальный заезд — 7 дней, полный курс — 14. При хронических заболеваниях врач может рекомендовать повторный курс через 6–12 месяцев.</div>
+        </div>
+        <div class="accordion__row">
+          <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Можно ли приехать после эндопротезирования?</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+          <div class="accordion__panel text-body">Да, не ранее чем через 6 месяцев после операции и с выпиской от хирурга.</div>
+        </div>
+        <div class="accordion__row">
+          <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Нужна ли санаторно-курортная карта?</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+          <div class="accordion__panel text-body">Желательно: она ускоряет первичный приём. Если карты нет, необходимые обследования можно пройти на месте.</div>
+        </div>
+        <div class="accordion__row">
+          <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Можно ли пройти программу без проживания?</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+          <div class="accordion__panel text-body">Нет, программа доступна только с проживанием: в стоимость программы входят процедуры, в стоимость путёвки — номер и питание.</div>
+        </div>
+        <div class="accordion__row">
+          <button class="accordion__head" type="button" aria-expanded="false"><span class="title text-h3">Что входит в стоимость?</span><span class="accordion__toggle"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></span></button>
+          <div class="accordion__panel text-body">В программу — диагностика и процедуры по назначению врача; в путёвку — проживание и питание. Регенеративные методы и чекапы оплачиваются дополнительно.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO: блоки 29–32 (см. 00-docs/content-map.md) — следующие сессии вёрстки -->
 
 </main>
 

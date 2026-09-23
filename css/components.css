@@ -445,6 +445,33 @@
 .video-card__caption { position: absolute; left: 24px; right: 24px; bottom: 24px; color: var(--color-text-on-inverse); }
 .video-card .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
+/* ---------- Card/Award ---------- */
+.award-card { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-12); }
+.award-card__logo { width: 64px; height: 64px; border-radius: 12px; background: var(--color-surface-section); }
+.award-card .title { color: var(--color-text-primary); }
+.award-card .text { color: var(--color-text-secondary); }
+
+/* ---------- Rating plaque ---------- */
+.rating-plaque { display: flex; align-items: center; gap: var(--space-12); padding: var(--space-12) var(--space-16); white-space: nowrap; }
+.rating-plaque .value { color: var(--color-text-primary); }
+.rating-plaque .label { color: var(--color-text-secondary); }
+
+/* ---------- Card/Review ---------- */
+.review-card { width: 384px; flex-shrink: 0; display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-card-padding); }
+.review-card__head { display: flex; gap: var(--space-12); align-items: center; }
+.review-card__avatar { width: var(--size-control-sm); height: var(--size-control-sm); border-radius: 999px; background: var(--color-surface-section); display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); flex-shrink: 0; }
+.review-card__who { display: flex; flex-direction: column; gap: 2px; }
+.review-card__who .name { color: var(--color-text-primary); }
+.review-card__who .date { color: var(--color-text-tertiary); }
+.review-card__text { color: var(--color-text-secondary); }
+
+/* ---------- Price row ---------- */
+.price-row { display: flex; align-items: baseline; gap: var(--space-8); padding: var(--space-12) var(--space-8); border-radius: var(--radius-input); }
+.price-row:hover { background: var(--color-surface-section); }
+.price-row .name { color: var(--color-text-primary); white-space: nowrap; }
+.price-row .leader { flex: 1 0 0; border-bottom: 1px dotted var(--color-border); height: 0; }
+.price-row .price { color: var(--color-text-primary); white-space: nowrap; }
+
 /* ---------- Gallery counter ---------- */
 .gallery-counter { display: flex; flex-direction: column; gap: var(--space-8); align-items: center; width: 120px; flex-shrink: 0; }
 .gallery-counter .count { color: var(--color-text-primary); }
