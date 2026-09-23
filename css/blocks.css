@@ -296,6 +296,9 @@
 /* ---------- Блок 18. Другие программы ---------- */
 .b18__center { display: flex; flex-direction: column; align-items: center; gap: var(--space-16); }
 
+/* ---------- Блок 21. Мнения врачей ---------- */
+.b21__text { display: flex; flex-direction: column; gap: var(--space-16); }
+
 /* ---------- Блок 29. Форма «Получите понятную стратегию лечения» ---------- */
 .b29__banner {
   position: relative; width: 100%; border-radius: var(--radius-media); overflow: hidden;

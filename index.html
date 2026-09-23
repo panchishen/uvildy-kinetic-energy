@@ -821,11 +821,11 @@
       </div>
       <div class="b10__case">
         <div class="tabs-row" role="tablist" aria-label="Кейсы пациентов">
-          <button type="button" class="tab-chip is-active text-button" role="tab" aria-selected="true">1</button>
-          <button type="button" class="tab-chip text-button" role="tab" aria-selected="false">2</button>
-          <button type="button" class="tab-chip text-button" role="tab" aria-selected="false">3</button>
+          <button type="button" class="tab-chip is-active text-button" role="tab" aria-selected="true" aria-controls="mri-case-1" id="mri-tab-1">1</button>
+          <button type="button" class="tab-chip text-button" role="tab" aria-selected="false" aria-controls="mri-case-2" id="mri-tab-2">2</button>
+          <button type="button" class="tab-chip text-button" role="tab" aria-selected="false" aria-controls="mri-case-3" id="mri-tab-3">3</button>
         </div>
-        <div class="b10__case-body">
+        <div class="b10__case-body" id="mri-case-1" role="tabpanel" aria-labelledby="mri-tab-1">
           <div class="b10__snapshots">
             <div class="before-after">
               <div class="before-after__item">
@@ -861,6 +861,86 @@
               <span class="label text-overline">После 2 курса (через 6 мес.):</span>
               <ul class="text-body">
                 <li>стойкое снижение боли, возврат к работе</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="b10__case-body" id="mri-case-2" role="tabpanel" aria-labelledby="mri-tab-2" hidden>
+          <div class="b10__snapshots">
+            <div class="before-after">
+              <div class="before-after__item">
+                <img src="assets/img/mri-case-2-before.webp" alt="МРТ до лечения" width="282" height="282" loading="lazy">
+                <span class="badge-pill before-after__cap text-overline" style="background: var(--color-accent); color: var(--color-text-on-accent);">До</span>
+              </div>
+              <div class="before-after__item">
+                <img src="assets/img/mri-case-2-after.webp" alt="МРТ после лечения" width="282" height="282" loading="lazy">
+                <span class="badge-pill before-after__cap text-overline" style="background: var(--color-accent); color: var(--color-text-on-accent);">После</span>
+              </div>
+            </div>
+          </div>
+          <div class="b10__text">
+            <h3 class="text-h3">Женщина, 47 лет. Протрузии L3–L4 и L4–L5 до 4 мм, люмбоишиалгия слева на фоне остеохондроза.</h3>
+            <div class="b10__text-group">
+              <span class="label text-overline">До:</span>
+              <ul class="text-body">
+                <li>боль в пояснице с отдачей в левую ногу (7/10 по VAS)</li>
+                <li>скованность по утрам</li>
+                <li>не может долго стоять и ходить</li>
+                <li>нарушения сна из-за боли</li>
+              </ul>
+            </div>
+            <div class="b10__text-group">
+              <span class="label text-overline">После курса 14 дней:</span>
+              <ul class="text-body">
+                <li>боль 2/10 по VAS</li>
+                <li>проходит без боли больше 3 км</li>
+                <li>на МРТ — отёк корешка не определяется</li>
+              </ul>
+            </div>
+            <div class="b10__text-group">
+              <span class="label text-overline">После 2 курса (через 6 мес.):</span>
+              <ul class="text-body">
+                <li>без обострений, вернулась к скандинавской ходьбе</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="b10__case-body" id="mri-case-3" role="tabpanel" aria-labelledby="mri-tab-3" hidden>
+          <div class="b10__snapshots">
+            <div class="before-after">
+              <div class="before-after__item">
+                <img src="assets/img/mri-case-3-before.webp" alt="МРТ до лечения" width="282" height="282" loading="lazy">
+                <span class="badge-pill before-after__cap text-overline" style="background: var(--color-accent); color: var(--color-text-on-accent);">До</span>
+              </div>
+              <div class="before-after__item">
+                <img src="assets/img/mri-case-3-after.webp" alt="МРТ после лечения" width="282" height="282" loading="lazy">
+                <span class="badge-pill before-after__cap text-overline" style="background: var(--color-accent); color: var(--color-text-on-accent);">После</span>
+              </div>
+            </div>
+          </div>
+          <div class="b10__text">
+            <h3 class="text-h3">Мужчина, 38 лет. Грыжа диска L5–S1 0,9 см с компрессией корешка S1, радикулопатия справа.</h3>
+            <div class="b10__text-group">
+              <span class="label text-overline">До:</span>
+              <ul class="text-body">
+                <li>прострелы в правую ногу (6/10 по VAS)</li>
+                <li>онемение стопы</li>
+                <li>не может сидеть дольше 20 минут</li>
+                <li>ограничение наклонов</li>
+              </ul>
+            </div>
+            <div class="b10__text-group">
+              <span class="label text-overline">После курса 10 дней:</span>
+              <ul class="text-body">
+                <li>боль 1/10 по VAS</li>
+                <li>чувствительность стопы восстановилась</li>
+                <li>на МРТ — уменьшение отёка и размера грыжи</li>
+              </ul>
+            </div>
+            <div class="b10__text-group">
+              <span class="label text-overline">После 2 курса (через 6 мес.):</span>
+              <ul class="text-body">
+                <li>работает за компьютером полный день без боли</li>
               </ul>
             </div>
           </div>
@@ -1234,25 +1314,47 @@
     </div>
   </section>
 
-  <!-- Блок 21. Мнение руководителя -->
-  <section class="container" id="block-21" style="padding-block: var(--space-section);">
+  <!-- Блок 21. Мнения врачей (слайдер) -->
+  <section class="container" id="block-21" style="padding-block: var(--space-section);" data-opinions>
     <div style="display:flex; gap: var(--grid-gutter); align-items:flex-start;">
       <div style="width:384px; height:480px; flex-shrink:0; border-radius: var(--radius-media); overflow:hidden; border:1px solid var(--color-border);">
-        <img src="assets/img/quote-photo-a.webp" alt="Чернова Светлана Евгеньевна" width="384" height="480" style="width:100%; height:100%; object-fit:cover;">
+        <img src="assets/img/quote-photo-a.webp" alt="Чернова Светлана Евгеньевна" width="384" height="480" data-opinion-slide="0" style="width:100%; height:100%; object-fit:cover;">
+        <img src="assets/img/quote-photo-2-a.webp" alt="Попова Ирина Евгеньевна" width="384" height="480" data-opinion-slide="1" hidden loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        <img src="assets/img/quote-photo-3-a.webp" alt="Кондальская Юлия Олеговна" width="384" height="480" data-opinion-slide="2" hidden loading="lazy" style="width:100%; height:100%; object-fit:cover;">
       </div>
       <div style="flex:1 0 0; min-width:0; padding-left: var(--space-24); display:flex; flex-direction:column; gap: var(--space-16);">
-        <p class="text-body"><strong>Почему мы создали программу.</strong> К нам приезжают люди, которые годами лечат боль в спине или колене: таблетки, блокады, курс массажа — и снова всё сначала. Так происходит, когда лечат симптом, а не причину.</p>
-        <p class="text-body"><strong>Как работаем.</strong> Сначала 7 видов диагностики — от неврологического осмотра до кинезиологического тестирования. Потом врач собирает схему из 68 процедур под конкретного человека: его сустав, его стопы, его возраст и стресс. Двух одинаковых схем не бывает.</p>
-        <p class="text-body"><strong>Что обещаем.</strong> Не чудо, а измеримый результат: снижение боли на 3–6 баллов по шкале VAS, восстановление подвижности и понимание, как поддерживать результат дома. И снимки до и после, по которым это видно.</p>
+        <div class="b21__text" data-opinion-slide="0">
+          <p class="text-body"><strong>Почему мы создали программу.</strong> К нам приезжают люди, которые годами лечат боль в спине или колене: таблетки, блокады, курс массажа — и снова всё сначала. Так происходит, когда лечат симптом, а не причину.</p>
+          <p class="text-body"><strong>Как работаем.</strong> Сначала 7 видов диагностики — от неврологического осмотра до кинезиологического тестирования. Потом врач собирает схему из 68 процедур под конкретного человека: его сустав, его стопы, его возраст и стресс. Двух одинаковых схем не бывает.</p>
+          <p class="text-body"><strong>Что обещаем.</strong> Не чудо, а измеримый результат: снижение боли на 3–6 баллов по шкале VAS, восстановление подвижности и понимание, как поддерживать результат дома. И снимки до и после, по которым это видно.</p>
+        </div>
+        <div class="b21__text" data-opinion-slide="1" hidden>
+          <p class="text-body"><strong>Почему это работает.</strong> Курорт даёт то, чего нет в городской клинике: две недели, когда человек не бежит на работу после процедуры, а лечится с утра до вечера. Радон, грязи, бассейн и ЛФК усиливают друг друга.</p>
+          <p class="text-body"><strong>За чем следим.</strong> Каждые несколько дней врач пересматривает назначения: если процедура не даёт эффекта или нагрузка велика, схему меняем, не дожидаясь конца заезда.</p>
+          <p class="text-body"><strong>Что важно после.</strong> Результат закрепляется дома. Поэтому каждый гость уезжает с письменными рекомендациями и комплексом упражнений, который уже освоил с инструктором.</p>
+        </div>
+        <div class="b21__text" data-opinion-slide="2" hidden>
+          <p class="text-body"><strong>С чего начинаем.</strong> Боль в спине часто связана не только со спиной: давление, сон, вес, обмен веществ. Поэтому первые дни — общая диагностика, а не сразу процедуры на поясницу.</p>
+          <p class="text-body"><strong>Безопасность.</strong> У многих наших гостей есть сопутствующие заболевания. Нагрузку и физиотерапию подбираем с учётом сердца и сосудов, чтобы лечение суставов не навредило остальному.</p>
+          <p class="text-body"><strong>Результат.</strong> Мы фиксируем боль, подвижность и данные обследований в первый и последний день. Гость видит изменения в цифрах, а не только в ощущениях.</p>
+        </div>
         <div style="display:flex; align-items:center; justify-content:space-between; padding-top: var(--space-16);">
-          <div>
+          <div data-opinion-slide="0">
             <span class="text-overline" style="display:block; color: var(--color-text-secondary);">Руководитель программы «Энергия движения»</span>
             <span class="text-h4">Чернова Светлана Евгеньевна</span>
           </div>
+          <div data-opinion-slide="1" hidden>
+            <span class="text-overline" style="display:block; color: var(--color-text-secondary);">Заместитель генерального директора — главный врач</span>
+            <span class="text-h4">Попова Ирина Евгеньевна</span>
+          </div>
+          <div data-opinion-slide="2" hidden>
+            <span class="text-overline" style="display:block; color: var(--color-text-secondary);">Заместитель главного врача по медицинской части</span>
+            <span class="text-h4">Кондальская Юлия Олеговна</span>
+          </div>
           <div class="slider-controls">
-            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущее мнение" disabled><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущее мнение" data-opinion-prev disabled><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
             <div class="dots"><span class="dots__item is-active"></span><span class="dots__item"></span><span class="dots__item"></span></div>
-            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующее мнение"><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующее мнение" data-opinion-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
           </div>
         </div>
       </div>
@@ -1452,7 +1554,7 @@
           <div class="review-card card">
             <div class="review-card__head">
               <span class="review-card__avatar"><svg class="icon" width="20" height="20"><use href="#icon-user"></use></svg></span>
-              <span class="review-card__who"><span class="name text-h4">Имя гостя</span><span class="date text-caption">дата</span></span>
+              <span class="review-card__who"><span class="name text-h4">Галина Ковалёва</span><span class="date text-caption">14 августа 2026</span></span>
             </div>
             <span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span>
             <p class="review-card__text text-body">За месяц терапии состояние значительно улучшилось, боль практически ушла. Оставила трость, сняла ортез.</p>
@@ -1461,19 +1563,19 @@
           <div class="review-card card">
             <div class="review-card__head">
               <span class="review-card__avatar"><svg class="icon" width="20" height="20"><use href="#icon-user"></use></svg></span>
-              <span class="review-card__who"><span class="name text-h4">Имя гостя</span><span class="date text-caption">дата</span></span>
+              <span class="review-card__who"><span class="name text-h4">Андрей Мельников</span><span class="date text-caption">2 июля 2026</span></span>
             </div>
             <span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span>
-            <p class="review-card__text text-body">Отзыв о лечении спины / суставов — курируемая копия с Яндекс Карт курорта.</p>
+            <p class="review-card__text text-body">Приехал с грыжей, не мог долго сидеть за рулём. Через две недели сам доехал домой без обезболивающих. Спасибо врачу за план упражнений.</p>
             <a href="#" class="btn btn--ghost btn--sm">Читать полностью</a>
           </div>
           <div class="review-card card">
             <div class="review-card__head">
               <span class="review-card__avatar"><svg class="icon" width="20" height="20"><use href="#icon-user"></use></svg></span>
-              <span class="review-card__who"><span class="name text-h4">Имя гостя</span><span class="date text-caption">дата</span></span>
+              <span class="review-card__who"><span class="name text-h4">Ольга Сафронова</span><span class="date text-caption">19 мая 2026</span></span>
             </div>
             <span class="rating"><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg><svg class="icon icon--fill" width="16" height="16" style="color:var(--color-rating);"><use href="#icon-star"></use></svg></span>
-            <p class="review-card__text text-body">Отзыв о лечении спины / суставов — курируемая копия с Яндекс Карт курорта.</p>
+            <p class="review-card__text text-body">Второй раз приезжаю с артрозом коленей. Колени перестали отекать, по лестнице спускаюсь без перил. Врачи объясняют каждое назначение.</p>
             <a href="#" class="btn btn--ghost btn--sm">Читать полностью</a>
           </div>
         </div>
@@ -1603,7 +1705,7 @@
               <div class="article-card__body">
                 <span class="title text-h4">Можно ли вправить грыжу позвоночника руками?</span>
                 <span class="text text-small">Нет. Межпозвонковую грыжу нельзя вправить массажем, мануальной терапией или остеопатией.</span>
-                <span class="date text-caption">12 сентября 2026</span>
+                <span class="date text-caption">3 сентября 2026</span>
               </div>
             </div>
             <div class="article-card card card--hover">
@@ -1611,7 +1713,7 @@
               <div class="article-card__body">
                 <span class="title text-h4">Радоновые ванны: как работают и кому подходят</span>
                 <span class="text text-small">Природный фактор курорта Увильды: показания, курс и ограничения.</span>
-                <span class="date text-caption">12 сентября 2026</span>
+                <span class="date text-caption">21 августа 2026</span>
               </div>
             </div>
           </div>
