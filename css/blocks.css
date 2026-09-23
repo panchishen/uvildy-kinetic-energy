@@ -1,0 +1,156 @@
+/* Стили конкретных блоков страницы (по номерам content-map.md). Растёт блок за блоком. */
+
+/* ---------- Блок 1. Хлебные крошки ---------- */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding-block: var(--space-24);
+  color: var(--color-text-secondary);
+}
+.breadcrumbs a { color: var(--color-text-secondary); }
+.breadcrumbs a:hover { color: var(--color-action-primary); }
+.breadcrumbs [aria-current="page"] { color: var(--color-text-primary); }
+
+/* ---------- Блок 2. Первый экран ---------- */
+.hero {
+  padding-block: var(--space-48) var(--space-section);
+}
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+.hero__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.hero__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  flex-wrap: wrap;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-tag);
+  background: var(--color-action-soft);
+  color: var(--color-action-on-soft);
+}
+.hero__offer {
+  color: var(--color-text-secondary);
+  max-width: 800px;
+}
+.hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+.tag {
+  background: var(--color-surface-section);
+  color: var(--color-text-secondary);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-tag);
+}
+
+.hero__grid {
+  display: flex;
+  gap: var(--grid-gutter);
+  align-items: flex-start;
+}
+
+.hero__gallery {
+  width: 690px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.hero__main-media {
+  position: relative;
+  width: 690px;
+  height: 518px;
+  border-radius: var(--radius-media);
+  overflow: hidden;
+}
+.hero__main-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero__video-btn { position: absolute; top: 20px; right: 20px; }
+.hero__video-btn .icon { color: var(--color-text-primary); }
+.hero__thumbs { display: flex; gap: var(--space-12); }
+.hero-thumb {
+  flex: 1 0 0;
+  height: 96px;
+  padding: 0;
+  border-radius: var(--radius-input);
+  border: 0;
+  overflow: hidden;
+  opacity: .6;
+  cursor: pointer;
+  transition: opacity var(--motion-fast) var(--motion-ease), border-color var(--motion-fast) var(--motion-ease);
+}
+.hero-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-thumb.is-active { opacity: 1; border: 2px solid var(--color-action-primary); }
+
+.hero__aside {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  padding-left: var(--space-24);
+}
+.hero__price-card {
+  background: var(--color-surface-section);
+  border-radius: var(--radius-card);
+  padding: var(--space-card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.hero__price-top { display: flex; flex-direction: column; gap: var(--space-4); }
+.hero__price-top .label { color: var(--color-text-secondary); }
+.hero__price-value { margin: 0; }
+.hero__price-value .amount { color: var(--color-text-primary); }
+.hero__price-value .period { color: var(--color-text-secondary); }
+.hero__price-note { color: var(--color-text-tertiary); }
+.hero__price-term {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-16);
+}
+.hero__price-term .label { color: var(--color-text-secondary); display: block; margin-bottom: var(--space-4); }
+.hero__price-term .value { color: var(--color-text-primary); }
+
+.hero__cta { display: flex; flex-direction: column; gap: var(--space-12); }
+.hero__cta-link { text-align: center; }
+
+.hero__effects {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.hero__effects .label { color: var(--color-heading-accent); }
+.hero__effect-item { display: flex; gap: var(--space-12); align-items: flex-start; }
+.hero__effect-item .icon { color: var(--color-state-success); flex-shrink: 0; }
+
+/* ---------- Якорное меню ---------- */
+.anchor-nav {
+  position: sticky;
+  top: var(--size-header);
+  background: var(--color-surface-page);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.anchor-nav__row {
+  height: var(--size-anchors);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.anchor-nav__row::-webkit-scrollbar { display: none; }

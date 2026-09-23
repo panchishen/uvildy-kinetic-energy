@@ -1,0 +1,52 @@
+/* Контейнер, сетка, ритм секций. §Сетка и отступы ui-kit.md. */
+
+.container {
+  /* max-width включает боковые паддинги: при viewport >= 1200+2*24 контент
+     ровно 1200px (как в макете, 120px по бокам при 1440); ниже — паддинг
+     становится минимальным боковым отступом. */
+  max-width: calc(var(--container-max) + 2 * var(--container-padding));
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.section {
+  padding-block: var(--space-section);
+  position: relative;
+}
+
+.section--alt {
+  background: var(--color-surface-section);
+}
+
+.section--inverse {
+  background: var(--color-surface-inverse);
+  color: var(--color-text-on-inverse);
+}
+
+.block-gap {
+  margin-top: var(--space-block-gap);
+}
+
+.grid {
+  display: grid;
+  gap: var(--grid-gutter);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+}
+
+/* Z-слои фиксированных элементов */
+.z-anchor-nav   { z-index: var(--z-anchor-nav); }
+.z-messenger    { z-index: var(--z-messenger); }
+.z-booking      { z-index: var(--z-booking); }
+.z-header       { z-index: var(--z-header); }
+.z-dropdown     { z-index: var(--z-dropdown); }
+.z-side-panel   { z-index: var(--z-side-panel); }
+.z-modal        { z-index: var(--z-modal); }
+.z-theme-switch { z-index: var(--z-theme-switch); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

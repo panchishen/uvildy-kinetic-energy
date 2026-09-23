@@ -1,0 +1,192 @@
+/*
+  Токены — источник истины: 02-design/ui-kit.md (= переменные Figma).
+  Тема A «Клиника у озера» — значения по умолчанию (:root).
+  Тема B — переопределения в css/themes/b.css под [data-theme="b"].
+  Breakpoint: Desktop — значения по умолчанию; Mobile — @media (max-width: 767px).
+  Layout — без режимов, отступы и сетка общие для тем.
+*/
+
+:root {
+  /* ---------- Layout (без режимов) ---------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+  --space-128: 128px;
+
+  --container-max: 1200px;
+  --grid-columns: 12;
+
+  --size-checkbox: 20px;
+  --size-touch: 44px;
+  --size-control-xs: 32px;
+
+  /* ---------- Breakpoint: Desktop (по умолчанию) ---------- */
+  --grid-gutter: 24px;
+  --container-padding: 24px;
+  --space-section: 96px;
+  --space-block-gap: 48px;
+  --space-card-padding: 24px;
+  --size-control: 48px;
+  --size-control-sm: 40px;
+  --size-header: 72px;
+  --size-anchors: 52px;
+  --size-icon: 24px;
+
+  /* ---------- Theme A «Клиника у озера» — цвет ---------- */
+  --color-surface-page: #FFFFFF;
+  --color-surface-section: #F3F7FA;
+  --color-surface-card: #FFFFFF;
+  --color-surface-inverse: #0067A8;
+  --color-surface-header: #0F1E2E;
+  --color-surface-topbar: #0A1826;
+  --color-surface-scrim: rgba(15, 30, 46, .56);
+
+  --color-text-primary: #0F1E2E;
+  --color-text-secondary: #5B6B7A;
+  --color-text-tertiary: #6F7D8A;
+  --color-text-on-action: #FFFFFF;
+  --color-text-on-inverse: #FFFFFF;
+  --color-text-on-inverse-muted: rgba(255, 255, 255, .84);
+  --color-text-on-accent: #0F1E2E;
+  --color-text-on-cta: #FFFFFF;
+
+  --color-heading-accent: #0A7FBF;
+
+  --color-action-cta: #C2410C;
+  --color-action-cta-hover: #9A3412;
+  --color-action-primary: #0672AE;
+  --color-action-primary-hover: #005C96;
+  --color-action-secondary: #7A8794;
+  --color-action-secondary-bg: #E6F4FB;
+  --color-action-secondary-bg-hover: #D6EBF7;
+  --color-action-secondary-bg-active: #C5E2F4;
+  --color-action-secondary-text: #005C96;
+  --color-action-soft: #E6F4FB;
+  --color-action-on-soft: #0067A8;
+
+  --color-accent: #2EC4C6;
+  --color-accent-soft: #E3F7F7;
+
+  --color-border: #D9E2EA;
+  --color-border-strong: #B9C6D2;
+  --color-border-control: #7A8794;
+  --color-focus: #0F1E2E;
+
+  --color-surface-inverse-button: #FFFFFF;
+
+  --color-overlay-media-start: rgba(15, 30, 46, 0);
+  --color-overlay-media-end: rgba(15, 30, 46, .72);
+
+  --color-state-success: #13774E;
+  --color-state-error: #B42A4F;
+  --color-rating: #F2A900;
+
+  --color-messenger-telegram: #2AABEE;
+  --color-messenger-whatsapp: #25D366;
+  --color-messenger-max: #8114FF;
+
+  --color-social-vk: #0077FF;
+  --color-social-ok: #FF7700;
+  --color-social-rutube: #100943;
+
+  /* Форма и глубина — Theme A */
+  --radius-button: 10px;
+  --radius-tag: 999px;
+  --radius-card: 12px;
+  --radius-media: 14px;
+  --radius-input: 10px;
+  --radius-modal: 16px;
+  --radius-checkbox: 4px;
+
+  --border-card: 1px;
+  --border-secondary: 0px;
+
+  --shadow-card: 0 0 0 rgba(15, 30, 46, 0);
+  --shadow-card-hover: 0 8px 24px rgba(15, 30, 46, .08);
+  --shadow-sticky: 0 2px 12px rgba(15, 30, 46, .08);
+  --shadow-popover: 0 16px 48px rgba(15, 30, 46, .16);
+
+  /* ---------- Типографика — Theme A ---------- */
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --font-weight-heading: 800;
+  --font-weight-heading-sub: 700;
+  --font-weight-body: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-quote: 700;
+  --font-style-quote: normal;
+
+  /* Шкала размеров общая для тем (Breakpoint), lh/ls — свойства стиля */
+  --font-size-h1: 56px;      --font-lh-h1: 1.05;   --font-ls-h1: -0.01em;
+  --font-size-h2: 40px;      --font-lh-h2: 1.12;   --font-ls-h2: -0.01em;
+  --font-size-h3: 24px;      --font-lh-h3: 1.25;   --font-ls-h3: 0em;
+  --font-size-h4: 18px;      --font-lh-h4: 1.35;   --font-ls-h4: 0em;
+  --font-size-lead: 20px;    --font-lh-lead: 1.45; --font-ls-lead: 0em;
+  --font-size-body: 17px;    --font-lh-body: 1.55; --font-ls-body: 0em;
+  --font-size-small: 14px;   --font-lh-small: 1.4; --font-ls-small: 0em;
+  --font-size-caption: 12px; --font-lh-caption: 1.4; --font-ls-caption: 0.02em;
+  --font-size-overline: 12px; --font-lh-overline: 1.2; --font-ls-overline: 0.1em;
+  --font-size-number: 48px;  --font-lh-number: 1.0; --font-ls-number: -0.01em;
+  --font-size-button: 15px;  --font-lh-button: 1.0; --font-ls-button: 0em;
+  --font-size-quote: 24px;   --font-lh-quote: 1.35; --font-ls-quote: 0em;
+
+  /* ---------- Движение (общее для тем) ---------- */
+  --motion-fast: 150ms;
+  --motion-base: 240ms;
+  --motion-slow: 400ms;
+  --motion-ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* ---------- Z-слои ---------- */
+  --z-content: 0;
+  --z-anchor-nav: 50;
+  --z-messenger: 55;
+  --z-booking: 56;
+  --z-header: 60;
+  --z-dropdown: 70;
+  --z-side-panel: 80;
+  --z-modal: 90;
+  --z-theme-switch: 100;
+
+  /* ---------- Только CSS ---------- */
+  --focus-ring: 0 0 0 2px var(--color-surface-page), 0 0 0 4px var(--color-focus);
+  --hover-scale-media: 1.04;
+  --hover-lift-card: -2px;
+  --opacity-disabled: .48;
+}
+
+/* ---------- Breakpoint: Mobile ---------- */
+@media (max-width: 767px) {
+  :root {
+    --grid-gutter: 16px;
+    --container-padding: 16px;
+    --space-section: 64px;
+    --space-block-gap: 32px;
+    --space-card-padding: 20px;
+    --size-control: 44px;
+    --size-control-sm: 36px;
+    --size-header: 56px;
+    --size-anchors: 44px;
+    --size-icon: 20px;
+
+    --font-size-h1: 40px;
+    --font-size-h2: 28px;
+    --font-size-h3: 20px;
+    --font-size-h4: 17px;
+    --font-size-lead: 17px;
+    --font-size-body: 16px;
+    --font-size-small: 13px;
+    --font-size-caption: 12px;
+    --font-size-overline: 12px;
+    --font-size-number: 36px;
+    --font-size-button: 15px;
+    --font-size-quote: 20px;
+  }
+}

@@ -1,0 +1,84 @@
+/*
+  Тема B «Тёплый курорт» — переопределения коллекции Theme.
+  Структура, сетка и компоненты общие с темой A (css/tokens.css);
+  различия только в значениях токенов. Источник: 02-design/ui-kit.md.
+*/
+
+[data-theme="b"] {
+  --color-surface-page: #F6F1E8;
+  --color-surface-section: #EFE7D8;
+  --color-surface-card: #FFFFFF;
+  --color-surface-inverse: #1E4D3B;
+  --color-surface-header: #1E4D3B;
+  --color-surface-topbar: #163A2C;
+  --color-surface-scrim: rgba(31, 42, 36, .56);
+
+  --color-text-primary: #1F2A24;
+  --color-text-secondary: #66705F;
+  --color-text-tertiary: #7C8476;
+  --color-text-on-action: #FFFFFF;
+  --color-text-on-inverse: #F6F1E8;
+  --color-text-on-inverse-muted: rgba(246, 241, 232, .84);
+  --color-text-on-accent: #1F2A24;
+  --color-text-on-cta: #FFFFFF;
+
+  --color-heading-accent: #1E4D3B;
+
+  --color-action-cta: #A9512C;
+  --color-action-cta-hover: #8E4223;
+  --color-action-primary: #1E4D3B;
+  --color-action-primary-hover: #163A2C;
+  --color-action-secondary: #1E4D3B;
+  --color-action-secondary-bg: transparent;
+  --color-action-secondary-bg-hover: #E1EDE4;
+  --color-action-secondary-bg-active: #E1EDE4;
+  --color-action-secondary-text: #1E4D3B;
+  --color-action-soft: #E1EDE4;
+  --color-action-on-soft: #1E4D3B;
+
+  --color-accent: #E0A63A;
+  --color-accent-soft: #F5E9CF;
+
+  --color-border: #E3DACB;
+  --color-border-strong: #CFC3AE;
+  --color-border-control: #7C8476;
+  --color-focus: #1F2A24;
+
+  --color-surface-inverse-button: #F6F1E8;
+
+  --color-overlay-media-start: rgba(31, 42, 36, 0);
+  --color-overlay-media-end: rgba(31, 42, 36, .72);
+
+  --color-state-success: #13774E;
+  --color-state-error: #B42A4F;
+  --color-rating: #F2A900;
+
+  /* Форма и глубина — Theme B */
+  --radius-button: 999px;
+  --radius-tag: 999px;
+  --radius-card: 20px;
+  --radius-media: 24px;
+  --radius-input: 12px;
+  --radius-modal: 24px;
+  --radius-checkbox: 6px;
+
+  --border-card: 0px;
+  --border-secondary: 1.5px;
+
+  --shadow-card: 0 12px 32px rgba(30, 77, 59, .10);
+  --shadow-card-hover: 0 18px 40px rgba(30, 77, 59, .14);
+  --shadow-sticky: 0 2px 12px rgba(30, 77, 59, .10);
+  --shadow-popover: 0 16px 48px rgba(30, 77, 59, .18);
+
+  /* Типографика — Theme B */
+  --font-heading: 'Lora', serif;
+  --font-body: 'Golos Text', sans-serif;
+
+  --font-weight-heading: 600;
+  --font-weight-heading-sub: 600;
+  --font-weight-body: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-quote: 600;
+  --font-style-quote: italic;
+}
