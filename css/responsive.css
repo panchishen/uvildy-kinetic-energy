@@ -351,28 +351,39 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .b9__discs-cards { grid-template-columns: 1fr; }
 }
 
-/* Телефон: зоны нажатия не меньше 44 × 44 (чек-лист фазы) — визуально элементы почти не меняются */
+/* Телефон: топбар и крошки — одна строка во всю ширину */
 @media (max-width: 767px) {
-  :root { --size-control-sm: 44px; --size-anchors: 54px; }
-  .topbar { height: 44px; gap: 0; padding-inline: var(--space-4); }
+  .topbar { gap: 0; padding-inline: var(--space-4); }
   .topbar__spacer { display: none; }
   .topbar__promo { flex: 1 1 auto; text-align: center; }
-  .topbar__nav, .topbar__close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
-  .topbar__promo { padding-block: 13px; }
-  .header__logo { height: 44px; padding-block: 4px; }
-  .breadcrumbs { padding-block: var(--space-4); }
-  .breadcrumbs a { display: inline-block; padding-block: 14px; }
   .breadcrumbs ol { flex-wrap: nowrap; white-space: nowrap; overflow-x: auto; scrollbar-width: none;
     margin-inline: calc(-1 * var(--container-padding)); padding-inline: var(--container-padding); }
   .breadcrumbs ol::-webkit-scrollbar { display: none; }
+}
+
+/* Сенсорные экраны (телефон и планшет): зоны нажатия не меньше 44 × 44 (чек-лист фазы).
+   Визуально элементы почти не меняются — растёт кликабельная область. */
+@media (max-width: 767px), (pointer: coarse) {
+  :root { --size-control-sm: 44px; --size-anchors: 54px; }
+  .topbar { height: 44px; }
+  .topbar__nav, .topbar__close { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .topbar__promo { min-height: 44px; display: flex; align-items: center; justify-content: center; }
+  .header__logo { height: 44px; padding-block: 4px; }
+  .header__burger, .header__phone { min-height: 44px; }
+  .header__icons .icon-btn { width: 44px; height: 44px; }
+  .header__lang { padding: 15px 12px; margin-inline: -12px; } /* без смены display: на ≤1023 EN скрыт */
+  .header__nav > .link--nav { padding-block: 15px; }
+  .breadcrumbs { padding-block: var(--space-4); }
+  .breadcrumbs a { display: inline-block; padding-block: 14px; }
   .anchor-nav__row { height: calc(var(--size-anchors) - 2px); }
   .anchor-chip { min-height: 44px; display: inline-flex; align-items: center; }
   .footer__col { gap: 0; }
   .footer__col > a.link--footer, .footer__legal a { min-height: 44px; display: flex; align-items: center; }
   .footer__col h2 { margin-bottom: var(--space-4); }
-  .footer__social .icon-btn--brand, .messenger-panel__items .icon-btn--brand { width: 44px; height: 44px; }
+  .footer__social .icon-btn--brand, .messenger-panel__items .icon-btn--brand, .messenger-inline .icon-btn { width: 44px; height: 44px; }
   .theme-switch__opt { min-height: 44px; display: inline-flex; align-items: center; }
   .accordion__head { min-height: 44px; }
-  .license-strip .link--text, .b31__secondary-item-text .link--text { display: inline-block; padding-block: 10px; }
+  .checkbox-row { min-height: 44px; }
+  .hero__cta-link, .license-strip .link--text, .b31__secondary-item-text .link--text { display: inline-block; padding-block: 10px; }
   .hero-thumb { min-height: 44px; }
 }
