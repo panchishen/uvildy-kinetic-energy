@@ -60,7 +60,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   /* Блок 17 */
   .b17__text { width: 40%; }
   .b17__media { height: auto; aspect-ratio: 690 / 518; }
-  .b17__gallery-item { height: auto; aspect-ratio: 336 / 251; }
+  .b17__gallery-item { height: auto; aspect-ratio: 384 / 288; }
 
   /* Блоки 19, 21, 22, 24 */
   .b19__media { width: 49%; height: auto; aspect-ratio: 588 / 331; }
@@ -263,12 +263,10 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .b29__panel { background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: var(--space-24); gap: var(--space-24); }
   .b29__panel .form-card { padding: 0; border: 0; box-shadow: none; }
 
-  /* Блок 17: галерея — ряд со свайпом, счётчик не нужен */
+  /* Блок 17: галерея — ряд со свайпом, стрелки не нужны */
   .b17__media { aspect-ratio: 4 / 3; }
-  .b17__gallery { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
-  .b17__gallery::-webkit-scrollbar { display: none; }
-  .b17__gallery-item { flex: 0 0 260px; scroll-snap-align: start; }
-  .b17__gallery .gallery-counter { display: none; }
+  .b17__gallery-item { flex: 0 0 260px; }
+  .b17__controls { display: none; }
 
   /* Блок 21 */
   .b21__grid { flex-direction: column; align-items: stretch; }
