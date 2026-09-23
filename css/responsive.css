@@ -273,6 +273,9 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .b21__media { width: 100%; aspect-ratio: 4 / 5; }
   .b21__footer { flex-wrap: wrap; }
 
+  /* Блок 18: плашка помощи */
+  .b18__center { padding: var(--space-24); }
+
   /* Блок 23 */
   .b23__foot { flex-wrap: wrap; gap: var(--space-12) var(--space-24); }
 
