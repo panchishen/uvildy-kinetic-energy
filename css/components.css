@@ -406,6 +406,42 @@
 .check-item__mark .icon { width: 16px; height: 16px; }
 .check-item__text { flex: 1 0 0; min-width: 0; color: var(--color-text-primary); }
 
+/* ---------- Card/Doctor ---------- */
+.doctor-card { width: 282px; flex-shrink: 0; display: flex; flex-direction: column; overflow: hidden; }
+.doctor-card__media { height: 353px; width: 100%; }
+.doctor-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.doctor-card__body { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-card-padding); }
+.doctor-card__body .name { color: var(--color-text-primary); }
+.doctor-card__body .role { color: var(--color-text-secondary); }
+
+/* ---------- Card/Article (направления) ---------- */
+.article-card { width: 384px; flex-shrink: 0; display: flex; flex-direction: column; overflow: hidden; }
+.article-card__media { height: 240px; width: 100%; }
+.article-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.article-card__body { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-card-padding); }
+.article-card__body .title { color: var(--color-text-primary); }
+.article-card__body .text { color: var(--color-text-secondary); }
+.article-card__body .date { color: var(--color-text-tertiary); }
+.article-card:hover .title { color: var(--color-action-primary); }
+
+/* ---------- Card/Checkup, Card/Program (фото-фон) ---------- */
+.photo-card {
+  position: relative; width: 282px; height: 352px; flex-shrink: 0;
+  border-radius: var(--radius-media); overflow: hidden;
+}
+.photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--motion-slow) var(--motion-ease); }
+.photo-card:hover img { transform: scale(1.04); }
+.photo-card__gradient { position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-overlay-media-start), var(--color-overlay-media-end)); }
+.photo-card__badge { position: absolute; top: 24px; left: 24px; background: var(--color-surface-card); border: 1px solid var(--color-border); color: var(--color-text-secondary); }
+.photo-card__caption { position: absolute; left: 24px; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: var(--space-4); }
+.photo-card__caption .title { color: var(--color-text-on-inverse); }
+.photo-card__caption .text { color: var(--color-text-on-inverse-muted); }
+.photo-card__caption .price { color: var(--color-text-on-inverse); }
+
+/* ---------- Gallery counter ---------- */
+.gallery-counter { display: flex; flex-direction: column; gap: var(--space-8); align-items: center; width: 120px; flex-shrink: 0; }
+.gallery-counter .count { color: var(--color-text-primary); }
+
 /* ================= Топбар ================= */
 .topbar {
   height: 40px;
