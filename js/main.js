@@ -139,7 +139,7 @@
           p.hidden = p.dataset.indicationPanel !== idx;
         });
         if (indicationImage) {
-          indicationImage.src = 'assets/img/indications-' + (Number(idx) + 1) + '-a.webp';
+          indicationImage.src = indicationImage.getAttribute('src').replace(/indications-\d+-/, 'indications-' + (Number(idx) + 1) + '-');
         }
       });
     });
@@ -217,6 +217,35 @@
       form.classList.add('is-sent');
     });
   });
+
+  /* ---------- Переключатель тем (презентация): под шапкой + сохранение прокрутки ---------- */
+  var themeSwitch = document.querySelector('[data-theme-switch]');
+  if (themeSwitch) {
+    var placeSwitch = function () {
+      var headerEl = document.getElementById('site-header');
+      var bottom = headerEl ? Math.max(headerEl.getBoundingClientRect().bottom, 0) : 0;
+      themeSwitch.style.setProperty('--theme-switch-top', Math.round(bottom + 12) + 'px');
+    };
+    placeSwitch();
+    window.addEventListener('scroll', placeSwitch, { passive: true });
+    window.addEventListener('resize', placeSwitch);
+    var closeTopbarBtn = document.querySelector('[data-topbar-close]');
+    if (closeTopbarBtn) closeTopbarBtn.addEventListener('click', function () { requestAnimationFrame(placeSwitch); });
+
+    themeSwitch.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        try { sessionStorage.setItem('themeSwitchY', String(window.scrollY)); } catch (e) {}
+      });
+    });
+    try {
+      var savedY = sessionStorage.getItem('themeSwitchY');
+      if (savedY !== null) {
+        sessionStorage.removeItem('themeSwitchY');
+        window.scrollTo({ top: parseInt(savedY, 10) || 0, behavior: 'instant' });
+        placeSwitch();
+      }
+    } catch (e) {}
+  }
 
   /* ---------- Якорное меню: активный пункт по прокрутке ---------- */
   var anchorLinks = document.querySelectorAll('.anchor-chip');

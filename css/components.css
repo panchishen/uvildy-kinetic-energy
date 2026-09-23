@@ -689,6 +689,35 @@ form.is-sent .form-sent { display: flex; }
 .to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .to-top:hover { background: var(--color-action-soft); box-shadow: var(--shadow-popover); color: var(--color-action-on-soft); }
 
+/* ================= Переключатель тем (только для презентации) ================= */
+.theme-switch {
+  position: fixed;
+  top: var(--theme-switch-top, 124px); /* под шапкой; пересчитывается в main.js */
+  right: 24px;
+  z-index: var(--z-theme-switch);
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sticky);
+}
+.theme-switch__opt {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-caption);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  transition: background-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease);
+}
+.theme-switch__opt:hover { background: var(--color-surface-section); color: var(--color-text-primary); }
+.theme-switch__opt.is-active { background: var(--color-action-primary); color: var(--color-text-on-action); }
+
 /* ================= Футер ================= */
 .footer {
   background: var(--color-surface-inverse);

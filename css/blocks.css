@@ -321,7 +321,7 @@
 .b31__primary { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-32); }
 .b31__phone-title { display: flex; align-items: center; gap: var(--space-12); }
 .b31__phone-icon { width: 40px; height: 40px; border-radius: 999px; background: var(--color-action-soft); display: flex; align-items: center; justify-content: center; color: var(--color-action-primary); flex-shrink: 0; }
-.b31__phone-number { color: var(--color-heading-accent); }
+.b31__phone-number { color: var(--color-heading-accent); font-variant-numeric: normal; white-space: nowrap; }
 .b31__phone-hours { color: var(--color-text-secondary); }
 .b31__form-row { display: flex; gap: var(--space-12); align-items: flex-end; }
 .b31__form-note { color: var(--color-text-secondary); }
