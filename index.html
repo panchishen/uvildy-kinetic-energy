@@ -1993,26 +1993,38 @@
   </button>
   <button class="btn btn--primary" type="button" data-booking-open>Найти номера</button>
 
-  <div class="popover booking-popover booking-popover--dates" data-booking-pop="dates" role="dialog" aria-label="Выбор дат" hidden>
+  <div class="popover booking-popover booking-popover--dates" data-booking-pop="dates" role="dialog" aria-labelledby="booking-dates-title" hidden>
+    <div class="popover__head">
+      <p class="popover__title text-h4" id="booking-dates-title" data-cal-title>Дата заезда</p>
+      <button class="icon-btn icon-btn--light" type="button" aria-label="Закрыть" data-pop-close><svg class="icon" width="24" height="24"><use href="#icon-x"></use></svg></button>
+    </div>
     <div class="calendar">
       <button class="icon-btn icon-btn--light calendar__nav calendar__nav--prev" type="button" aria-label="Предыдущий месяц" data-cal-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
       <button class="icon-btn icon-btn--light calendar__nav calendar__nav--next" type="button" aria-label="Следующий месяц" data-cal-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
       <div class="calendar__months" data-cal-months></div>
     </div>
-    <p class="calendar__hint text-caption">Программа — от 7 ночей</p>
+    <div class="popover__foot">
+      <p class="calendar__hint text-caption">Программа — от 7 ночей</p>
+      <button class="link--text text-body calendar__reset" type="button" data-cal-reset>Сбросить даты</button>
+    </div>
   </div>
 
-  <div class="popover booking-popover booking-popover--guests" data-booking-pop="guests" role="dialog" aria-label="Гости" hidden>
+  <div class="popover booking-popover booking-popover--guests" data-booking-pop="guests" role="dialog" aria-labelledby="booking-guests-title" hidden>
+    <div class="popover__head">
+      <p class="popover__title text-h4" id="booking-guests-title">Количество гостей</p>
+      <button class="icon-btn icon-btn--light" type="button" aria-label="Закрыть" data-pop-close><svg class="icon" width="24" height="24"><use href="#icon-x"></use></svg></button>
+    </div>
     <div class="guests-row">
-      <span class="guests-row__text"><span class="text-body">Взрослые</span><span class="text-caption">от 18 лет</span></span>
+      <span class="guests-row__text"><span class="text-body">Взрослые</span><span class="text-caption">18 лет и старше</span></span>
       <span class="stepper" data-stepper="adults" data-min="1" data-max="10">
         <button class="icon-btn icon-btn--light" type="button" aria-label="Меньше взрослых" data-step="-1"><svg class="icon" width="24" height="24"><use href="#icon-minus"></use></svg></button>
         <span class="stepper__value" aria-live="polite">2</span>
         <button class="icon-btn icon-btn--light" type="button" aria-label="Больше взрослых" data-step="1"><svg class="icon" width="24" height="24"><use href="#icon-plus"></use></svg></button>
       </span>
     </div>
+    <hr class="popover__divider">
     <div class="guests-row">
-      <span class="guests-row__text"><span class="text-body">Дети</span><span class="text-caption">до 17 лет</span></span>
+      <span class="guests-row__text"><span class="text-body">Дети</span><span class="text-caption">от 0 до 17 лет</span></span>
       <span class="stepper" data-stepper="children" data-min="0" data-max="6">
         <button class="icon-btn icon-btn--light" type="button" aria-label="Меньше детей" data-step="-1"><svg class="icon" width="24" height="24"><use href="#icon-minus"></use></svg></button>
         <span class="stepper__value" aria-live="polite">0</span>
@@ -2020,11 +2032,13 @@
       </span>
     </div>
     <div class="guests-ages" data-child-ages></div>
+    <button class="btn btn--secondary btn--full" type="button" data-pop-close>Готово</button>
     <template data-child-age-tpl>
       <label class="field guests-age">
         <span class="field__label text-small">Возраст ребёнка</span>
         <span class="select">
-          <select class="field__control select__control">
+          <select class="field__control select__control" required>
+            <option value="" disabled selected hidden>Выберите</option>
             <option value="0">до 1 года</option>
             <option value="1">1 год</option>
             <option value="2">2 года</option>
@@ -2044,7 +2058,7 @@
             <option value="16">16 лет</option>
             <option value="17">17 лет</option>
           </select>
-          <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+          <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
         </span>
       </label>
     </template>

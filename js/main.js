@@ -314,11 +314,17 @@
     var calPrev = booking.querySelector('[data-cal-prev]');
     var calNext = booking.querySelector('[data-cal-next]');
     var agesBox = booking.querySelector('[data-child-ages]');
+    var calTitle = booking.querySelector('[data-cal-title]');
+    var setMode = function (m) {
+      mode = m;
+      if (calTitle) calTitle.textContent = m === 'in' ? 'Дата заезда' : 'Дата выезда';
+    };
     var ageTpl = booking.querySelector('[data-child-age-tpl]');
 
     var fmtDay = function (d) { return d.getDate() + ' ' + MONTHS_GEN[d.getMonth()] + ', ' + DOW[d.getDay()]; };
     var fmtShort = function (d) { return d.getDate() + ' ' + MONTHS_GEN[d.getMonth()].slice(0, 3); };
     var fmtRange = function () {
+      if (!state.in) return 'не выбраны';
       if (!state.out) return 'с ' + state.in.getDate() + ' ' + MONTHS_GEN[state.in.getMonth()] + ', дата выезда не выбрана';
       var n = nightsBetween(state.in, state.out);
       var from = state.in.getMonth() === state.out.getMonth() ? String(state.in.getDate()) : state.in.getDate() + ' ' + MONTHS_GEN[state.in.getMonth()];
@@ -329,7 +335,8 @@
       if (state.children) {
         s += ', ' + state.children + ' ' + plural(state.children, 'ребёнок', 'ребёнка', 'детей');
         if (withAges) {
-          s += ' (' + state.ages.map(function (a) { return a === 0 ? 'до 1 года' : a + ' ' + plural(a, 'год', 'года', 'лет'); }).join(', ') + ')';
+          var known = state.ages.filter(function (a) { return a !== null; });
+          if (known.length) s += ' (' + known.map(function (a) { return a === 0 ? 'до 1 года' : a + ' ' + plural(a, 'год', 'года', 'лет'); }).join(', ') + ')';
         }
       }
       return s;
@@ -345,10 +352,11 @@
       if (mqPhone.matches) {
         // На телефоне видно одно поле — в нём весь диапазон
         inLabel.textContent = 'Даты';
-        setValue('in', state.out ? fmtShort(state.in) + ' — ' + fmtShort(state.out) : fmtShort(state.in) + ' — …', false);
+        if (!state.in) setValue('in', 'Выбрать', true);
+        else setValue('in', state.out ? fmtShort(state.in) + ' — ' + fmtShort(state.out) : fmtShort(state.in) + ' — …', false);
       } else {
         inLabel.textContent = 'Дата заезда';
-        setValue('in', fmtDay(state.in), false);
+        setValue('in', state.in ? fmtDay(state.in) : 'Выбрать', !state.in);
       }
       setValue('out', state.out ? fmtDay(state.out) : 'Выбрать', !state.out);
       setValue('guests', fmtGuests(false), false);
@@ -395,15 +403,16 @@
       paint();
     };
     var paint = function () {
-      var end = state.out || (mode === 'out' && hover && hover > state.in ? hover : null);
+      var start = state.in ? state.in.getTime() : null;
+      var end = state.in && (state.out || (mode === 'out' && hover && hover > state.in ? hover : null));
       monthsBox.querySelectorAll('.cal-day').forEach(function (b) {
         var t = Number(b.dataset.time);
-        var isStart = t === state.in.getTime();
+        var isStart = t === start;
         var isEnd = end && t === end.getTime();
         b.classList.toggle('is-today', t === today.getTime());
         b.classList.toggle('is-start', isStart);
         b.classList.toggle('is-end', !!isEnd);
-        b.classList.toggle('is-range', !!(end && t > state.in.getTime() && t < end.getTime()));
+        b.classList.toggle('is-range', !!(end && t > start && t < end.getTime()));
         b.classList.toggle('has-range', !!(end && (isStart || isEnd)));
         b.setAttribute('aria-pressed', String(isStart || !!isEnd));
       });
@@ -431,16 +440,23 @@
       Object.keys(pops).forEach(function (k) { pops[k].hidden = k !== popKey; });
       openKey = key;
       if (popKey === 'dates') {
-        mode = key;
-        view = new Date((key === 'out' && state.out ? state.out : state.in).getFullYear(), (key === 'out' && state.out ? state.out : state.in).getMonth(), 1);
-        if (key === 'out' && state.out && view > state.in) view = new Date(state.in.getFullYear(), state.in.getMonth(), 1);
+        setMode(key === 'out' && state.in ? 'out' : 'in');
+        var base = state.in || today;
+        view = new Date(base.getFullYear(), base.getMonth(), 1);
         if (view > maxView) view = maxView;
         renderCalendar();
         pops.dates.style.setProperty('--pop-left', '0px');
       } else {
         pops.guests.style.setProperty('--pop-left', fields.guests.offsetLeft + 'px');
       }
-      setActiveField(mqPhone.matches && key === 'out' ? 'in' : key);
+      setActiveField(popKey === 'dates' ? (mqPhone.matches ? 'in' : mode) : key);
+      // На телефоне поповер — лист снизу: не выше низа шапки (топбар может быть закрыт)
+      if (mqPhone.matches) {
+        var headerBottom = header ? Math.max(header.getBoundingClientRect().bottom, 0) : 0;
+        pops[popKey].style.maxHeight = (window.innerHeight - headerBottom - booking.offsetHeight - 8) + 'px';
+      } else {
+        pops[popKey].style.maxHeight = '';
+      }
       document.documentElement.classList.add('is-booking-open');
     };
     Object.keys(fields).forEach(function (key) {
@@ -459,17 +475,33 @@
       }
     });
 
+    booking.querySelectorAll('[data-pop-close]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var back = fields[openKey];
+        closePops();
+        if (back) back.focus();
+      });
+    });
+    booking.querySelector('[data-cal-reset]').addEventListener('click', function () {
+      state.in = null;
+      state.out = null;
+      hover = null;
+      setMode('in');
+      setActiveField('in');
+      updateFields();
+      paint();
+    });
     calPrev.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCalendar(); });
     calNext.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCalendar(); });
     monthsBox.addEventListener('click', function (e) {
       var b = e.target.closest('.cal-day');
       if (!b || b.disabled) return;
       var d = new Date(Number(b.dataset.time));
-      if (mode === 'in') {
+      if (mode === 'in' || !state.in) {
         // Из поля заезда выбираются обе даты подряд: после заезда календарь ждёт выезд
         state.in = d;
         if (!state.out || state.out <= d) state.out = null;
-        mode = 'out';
+        setMode('out');
         setActiveField(mqPhone.matches ? 'in' : 'out');
         updateFields();
         paint();
@@ -485,21 +517,21 @@
     });
     monthsBox.addEventListener('mouseover', function (e) {
       var b = e.target.closest('.cal-day');
-      if (mode !== 'out' || state.out || !b || b.disabled) return;
+      if (mode !== 'out' || !state.in || state.out || !b || b.disabled) return;
       hover = new Date(Number(b.dataset.time));
       paint();
     });
 
     /* Гости: степперы и возраст детей */
     var syncAges = function () {
-      while (state.ages.length < state.children) state.ages.push(7);
+      while (state.ages.length < state.children) state.ages.push(null);
       state.ages.length = state.children;
       while (agesBox.children.length > state.children) agesBox.lastElementChild.remove();
       while (agesBox.children.length < state.children) {
         var idx = agesBox.children.length;
         var node = ageTpl.content.firstElementChild.cloneNode(true);
         var sel = node.querySelector('select');
-        sel.value = String(state.ages[idx]);
+        sel.value = state.ages[idx] === null ? '' : String(state.ages[idx]);
         sel.dataset.index = String(idx);
         node.querySelector('.field__label').textContent = 'Возраст ребёнка' + (state.children > 1 ? ' ' + (idx + 1) : '');
         agesBox.appendChild(node);
@@ -530,7 +562,7 @@
       sync();
     });
     agesBox.addEventListener('change', function (e) {
-      if (e.target.dataset.index) state.ages[Number(e.target.dataset.index)] = Number(e.target.value);
+      if (e.target.dataset.index && e.target.value !== '') state.ages[Number(e.target.dataset.index)] = Number(e.target.value);
     });
 
     updateFields();
