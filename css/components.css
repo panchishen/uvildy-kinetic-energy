@@ -548,8 +548,6 @@
 form.is-sent > *:not(.form-sent) { display: none !important; }
 form.is-sent .form-sent { display: flex; }
 
-/* ---------- Gallery counter ---------- */
-
 /* ================= Топбар ================= */
 .topbar {
   height: 40px;
@@ -677,6 +675,107 @@ form.is-sent .form-sent { display: flex; }
   align-items: center;
   gap: var(--space-8);
 }
+
+.booking-widget .widget-field { font: inherit; text-align: left; }
+.booking-widget .widget-field:hover { border-color: var(--color-text-secondary); }
+.booking-widget .widget-field.is-active:hover { border-color: var(--color-action-primary); }
+.booking-widget .widget-field:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* ---------- Popover (база дропдаунов) ---------- */
+.popover {
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-popover);
+  padding: var(--space-16);
+}
+/* Поповеры виджета открываются вверх: виджет прижат к низу экрана */
+.booking-popover {
+  position: absolute;
+  bottom: calc(100% + var(--space-8));
+  left: var(--pop-left, 0);
+  z-index: var(--z-dropdown);
+  animation: popover-in var(--motion-base) var(--motion-ease);
+}
+@keyframes popover-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- Calendar ---------- */
+.booking-popover--dates { padding: var(--space-16) var(--space-24) var(--space-16); }
+.calendar { position: relative; }
+.calendar__months { display: flex; gap: var(--space-32); }
+.calendar__nav { position: absolute; top: -6px; z-index: 1; }
+.calendar__nav--prev { left: -4px; }
+.calendar__nav--next { right: -4px; }
+.calendar__nav:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.cal-month { display: flex; flex-direction: column; gap: var(--space-8); width: 280px; }
+.cal-month__title { color: var(--color-text-primary); text-align: center; line-height: 28px; }
+.cal-month__dow, .cal-month__grid { display: grid; grid-template-columns: repeat(7, 40px); }
+.cal-month__dow span { height: 24px; display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); }
+.cal-month__dow span:nth-child(n + 6) { color: var(--color-state-error); }
+.cal-day {
+  position: relative; width: 40px; height: 40px; padding: 0; border: 0; background: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-small); line-height: var(--font-lh-small);
+  color: var(--color-text-primary);
+}
+.cal-day span { position: relative; z-index: 1; width: 40px; height: 40px; border-radius: 999px; display: flex; align-items: center; justify-content: center; transition: background-color var(--motion-fast) var(--motion-ease); }
+.cal-day:hover span { background: var(--color-surface-section); }
+.cal-day:focus-visible { outline: none; }
+.cal-day:focus-visible span { box-shadow: var(--focus-ring); }
+.cal-day.is-today span { border: 1px solid var(--color-border-control); }
+.cal-day.is-range { background: var(--color-action-soft); color: var(--color-action-on-soft); }
+.cal-day.is-range:hover span { background: transparent; }
+.cal-day.is-start span, .cal-day.is-end span { background: var(--color-action-primary); color: var(--color-text-on-action); }
+/* У крайних дней диапазона фон на половину ячейки — полоса не рвётся */
+.cal-day.is-start.has-range::before, .cal-day.is-end.has-range::before { content: ""; position: absolute; top: 0; bottom: 0; width: 50%; background: var(--color-action-soft); }
+.cal-day.is-start.has-range::before { right: 0; }
+.cal-day.is-end.has-range::before { left: 0; }
+.cal-day:disabled { cursor: default; color: var(--color-text-tertiary); opacity: .6; }
+.cal-day:disabled:hover span { background: none; }
+.calendar__hint { margin-top: var(--space-12); color: var(--color-text-secondary); text-align: center; }
+
+/* ---------- Stepper + гости ---------- */
+.booking-popover--guests { width: 320px; display: flex; flex-direction: column; gap: var(--space-16); }
+.guests-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); }
+.guests-row__text { display: flex; flex-direction: column; }
+.guests-row__text .text-body { color: var(--color-text-primary); }
+.guests-row__text .text-caption { color: var(--color-text-secondary); }
+.stepper { display: flex; align-items: center; gap: var(--space-12); }
+.stepper__value { width: 24px; text-align: center; font-family: var(--font-body); font-weight: var(--font-weight-semibold); font-size: var(--font-size-body); color: var(--color-text-primary); font-variant-numeric: tabular-nums; }
+.stepper .icon-btn:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.guests-ages { display: flex; flex-direction: column; gap: var(--space-12); }
+.guests-ages:empty { display: none; }
+.select { position: relative; display: block; }
+.select__control { appearance: none; -webkit-appearance: none; padding-right: calc(var(--space-16) + 28px); cursor: pointer; }
+.select .icon { position: absolute; right: var(--space-16); top: 50%; transform: translateY(-50%); color: var(--color-text-secondary); pointer-events: none; }
+
+/* ---------- Modal ---------- */
+.modal {
+  width: min(560px, calc(100vw - 2 * var(--space-16)));
+  max-height: calc(100dvh - 2 * var(--space-16));
+  margin: auto;
+  padding: var(--space-32);
+  border: 0;
+  border-radius: var(--radius-modal);
+  background: var(--color-surface-card);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-popover);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.modal[open] { display: flex; flex-direction: column; gap: var(--space-16); animation: modal-in var(--motion-slow) var(--motion-ease); }
+.modal::backdrop { background: rgba(15, 30, 46, .48); }
+@keyframes modal-in { from { opacity: 0; transform: translateY(16px); } }
+.modal__head { display: flex; align-items: flex-start; gap: var(--space-16); }
+.modal__title { flex: 1 0 0; min-width: 0; color: var(--color-text-primary); }
+.modal__form { display: flex; flex-direction: column; gap: var(--space-16); }
+.modal__text { color: var(--color-text-secondary); }
+.modal__note { color: var(--color-text-tertiary); }
+.booking-summary { display: flex; flex-direction: column; gap: var(--space-8); margin: 0; padding: var(--space-12) var(--space-16); border-radius: var(--radius-input); background: var(--color-surface-section); }
+.booking-summary__row { display: flex; gap: var(--space-16); align-items: baseline; }
+.booking-summary dt { width: 56px; flex-shrink: 0; color: var(--color-text-secondary); }
+.booking-summary dd { margin: 0; color: var(--color-text-primary); }
+html.is-modal-open { overflow: hidden; }
 
 /* ================= Панель мессенджеров ================= */
 .messenger-panel {

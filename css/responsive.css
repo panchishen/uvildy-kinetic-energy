@@ -331,6 +331,21 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .booking-widget .widget-field { flex: 1 0 0; min-width: 0; width: auto; }
   .booking-widget .widget-field:nth-child(n + 2) { display: none; }
   .booking-widget .btn { flex-shrink: 0; }
+  /* Календарь — лист снизу над панелью, месяцы друг под другом */
+  .booking-popover {
+    position: fixed; left: 0; right: 0; bottom: var(--booking-bar-h);
+    max-height: calc(100dvh - var(--size-header) - var(--booking-bar-h) - var(--space-16));
+    overflow-y: auto; overscroll-behavior: contain;
+    border-radius: var(--radius-card) var(--radius-card) 0 0; border-bottom: 0;
+    padding: var(--space-16);
+  }
+  .calendar__months { flex-direction: column; align-items: center; gap: var(--space-24); }
+  .calendar__nav { top: -6px; }
+  .calendar__nav--prev { left: max(0px, calc(50% - 140px - 4px)); }
+  .calendar__nav--next { right: max(0px, calc(50% - 140px - 4px)); }
+  html.is-booking-open :is(.messenger-panel, .to-top, .theme-switch) { visibility: hidden; }
+  /* Модалка — лист снизу во всю ширину */
+  .modal { width: 100%; max-width: 100%; margin: auto 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); border-radius: var(--radius-modal) var(--radius-modal) 0 0; max-height: 92dvh; }
 
   /* Плавающие кнопки — над панелью бронирования */
   .messenger-panel { right: var(--container-padding); bottom: calc(var(--booking-bar-h) + var(--space-16)); }

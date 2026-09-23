@@ -279,6 +279,300 @@
     });
   });
 
+  /* ---------- Виджет бронирования: календарь, гости, форма «Менеджер подберёт номера» ---------- */
+  var booking = document.querySelector('[data-booking]');
+  var bookingModal = document.getElementById('booking-modal');
+  if (booking) {
+    var MONTHS = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+    var MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    var DOW = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+    var mqPhone = window.matchMedia('(max-width: 767px)');
+    var plural = function (n, one, few, many) {
+      var m10 = n % 10, m100 = n % 100;
+      if (m10 === 1 && m100 !== 11) return one;
+      if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+      return many;
+    };
+    var dayStart = function (d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); };
+    var addDays = function (d, n) { return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n); };
+    var same = function (a, b) { return a && b && a.getTime() === b.getTime(); };
+    var nightsBetween = function (a, b) { return Math.round((b - a) / 864e5); };
+
+    var today = dayStart(new Date());
+    // По умолчанию — как в макете: заезд через 2 дня, 7 ночей (минимум программы)
+    var state = { in: addDays(today, 2), out: addDays(today, 9), adults: 2, children: 0, ages: [] };
+    var mode = 'in';
+    var hover = null;
+    var view = new Date(state.in.getFullYear(), state.in.getMonth(), 1);
+    var maxView = new Date(today.getFullYear(), today.getMonth() + 11, 1);
+
+    var fields = {};
+    booking.querySelectorAll('[data-booking-field]').forEach(function (f) { fields[f.dataset.bookingField] = f; });
+    var pops = {};
+    booking.querySelectorAll('[data-booking-pop]').forEach(function (p) { pops[p.dataset.bookingPop] = p; });
+    var monthsBox = booking.querySelector('[data-cal-months]');
+    var calPrev = booking.querySelector('[data-cal-prev]');
+    var calNext = booking.querySelector('[data-cal-next]');
+    var agesBox = booking.querySelector('[data-child-ages]');
+    var ageTpl = booking.querySelector('[data-child-age-tpl]');
+
+    var fmtDay = function (d) { return d.getDate() + ' ' + MONTHS_GEN[d.getMonth()] + ', ' + DOW[d.getDay()]; };
+    var fmtShort = function (d) { return d.getDate() + ' ' + MONTHS_GEN[d.getMonth()].slice(0, 3); };
+    var fmtRange = function () {
+      if (!state.out) return 'с ' + state.in.getDate() + ' ' + MONTHS_GEN[state.in.getMonth()] + ', дата выезда не выбрана';
+      var n = nightsBetween(state.in, state.out);
+      var from = state.in.getMonth() === state.out.getMonth() ? String(state.in.getDate()) : state.in.getDate() + ' ' + MONTHS_GEN[state.in.getMonth()];
+      return from + ' — ' + state.out.getDate() + ' ' + MONTHS_GEN[state.out.getMonth()] + ' · ' + n + ' ' + plural(n, 'ночь', 'ночи', 'ночей');
+    };
+    var fmtGuests = function (withAges) {
+      var s = state.adults + ' ' + plural(state.adults, 'взрослый', 'взрослых', 'взрослых');
+      if (state.children) {
+        s += ', ' + state.children + ' ' + plural(state.children, 'ребёнок', 'ребёнка', 'детей');
+        if (withAges) {
+          s += ' (' + state.ages.map(function (a) { return a === 0 ? 'до 1 года' : a + ' ' + plural(a, 'год', 'года', 'лет'); }).join(', ') + ')';
+        }
+      }
+      return s;
+    };
+
+    var setValue = function (key, text, empty) {
+      var el = booking.querySelector('[data-booking-value="' + key + '"]');
+      el.textContent = text;
+      fields[key].classList.toggle('is-empty', !!empty);
+    };
+    var updateFields = function () {
+      var inLabel = fields.in.querySelector('.widget-field__label');
+      if (mqPhone.matches) {
+        // На телефоне видно одно поле — в нём весь диапазон
+        inLabel.textContent = 'Даты';
+        setValue('in', state.out ? fmtShort(state.in) + ' — ' + fmtShort(state.out) : fmtShort(state.in) + ' — …', false);
+      } else {
+        inLabel.textContent = 'Дата заезда';
+        setValue('in', fmtDay(state.in), false);
+      }
+      setValue('out', state.out ? fmtDay(state.out) : 'Выбрать', !state.out);
+      setValue('guests', fmtGuests(false), false);
+    };
+
+    /* Календарь: DOM месяцев строится при смене месяца, состояние дней — в paint() */
+    var buildMonth = function (first) {
+      var wrap = document.createElement('div');
+      wrap.className = 'cal-month';
+      var title = document.createElement('p');
+      title.className = 'cal-month__title text-h4';
+      title.textContent = MONTHS[first.getMonth()].charAt(0).toUpperCase() + MONTHS[first.getMonth()].slice(1) + ' ' + first.getFullYear();
+      var dow = document.createElement('div');
+      dow.className = 'cal-month__dow text-caption';
+      dow.setAttribute('aria-hidden', 'true');
+      ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'].forEach(function (t) { var s = document.createElement('span'); s.textContent = t; dow.appendChild(s); });
+      var grid = document.createElement('div');
+      grid.className = 'cal-month__grid';
+      var offset = (first.getDay() + 6) % 7;
+      for (var i = 0; i < offset; i++) grid.appendChild(document.createElement('span'));
+      var days = new Date(first.getFullYear(), first.getMonth() + 1, 0).getDate();
+      for (var d = 1; d <= days; d++) {
+        var date = new Date(first.getFullYear(), first.getMonth(), d);
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cal-day';
+        b.dataset.time = String(date.getTime());
+        b.setAttribute('aria-label', fmtDay(date));
+        b.innerHTML = '<span>' + d + '</span>';
+        if (date < today) b.disabled = true;
+        grid.appendChild(b);
+      }
+      wrap.appendChild(title);
+      wrap.appendChild(dow);
+      wrap.appendChild(grid);
+      return wrap;
+    };
+    var renderCalendar = function () {
+      monthsBox.innerHTML = '';
+      monthsBox.appendChild(buildMonth(view));
+      monthsBox.appendChild(buildMonth(new Date(view.getFullYear(), view.getMonth() + 1, 1)));
+      calPrev.disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
+      calNext.disabled = view >= maxView;
+      paint();
+    };
+    var paint = function () {
+      var end = state.out || (mode === 'out' && hover && hover > state.in ? hover : null);
+      monthsBox.querySelectorAll('.cal-day').forEach(function (b) {
+        var t = Number(b.dataset.time);
+        var isStart = t === state.in.getTime();
+        var isEnd = end && t === end.getTime();
+        b.classList.toggle('is-today', t === today.getTime());
+        b.classList.toggle('is-start', isStart);
+        b.classList.toggle('is-end', !!isEnd);
+        b.classList.toggle('is-range', !!(end && t > state.in.getTime() && t < end.getTime()));
+        b.classList.toggle('has-range', !!(end && (isStart || isEnd)));
+        b.setAttribute('aria-pressed', String(isStart || !!isEnd));
+      });
+    };
+
+    /* Открытие / закрытие поповеров */
+    var openKey = null;
+    var setActiveField = function (key) {
+      Object.keys(fields).forEach(function (k) {
+        fields[k].classList.toggle('is-active', k === key);
+        fields[k].setAttribute('aria-expanded', String(k === key));
+      });
+    };
+    var closePops = function () {
+      if (!openKey) return;
+      Object.keys(pops).forEach(function (k) { pops[k].hidden = true; });
+      openKey = null;
+      hover = null;
+      setActiveField(null);
+      document.documentElement.classList.remove('is-booking-open');
+      updateFields();
+    };
+    var openPop = function (key) {
+      var popKey = key === 'guests' ? 'guests' : 'dates';
+      Object.keys(pops).forEach(function (k) { pops[k].hidden = k !== popKey; });
+      openKey = key;
+      if (popKey === 'dates') {
+        mode = key;
+        view = new Date((key === 'out' && state.out ? state.out : state.in).getFullYear(), (key === 'out' && state.out ? state.out : state.in).getMonth(), 1);
+        if (key === 'out' && state.out && view > state.in) view = new Date(state.in.getFullYear(), state.in.getMonth(), 1);
+        if (view > maxView) view = maxView;
+        renderCalendar();
+        pops.dates.style.setProperty('--pop-left', '0px');
+      } else {
+        pops.guests.style.setProperty('--pop-left', fields.guests.offsetLeft + 'px');
+      }
+      setActiveField(mqPhone.matches && key === 'out' ? 'in' : key);
+      document.documentElement.classList.add('is-booking-open');
+    };
+    Object.keys(fields).forEach(function (key) {
+      fields[key].addEventListener('click', function () {
+        if (openKey === key) closePops(); else openPop(key);
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (openKey && !booking.contains(e.target)) closePops();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && openKey) {
+        var back = fields[openKey];
+        closePops();
+        if (back) back.focus();
+      }
+    });
+
+    calPrev.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCalendar(); });
+    calNext.addEventListener('click', function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCalendar(); });
+    monthsBox.addEventListener('click', function (e) {
+      var b = e.target.closest('.cal-day');
+      if (!b || b.disabled) return;
+      var d = new Date(Number(b.dataset.time));
+      if (mode === 'in') {
+        // Из поля заезда выбираются обе даты подряд: после заезда календарь ждёт выезд
+        state.in = d;
+        if (!state.out || state.out <= d) state.out = null;
+        mode = 'out';
+        setActiveField(mqPhone.matches ? 'in' : 'out');
+        updateFields();
+        paint();
+      } else if (d <= state.in) {
+        state.in = d;
+        state.out = null;
+        updateFields();
+        paint();
+      } else {
+        state.out = d;
+        closePops();
+      }
+    });
+    monthsBox.addEventListener('mouseover', function (e) {
+      var b = e.target.closest('.cal-day');
+      if (mode !== 'out' || state.out || !b || b.disabled) return;
+      hover = new Date(Number(b.dataset.time));
+      paint();
+    });
+
+    /* Гости: степперы и возраст детей */
+    var syncAges = function () {
+      while (state.ages.length < state.children) state.ages.push(7);
+      state.ages.length = state.children;
+      while (agesBox.children.length > state.children) agesBox.lastElementChild.remove();
+      while (agesBox.children.length < state.children) {
+        var idx = agesBox.children.length;
+        var node = ageTpl.content.firstElementChild.cloneNode(true);
+        var sel = node.querySelector('select');
+        sel.value = String(state.ages[idx]);
+        sel.dataset.index = String(idx);
+        node.querySelector('.field__label').textContent = 'Возраст ребёнка' + (state.children > 1 ? ' ' + (idx + 1) : '');
+        agesBox.appendChild(node);
+      }
+      agesBox.querySelectorAll('.field__label').forEach(function (l, i) {
+        l.textContent = 'Возраст ребёнка' + (state.children > 1 ? ' ' + (i + 1) : '');
+      });
+    };
+    booking.querySelectorAll('[data-stepper]').forEach(function (st) {
+      var key = st.dataset.stepper;
+      var min = Number(st.dataset.min), max = Number(st.dataset.max);
+      var val = st.querySelector('.stepper__value');
+      var minus = st.querySelector('[data-step="-1"]');
+      var plus = st.querySelector('[data-step="1"]');
+      var sync = function () {
+        val.textContent = String(state[key]);
+        minus.disabled = state[key] <= min;
+        plus.disabled = state[key] >= max;
+      };
+      st.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-step]');
+        if (!b) return;
+        state[key] = Math.min(max, Math.max(min, state[key] + Number(b.dataset.step)));
+        sync();
+        if (key === 'children') syncAges();
+        updateFields();
+      });
+      sync();
+    });
+    agesBox.addEventListener('change', function (e) {
+      if (e.target.dataset.index) state.ages[Number(e.target.dataset.index)] = Number(e.target.value);
+    });
+
+    updateFields();
+    mqPhone.addEventListener('change', function () { closePops(); updateFields(); });
+
+    /* Форма «Менеджер подберёт номера»: её открывают «Найти номера» и все «Забронировать» */
+    if (bookingModal && typeof bookingModal.showModal === 'function') {
+      var modalForm = bookingModal.querySelector('form');
+      var openModal = function () {
+        closePops();
+        if (modalForm.classList.contains('is-sent')) {
+          modalForm.classList.remove('is-sent');
+          modalForm.reset();
+        }
+        var dates = fmtRange();
+        var guests = fmtGuests(true);
+        bookingModal.querySelector('[data-summary="dates"]').textContent = dates;
+        bookingModal.querySelector('[data-summary="guests"]').textContent = guests;
+        bookingModal.querySelector('[data-summary-input="dates"]').value = dates;
+        bookingModal.querySelector('[data-summary-input="guests"]').value = guests;
+        bookingModal.showModal();
+        document.documentElement.classList.add('is-modal-open');
+      };
+      document.querySelectorAll('[data-booking-open]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal();
+        });
+      });
+      bookingModal.querySelector('[data-modal-close]').addEventListener('click', function () { bookingModal.close(); });
+      bookingModal.addEventListener('click', function (e) {
+        if (e.target !== bookingModal) return;
+        var r = bookingModal.getBoundingClientRect();
+        var inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+        if (!inside) bookingModal.close(); // клик по затемнению, а не по отступу окна
+      });
+      bookingModal.addEventListener('close', function () {
+        document.documentElement.classList.remove('is-modal-open');
+      });
+    }
+  }
+
   /* ---------- Переключатель тем (презентация): под шапкой + сохранение прокрутки ---------- */
   var themeSwitch = document.querySelector('[data-theme-switch]');
   if (themeSwitch) {
