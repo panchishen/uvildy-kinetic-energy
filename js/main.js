@@ -123,6 +123,55 @@
     });
   }
 
+  /* ---------- Блок 4: список показаний ---------- */
+  var indicationButtons = document.querySelectorAll('[data-indication]');
+  if (indicationButtons.length) {
+    var panels = document.querySelectorAll('[data-indication-panel]');
+    var indicationImage = document.querySelector('[data-indication-image]');
+    indicationButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var idx = btn.dataset.indication;
+        indicationButtons.forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-selected', String(b === btn));
+        });
+        panels.forEach(function (p) {
+          p.hidden = p.dataset.indicationPanel !== idx;
+        });
+        if (indicationImage) {
+          indicationImage.src = 'assets/img/indications-' + (Number(idx) + 1) + '-a.webp';
+        }
+      });
+    });
+  }
+
+  /* ---------- Слайдеры карточек (блоки 6, 7, 7а, 8, …) ---------- */
+  document.querySelectorAll('[data-slider]').forEach(function (track) {
+    var row = track.nextElementSibling;
+    if (!row) return;
+    var prevBtn = row.querySelector('[data-slider-prev]');
+    var nextBtn = row.querySelector('[data-slider-next]');
+    if (!prevBtn || !nextBtn) return;
+
+    function step() {
+      var card = track.firstElementChild;
+      var gap = parseFloat(getComputedStyle(track).gap) || 24;
+      return card ? card.getBoundingClientRect().width + gap : 300;
+    }
+    function updateButtons() {
+      prevBtn.disabled = track.scrollLeft <= 4;
+      nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    }
+    prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    updateButtons();
+  });
+
   /* ---------- Якорное меню: активный пункт по прокрутке ---------- */
   var anchorLinks = document.querySelectorAll('.anchor-chip');
   if (anchorLinks.length) {

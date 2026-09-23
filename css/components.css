@@ -213,6 +213,123 @@
   color: var(--color-heading-accent);
 }
 
+/* ---------- Badge ---------- */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-tag);
+  white-space: nowrap;
+}
+.badge-pill--included { background: var(--color-accent-soft); color: var(--color-state-success); }
+.badge-pill--prescribed { background: var(--color-surface-section); color: var(--color-text-secondary); }
+.badge-pill--extra { border: 1px solid var(--color-border); color: var(--color-text-secondary); }
+.badge-pill--new { background: var(--color-action-soft); color: var(--color-action-on-soft); }
+.badge-pill--result { background: var(--color-accent); color: var(--color-text-on-accent); }
+
+/* ---------- Play button ---------- */
+.play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--color-surface-card);
+  box-shadow: var(--shadow-sticky);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease);
+}
+.play-btn:hover { background: var(--color-action-primary); color: var(--color-text-on-action); }
+
+/* ---------- Card (база) ---------- */
+.card {
+  background: var(--color-surface-card);
+  border: var(--border-card) solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+}
+.card--hover:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+
+/* ---------- Card/Procedure ---------- */
+.proc-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.proc-card__media { height: 288px; width: 100%; }
+.proc-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.proc-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-card-padding);
+}
+
+/* ---------- List item ---------- */
+.list-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--motion-ease);
+}
+.list-item__title { color: var(--color-text-primary); }
+.list-item__text { color: var(--color-text-secondary); }
+.list-item.is-active {
+  background: var(--color-action-soft);
+  box-shadow: inset 3px 0 0 var(--color-action-primary);
+  padding-left: 13px;
+}
+.list-item.is-active .list-item__title { color: var(--color-action-on-soft); }
+
+/* ---------- Card/Stage ---------- */
+.stage-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  padding: 16px;
+  flex: 1 0 0;
+  align-self: stretch;
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--motion-ease), box-shadow var(--motion-fast) var(--motion-ease);
+}
+.stage-card__num { color: var(--color-heading-accent); flex-shrink: 0; }
+.stage-card__content { display: flex; flex-direction: column; gap: 2px; flex: 1 0 0; min-width: 0; }
+.stage-card__content .title { color: var(--color-text-primary); }
+.stage-card__content .meta { color: var(--color-text-secondary); }
+.stage-card .icon { color: var(--color-text-primary); flex-shrink: 0; }
+.stage-card:hover .title { color: var(--color-action-primary); }
+.stage-card.is-active { background: var(--color-action-soft); box-shadow: inset 3px 0 0 var(--color-heading-accent); }
+
+/* ---------- Slider controls ---------- */
+.slider-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.slider-track {
+  display: flex;
+  gap: var(--grid-gutter);
+  align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: var(--space-24);
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track > * { scroll-snap-align: start; }
+.slider-controls { display: flex; align-items: center; gap: var(--space-16); }
+.slider-controls button:disabled { opacity: .48; cursor: not-allowed; }
+
 /* ================= Топбар ================= */
 .topbar {
   height: 40px;

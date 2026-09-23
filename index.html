@@ -273,7 +273,462 @@
     </div>
   </nav>
 
-  <!-- TODO: блоки 3–32 (см. 00-docs/content-map.md) — следующие сессии вёрстки -->
+  <!-- Блок 3. Руководитель программы и суть методики -->
+  <section class="container" id="block-3" style="padding-block: var(--space-section);">
+    <div class="b3__grid">
+      <div class="b3__media">
+        <img src="assets/img/doctor-lead-a.webp" alt="Чернова Светлана Евгеньевна, руководитель программы «Энергия движения»" width="384" height="480">
+        <button class="play-btn b3__play" type="button" aria-label="Смотреть видеообращение руководителя">
+          <svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg>
+        </button>
+        <div class="b3__who">
+          <span class="name text-h4">Чернова Светлана Евгеньевна</span>
+          <span class="role text-small">Руководитель программы «Энергия движения»</span>
+        </div>
+      </div>
+      <div class="b3__text">
+        <div class="b3__heading">
+          <p class="b3__quote text-h3">«Мы лечим не сустав и не боль — мы лечим человека с больным суставом.»</p>
+          <div>
+            <h2 class="text-h2">Новая комплексная программа, не имеющая аналогов в России</h2>
+            <p class="lead text-lead">Готовая система с эффективностью 94&nbsp;%, построенная на 43&nbsp;500 клинических случаях</p>
+          </div>
+        </div>
+        <div class="b3__cols">
+          <div class="b3__col">
+            <span class="label text-overline">Диагностика</span>
+            <p class="text-body">7 видов, чтобы найти реальную причину боли, а не лечить симптом.</p>
+          </div>
+          <div class="b3__col">
+            <span class="label text-overline">Лечение</span>
+            <p class="text-body">Комплекс из 68 процедур западной, китайской медицины и кинезиологии — под ваш диагноз и состояние.</p>
+          </div>
+          <div class="b3__col">
+            <span class="label text-overline">Результат</span>
+            <p class="text-body">Снижение боли и дискомфорта на 3–6 баллов по шкале VAS, восстановление подвижности и гибкости.</p>
+          </div>
+        </div>
+        <p class="text-h4">Для восстановления позвоночника, коленных, плечевых и локтевых суставов.</p>
+        <div class="b3__unique">
+          <h3 class="text-h4">Уникальность методики</h3>
+          <p class="text-body">Методика стоит на трёх китах: вода, дыхание и движение, разгон лимфы. Подходы работают в комплексе и восстанавливают организм на всех уровнях.</p>
+          <a href="#" class="btn btn--ghost">Подробнее о методике</a>
+        </div>
+        <div class="b3__cta-line">
+          <a href="#" class="btn btn--secondary">Бесплатная консультация</a>
+          <p class="note text-small">Узнайте у специалиста, как программа работает при вашем диагнозе</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 4. «Эффективно» — показания -->
+  <section class="b4" id="block-4" style="padding-block: var(--space-section);">
+    <div class="container" style="display:flex; flex-direction:column; gap: var(--space-block-gap);">
+      <div>
+        <h2 class="text-h2">Эффективно</h2>
+        <p class="text-lead" style="color: var(--color-text-secondary);">при заболеваниях позвоночника и суставов — без лишних процедур</p>
+      </div>
+      <div class="b4__grid">
+        <div class="b4__list" role="tablist" aria-label="Показания" data-indications-list>
+          <button type="button" class="list-item is-active" role="tab" aria-selected="true" data-indication="0">
+            <p class="list-item__title text-h4">Позвоночник</p>
+            <p class="list-item__text text-small">грыжи, остеохондроз, протрузии, ишиас, сколиоз</p>
+          </button>
+          <button type="button" class="list-item" role="tab" aria-selected="false" data-indication="1">
+            <p class="list-item__title text-h4">Суставы</p>
+            <p class="list-item__text text-small">артрит, артроз, бурсит, ревматизм, разрыв мениска, растяжение связок</p>
+          </button>
+          <button type="button" class="list-item" role="tab" aria-selected="false" data-indication="2">
+            <p class="list-item__title text-h4">Полинейропатии и мононейропатии</p>
+            <p class="list-item__text text-small">различной этиологии</p>
+          </button>
+          <button type="button" class="list-item" role="tab" aria-selected="false" data-indication="3">
+            <p class="list-item__title text-h4">Восстановление после операций</p>
+            <p class="list-item__text text-small">удаление грыж и другие — не ранее 6 месяцев после операции</p>
+          </button>
+          <button type="button" class="list-item" role="tab" aria-selected="false" data-indication="4">
+            <p class="list-item__title text-h4">Реабилитация после протезирования</p>
+            <p class="list-item__text text-small">коленного и тазобедренного суставов</p>
+          </button>
+        </div>
+        <div class="b4__card card" data-indication-panels>
+          <div class="b4__card-text" data-indication-panel="0">
+            <div class="b4__card-copy">
+              <h3 class="text-h3">Лечение заболеваний опорно-двигательного аппарата</h3>
+              <p class="text-body">Свободная походка, прямая осанка и лёгкость движений — то, что мы возвращаем гостям. Программа рассчитана на людей с дорсопатиями, артрозами и последствиями травм.</p>
+            </div>
+            <div class="b4__card-buttons">
+              <a href="#" class="btn btn--secondary btn--sm">Узнать больше</a>
+              <a href="#block-10" class="btn btn--ghost">Смотреть результаты</a>
+            </div>
+          </div>
+          <div class="b4__card-text" data-indication-panel="1" hidden>
+            <div class="b4__card-copy">
+              <h3 class="text-h3">Суставы</h3>
+              <p class="text-body">Снимаем воспаление и отёк, возвращаем объём движений, укрепляем мышцы вокруг сустава — чтобы результат держался после отъезда.</p>
+            </div>
+            <div class="b4__card-buttons">
+              <a href="#" class="btn btn--secondary btn--sm">Узнать больше</a>
+              <a href="#block-10" class="btn btn--ghost">Смотреть результаты</a>
+            </div>
+          </div>
+          <div class="b4__card-text" data-indication-panel="2" hidden>
+            <div class="b4__card-copy">
+              <h3 class="text-h3">Нейропатии</h3>
+              <p class="text-body">Работаем с причиной: кровоснабжение и питание нерва, снятие компрессии, восстановление чувствительности и силы.</p>
+            </div>
+            <div class="b4__card-buttons">
+              <a href="#" class="btn btn--secondary btn--sm">Узнать больше</a>
+              <a href="#block-10" class="btn btn--ghost">Смотреть результаты</a>
+            </div>
+          </div>
+          <div class="b4__card-text" data-indication-panel="3" hidden>
+            <div class="b4__card-copy">
+              <h3 class="text-h3">После операции</h3>
+              <p class="text-body">Возвращаем подвижность и уверенность в движении без перегрузки: нагрузка растёт по назначению врача, шаг за шагом.</p>
+            </div>
+            <div class="b4__card-buttons">
+              <a href="#" class="btn btn--secondary btn--sm">Узнать больше</a>
+              <a href="#block-10" class="btn btn--ghost">Смотреть результаты</a>
+            </div>
+          </div>
+          <div class="b4__card-text" data-indication-panel="4" hidden>
+            <div class="b4__card-copy">
+              <h3 class="text-h3">После эндопротезирования</h3>
+              <p class="text-body">Учим двигаться с новым суставом: походка, лестницы, бытовая активность. Заезд — не ранее 6 месяцев после операции.</p>
+            </div>
+            <div class="b4__card-buttons">
+              <a href="#" class="btn btn--secondary btn--sm">Узнать больше</a>
+              <a href="#block-10" class="btn btn--ghost">Смотреть результаты</a>
+            </div>
+          </div>
+          <div class="b4__card-media">
+            <img src="assets/img/indications-1-a.webp" alt="Врач показывает модель позвоночника" width="362" height="452" data-indication-image>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 5. «68 процедур и целостный подход к лечению» -->
+  <section class="container" id="block-5" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-block-gap);">
+      <div>
+        <h2 class="text-h2">68 процедур и целостный подход к лечению</h2>
+        <p class="text-lead" style="color: var(--color-text-secondary);">диагностика, восстановление и сопровождение</p>
+      </div>
+      <div class="b5__grid">
+        <div class="b5__media">
+          <img src="assets/img/approach-photo-a.webp" alt="Процедура на колене крупным планом" width="384" height="480">
+        </div>
+        <div class="b5__text">
+          <div class="b5__criteria">
+            <p class="text-lead">В отличие от стандартных программ, у «Энергии движения» нет одинаковых схем лечения. Врач подбирает процедуры каждому гостю в зависимости от:</p>
+            <ul class="text-body">
+              <li>степени поражения сустава</li>
+              <li>сопутствующих проблем — стопы, позвоночник, стресс</li>
+              <li>общего состояния организма</li>
+              <li>возраста и физической активности</li>
+            </ul>
+          </div>
+          <p class="text-h4">В итоге каждый гость получает свою комбинацию из 68 процедур — под его случай.</p>
+          <div class="b5__cta">
+            <a href="#" class="btn btn--secondary">Скачать описание</a>
+            <a href="#" class="btn btn--primary">Бесплатная консультация</a>
+          </div>
+        </div>
+      </div>
+      <div class="b5__stages">
+        <a href="#block-6" class="stage-card card is-active">
+          <span class="stage-card__num text-number">01</span>
+          <span class="stage-card__content"><span class="title text-h4">Диагностика и сопровождение</span><span class="meta text-small">5 услуг</span></span>
+          <svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg>
+        </a>
+        <a href="#block-7" class="stage-card card">
+          <span class="stage-card__num text-number">02</span>
+          <span class="stage-card__content"><span class="title text-h4">Лечение и реабилитация</span><span class="meta text-small">34 процедуры</span></span>
+          <svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg>
+        </a>
+        <a href="#block-8" class="stage-card card">
+          <span class="stage-card__num text-number">03</span>
+          <span class="stage-card__content"><span class="title text-h4">Оздоровление всего организма</span><span class="meta text-small">16 процедур</span></span>
+          <svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 6. Этап 01 «Диагностика и сопровождение» -->
+  <section class="container" id="block-6" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div class="stage-block__head">
+        <span class="stage-block__num text-number">01</span>
+        <div class="stage-block__title-wrap">
+          <span class="title text-h3">Диагностика и сопровождение</span>
+          <span class="meta text-small">5 услуг</span>
+        </div>
+      </div>
+      <div>
+        <div class="slider-track" data-slider>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/diag-1-a.webp" alt="Приём невролога" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Сопровождение лечащего врача</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Диагностика и консультативное сопровождение невролога на протяжении всей программы.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/diag-2-a.webp" alt="Кинезиологическая диагностика" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Кинезиологическая диагностика</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Мануально-мышечное тестирование: находим структурные причины боли.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/diag-3-a.webp" alt="Анализы в лаборатории" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Необходимые анализы</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Анализ крови по ключевым показателям.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/diag-4-a.webp" alt="Функциональная диагностика" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Функциональная диагностика</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Оценка подвижности суставов, осанки и мышечного баланса — до и после программы.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/diag-5-a.webp" alt="Консультация физиотерапевта" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Консультация физиотерапевта</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Подбор аппаратных процедур с учётом диагноза и противопоказаний.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <div class="slider-row">
+          <span></span>
+          <div class="slider-controls">
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущая карточка" disabled data-slider-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующая карточка" data-slider-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 7. Этап 02 «Лечение и реабилитация» -->
+  <section class="container" id="block-7" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div style="display:flex; flex-direction:column; gap: var(--space-24);">
+        <div class="stage-block__head">
+          <span class="stage-block__num text-number">02</span>
+          <div class="stage-block__title-wrap">
+            <span class="title text-h3">Лечение и реабилитация</span>
+            <span class="meta text-small">34 процедуры</span>
+          </div>
+        </div>
+        <p class="stage-block__lead text-lead">Физиотерапевтические и реабилитационные технологии ускоряют заживление повреждённых связок, снимают отёк и воспаление, освобождают ткани от отложений и фиброзных образований, улучшают кровообращение.</p>
+      </div>
+      <div>
+        <div class="slider-track" data-slider>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/treat-1-a.webp" alt="Ударно-волновая терапия" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Ударно-волновая терапия</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Неинвазивный метод: акустические волны снимают боль и запускают восстановление тканей.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/treat-2-a.webp" alt="Магнитотерапия BTL" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Магнитотерапия BTL</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Быстро и без лекарств снимает острую боль, восстанавливает кровообращение и лимфоток, ускоряет заживление после травм и операций.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/treat-3-a.webp" alt="Радоновые ванны" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Радоновые ванны</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Природный фактор курорта: налаживают обмен веществ, укрепляют иммунитет, снимают воспаление.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/treat-4-a.webp" alt="Лазеротерапия" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Лазеротерапия</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Лазер активирует обменные процессы: улучшает микроциркуляцию, стимулирует восстановление тканей, снижает боль.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <div class="slider-row">
+          <a href="#" class="btn btn--ghost">Все 34 процедуры</a>
+          <div class="slider-controls">
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущая карточка" disabled data-slider-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующая карточка" data-slider-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="plaque">
+        <h3 class="plaque__title text-h3">Уникальные процедуры — по назначению врача</h3>
+        <div class="plaque__items">
+          <div class="plaque__item">
+            <div class="plaque__item-media"><img src="assets/img/mud-suit-a.webp" alt="Грязевые костюмы" width="384" height="288"></div>
+            <div class="plaque__item-text">
+              <span class="badge-pill badge-pill--included text-overline">Входит в программу</span>
+              <h4 class="text-h4">Грязевые костюмы</h4>
+              <p class="text-body">Грязелечение (пелоидотерапия) при заболеваниях суставов сочетает физическое и биохимическое воздействие: грязь прогревает ткани, расширяет сосуды, активизирует кровообращение и обмен веществ. Микроэлементы проникают через кожу и помогают:</p>
+              <ul class="text-body">
+                <li>снизить воспаление;</li>
+                <li>улучшить питание тканей и ускорить восстановление;</li>
+                <li>уменьшить отёки и застойные явления.</li>
+              </ul>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="plaque__item">
+            <div class="plaque__item-text">
+              <span class="badge-pill badge-pill--prescribed text-overline">По назначению врача</span>
+              <h4 class="text-h4">Лимфотропная терапия</h4>
+              <p class="text-body">Применяется вместе с обезболивающими препаратами для дополнительной активации заживления и восстановления хрящевой ткани. Комплексная терапия:</p>
+              <ul class="text-body">
+                <li>снижение выраженности боли;</li>
+                <li>сокращение срока приёма обезболивающих;</li>
+                <li>меньше медикаментозной нагрузки на организм.</li>
+              </ul>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+            <div class="plaque__item-media"><img src="assets/img/lympho-a.webp" alt="Лимфотропная терапия" width="384" height="288"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 7а. Регенеративная медицина -->
+  <section class="b4" id="block-7a" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+    <div class="container" style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap: var(--space-16);">
+        <div>
+          <h2 class="text-h2" style="max-width:820px;">В санатории Увильды для реабилитации применяют методы регенеративной медицины</h2>
+          <p class="text-lead" style="color: var(--color-text-secondary); max-width:820px;">для сохранения и восстановления хрящевой ткани</p>
+        </div>
+        <span class="badge-pill badge-pill--extra text-overline">Дополнительно</span>
+      </div>
+      <div>
+        <div class="slider-track" data-slider>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/regen-1-a.webp" alt="Плазмолифтинг" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Плазмолифтинг</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Новейшая технология для лечения острых болей при поражении костно-мышечной и суставно-связочной систем.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/regen-2-a.webp" alt="Карбокситерапия" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Карбокситерапия</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Улучшает кровообращение и стимулирует регенерацию тканей.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/regen-3-a.webp" alt="Гальваногрязелечение" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Гальваногрязелечение</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Сочетает воздействие лечебной грязи и низкочастотного гальванического тока.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/regen-4-a.webp" alt="Лимфодренаж" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Лимфодренаж</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Воздействует не только на лимфатическую и венозную системы, но и на межклеточный обмен — уходят отёки и застой.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <div class="slider-row">
+          <span></span>
+          <div class="slider-controls">
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущая карточка" disabled data-slider-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующая карточка" data-slider-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 8. Этап 03 «Оздоровление всего организма» -->
+  <section class="container" id="block-8" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div class="stage-block__head">
+        <span class="stage-block__num text-number">03</span>
+        <div class="stage-block__title-wrap">
+          <span class="title text-h3">Оздоровление всего организма</span>
+          <span class="meta text-small">16 процедур</span>
+        </div>
+      </div>
+      <div>
+        <div class="slider-track" data-slider>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/wellness-1-a.webp" alt="Скандинавская ходьба" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Скандинавская ходьба</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Регулирует вес, улучшает работу сердца и сосудов. Маршруты — по берегу озера Увильды.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/wellness-2-a.webp" alt="Суставная гимнастика" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Суставная гимнастика</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Профилактика, лечение и восстановление после болезней и травм с помощью упражнений.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/wellness-3-a.webp" alt="Дыхательная гимнастика" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Дыхательная гимнастика</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Увеличивает жизненную ёмкость лёгких и снижает артериальное давление.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+          <div class="proc-card card card--hover" style="width:384px;">
+            <div class="proc-card__media"><img src="assets/img/wellness-4-a.webp" alt="Йога" width="384" height="288"></div>
+            <div class="proc-card__body">
+              <h3 class="text-h3">Йога</h3>
+              <p class="text-small" style="color:var(--color-text-secondary);">Мягкая практика для гибкости и баланса; упражнения адаптируются под состояние суставов.</p>
+              <a href="#" class="btn btn--ghost btn--sm">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <div class="slider-row">
+          <span></span>
+          <div class="slider-controls">
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущая карточка" disabled data-slider-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующая карточка" data-slider-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO: блоки 9–32 (см. 00-docs/content-map.md) — следующие сессии вёрстки -->
 
 </main>
 
