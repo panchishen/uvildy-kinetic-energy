@@ -210,6 +210,14 @@
     });
   });
 
+  /* ---------- Декоративные формы: имитация отправки (без бэкенда) ---------- */
+  document.querySelectorAll('[data-decorative-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.classList.add('is-sent');
+    });
+  });
+
   /* ---------- Якорное меню: активный пункт по прокрутке ---------- */
   var anchorLinks = document.querySelectorAll('.anchor-chip');
   if (anchorLinks.length) {

@@ -1530,7 +1530,171 @@
     </div>
   </section>
 
-  <!-- TODO: блоки 29–32 (см. 00-docs/content-map.md) — следующие сессии вёрстки -->
+  <!-- Блок 29. Форма «Получите понятную стратегию лечения» -->
+  <section class="container" id="block-29" style="padding-block: var(--space-section);">
+    <div class="b29__banner">
+      <img src="assets/img/form-photo-a.webp" alt="Врач курорта с планшетом" width="1200" height="580">
+      <div class="b29__panel">
+        <div class="b29__copy">
+          <h2 class="text-h2">Получите понятную стратегию лечения</h2>
+          <p class="text-body">Оставьте номер — врач-куратор перезвонит, уточнит диагноз и скажет, подойдёт ли программа.</p>
+        </div>
+        <form class="form-card" data-decorative-form>
+          <h3 class="text-h4">Заказать консультацию</h3>
+          <div class="field"><input class="field__control" type="text" placeholder="Имя" name="name"></div>
+          <div class="field"><input class="field__control" type="tel" placeholder="+7 (000) 000-00-00" name="phone"></div>
+          <label class="checkbox-row text-caption">
+            <input type="checkbox" checked>
+            <span class="checkbox-row__box"><svg class="icon" width="16" height="16"><use href="#icon-check"></use></svg></span>
+            <span class="checkbox-row__label">Я согласен с условиями Политики обработки персональных данных и даю Согласие на обработку моих персональных данных (152-ФЗ)</span>
+          </label>
+          <button type="submit" class="btn btn--primary btn--full">Получить консультацию</button>
+          <div class="form-sent" hidden>
+            <span class="form-sent__icon"><svg class="icon" width="24" height="24"><use href="#icon-check"></use></svg></span>
+            <h3 class="text-h3">Заявка отправлена</h3>
+            <p class="text-body">Врач-куратор свяжется с вами в ближайшее время.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 30. Журнал о жизни без боли (SEO) -->
+  <section class="container" id="block-30" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div>
+        <h2 class="text-h2">Журнал о жизни без боли</h2>
+        <p class="text-lead" style="color: var(--color-text-secondary);">Рассказываем всё, что нужно знать о боли в спине и суставах, остеохондрозе и грыжах диска.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap: var(--space-24);">
+        <ul style="display:flex; flex-wrap:wrap; gap: var(--space-8);">
+          <li class="tag text-small" style="background: var(--color-action-soft); color: var(--color-action-on-soft);">Все</li>
+          <li class="tag text-small">Грыжа позвоночника</li>
+          <li class="tag text-small">Боль в спине</li>
+          <li class="tag text-small">Протрузия</li>
+          <li class="tag text-small">Остеохондроз</li>
+          <li class="tag text-small">Суставы</li>
+          <li class="tag text-small">Тейпирование</li>
+          <li class="tag text-small">Массаж</li>
+          <li class="tag text-small">Упражнения</li>
+          <li class="tag text-small">Лазеротерапия</li>
+          <li class="tag text-small">Магнитотерапия</li>
+          <li class="tag text-small">Физиотерапия</li>
+          <li class="tag text-small">Диагностика</li>
+          <li class="tag text-small">Радон</li>
+        </ul>
+        <div>
+          <div class="slider-track" data-slider>
+            <div class="article-card card card--hover">
+              <div class="article-card__media"><img src="assets/img/article-1-a.webp" alt="Врач-вертебролог" width="384" height="240"></div>
+              <div class="article-card__body">
+                <span class="title text-h4">Врач-вертебролог: кто это и что лечит простыми словами</span>
+                <span class="text text-small">Вертебролог специализируется на диагностике и лечении заболеваний позвоночника.</span>
+                <span class="date text-caption">12 сентября 2026</span>
+              </div>
+            </div>
+            <div class="article-card card card--hover">
+              <div class="article-card__media"><img src="assets/img/article-2-a.webp" alt="Можно ли вправить грыжу позвоночника руками" width="384" height="240"></div>
+              <div class="article-card__body">
+                <span class="title text-h4">Можно ли вправить грыжу позвоночника руками?</span>
+                <span class="text text-small">Нет. Межпозвонковую грыжу нельзя вправить массажем, мануальной терапией или остеопатией.</span>
+                <span class="date text-caption">12 сентября 2026</span>
+              </div>
+            </div>
+            <div class="article-card card card--hover">
+              <div class="article-card__media"><img src="assets/img/article-3-a.webp" alt="Радоновые ванны" width="384" height="240"></div>
+              <div class="article-card__body">
+                <span class="title text-h4">Радоновые ванны: как работают и кому подходят</span>
+                <span class="text text-small">Природный фактор курорта Увильды: показания, курс и ограничения.</span>
+                <span class="date text-caption">12 сентября 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap: var(--space-12); align-items:center;">
+          <a href="#" class="btn btn--secondary">Все статьи</a>
+          <a href="#" class="btn btn--ghost">Подписаться на рассылку</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 31. Контактная панель -->
+  <section class="container b31" id="block-31" style="padding-block: var(--space-block-gap) 0;">
+    <span class="b31__bg-bottom"></span>
+    <div class="b31__card">
+      <div class="b31__primary">
+        <div>
+          <div class="b31__phone-title">
+            <span class="b31__phone-icon"><svg class="icon" width="20" height="20"><use href="#icon-phone"></use></svg></span>
+            <span class="text-h3">Свяжитесь с нами по телефону</span>
+          </div>
+          <p class="b31__phone-number text-number">8 (800) 551-29-30</p>
+          <p class="b31__phone-hours text-small">Приём звонков с 9:00 до 19:00</p>
+        </div>
+        <form data-decorative-form style="display:flex; flex-direction:column; gap: var(--space-12);">
+          <div class="b31__form-row">
+            <div class="field"><span class="field__label text-small">Номер телефона *</span><input class="field__control" type="tel" placeholder="+7 (000) 000-00-00" name="phone" required></div>
+            <button type="submit" class="btn btn--primary" style="flex-shrink:0;">Заказать обратный звонок</button>
+          </div>
+          <label class="checkbox-row text-caption">
+            <input type="checkbox" checked>
+            <span class="checkbox-row__box"><svg class="icon" width="16" height="16"><use href="#icon-check"></use></svg></span>
+            <span class="checkbox-row__label">Я согласен с условиями Политики обработки персональных данных и даю Согласие на обработку моих персональных данных</span>
+          </label>
+          <p class="b31__form-note text-small">Вам перезвонит оператор — дождитесь ответа.</p>
+          <div class="form-sent" hidden>
+            <span class="form-sent__icon"><svg class="icon" width="24" height="24"><use href="#icon-check"></use></svg></span>
+            <h3 class="text-h3">Заявка отправлена</h3>
+            <p class="text-body">Оператор перезвонит вам в ближайшее время.</p>
+          </div>
+        </form>
+      </div>
+      <div class="b31__secondary">
+        <div class="b31__secondary-item">
+          <svg class="icon" width="24" height="24"><use href="#icon-user"></use></svg>
+          <div class="b31__secondary-item-text">
+            <span class="title text-h4">Запишитесь на онлайн-консультацию специалиста</span>
+            <span class="text text-small">Авторизуйтесь и выберите удобное время. История приёмов, рекомендации врачей и результаты анализов — всегда под рукой.</span>
+            <a href="#" class="link--text text-body">Войти и выбрать время</a>
+          </div>
+        </div>
+        <div class="b31__secondary-item">
+          <svg class="icon" width="24" height="24"><use href="#icon-calendar"></use></svg>
+          <div class="b31__secondary-item-text">
+            <span class="title text-h4">Забронируйте и оплатите путёвку онлайн</span>
+            <span class="text text-small">Раннее бронирование — до −15 %. Рассрочка для постоянных гостей.</span>
+            <a href="#booking-widget" class="link--text text-body">Забронировать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 32. Подпишитесь на нас -->
+  <section id="block-32" style="padding-block: var(--space-section); background: var(--color-surface-section); margin-top: var(--space-block-gap);">
+    <div class="container b32__inner">
+      <div>
+        <h2 class="text-h2">Подпишитесь на нас</h2>
+        <p class="text-lead" style="color: var(--color-text-secondary);">Будьте в курсе скидок и акций курорта Увильды</p>
+      </div>
+      <form class="b32__form" data-decorative-form>
+        <div class="b32__form-row">
+          <div class="field"><input class="field__control" type="email" placeholder="Ваш e-mail" name="email" required></div>
+          <button type="submit" class="btn btn--primary" style="flex-shrink:0;">Подписаться</button>
+        </div>
+        <label class="checkbox-row text-caption">
+          <input type="checkbox" checked>
+          <span class="checkbox-row__box"><svg class="icon" width="16" height="16"><use href="#icon-check"></use></svg></span>
+          <span class="checkbox-row__label">Нажимая кнопку, я даю согласие на обработку персональных данных в соответствии с 152-ФЗ на условиях Согласия на обработку персональных данных</span>
+        </label>
+        <div class="form-sent" hidden style="text-align:center;">
+          <span class="form-sent__icon"><svg class="icon" width="24" height="24"><use href="#icon-check"></use></svg></span>
+          <h3 class="text-h3">Спасибо за подписку!</h3>
+        </div>
+      </form>
+    </div>
+  </section>
 
 </main>
 

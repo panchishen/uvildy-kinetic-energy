@@ -288,3 +288,46 @@
 
 /* ---------- Блок 18. Другие программы ---------- */
 .b18__center { display: flex; flex-direction: column; align-items: center; gap: var(--space-16); }
+
+/* ---------- Блок 29. Форма «Получите понятную стратегию лечения» ---------- */
+.b29__banner {
+  position: relative; width: 100%; border-radius: var(--radius-media); overflow: hidden;
+  display: flex; align-items: center; padding: var(--space-48);
+}
+.b29__banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.b29__panel { width: 486px; display: flex; flex-direction: column; gap: var(--space-32); }
+.b29__copy { display: flex; flex-direction: column; gap: var(--space-16); color: var(--color-text-primary); }
+.b29__copy p { max-width: 420px; }
+.form-card {
+  background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card); padding: var(--space-card-padding); display: flex; flex-direction: column; gap: var(--space-16);
+  width: 100%;
+}
+
+/* ---------- Блок 31. Контактная панель ---------- */
+.b31 { position: relative; }
+.b31__bg-bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 50%; background: var(--color-surface-section); z-index: -1; }
+.b31__card {
+  background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-modal);
+  box-shadow: var(--shadow-popover); padding: var(--space-48); display: flex; gap: var(--space-48); align-items: flex-start;
+}
+.b31__primary { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-32); }
+.b31__phone-title { display: flex; align-items: center; gap: var(--space-12); }
+.b31__phone-icon { width: 40px; height: 40px; border-radius: 999px; background: var(--color-action-soft); display: flex; align-items: center; justify-content: center; color: var(--color-action-primary); flex-shrink: 0; }
+.b31__phone-number { color: var(--color-heading-accent); }
+.b31__phone-hours { color: var(--color-text-secondary); }
+.b31__form-row { display: flex; gap: var(--space-12); align-items: flex-end; }
+.b31__form-note { color: var(--color-text-secondary); }
+.b31__secondary { width: 440px; flex-shrink: 0; border-left: 1px solid var(--color-border); padding-left: var(--space-48); }
+.b31__secondary-item { display: flex; gap: var(--space-16); padding-block: var(--space-24); }
+.b31__secondary-item:first-child { border-bottom: 1px solid var(--color-border); padding-top: 0; }
+.b31__secondary-item:last-child { padding-bottom: 0; }
+.b31__secondary-item .icon { color: var(--color-text-primary); flex-shrink: 0; }
+.b31__secondary-item-text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-8); }
+.b31__secondary-item-text .title { color: var(--color-text-primary); }
+.b31__secondary-item-text .text { color: var(--color-text-secondary); }
+
+/* ---------- Блок 32. Подписка ---------- */
+.b32__inner { width: 588px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-32); text-align: center; }
+.b32__form { width: 100%; display: flex; flex-direction: column; gap: var(--space-12); text-align: left; }
+.b32__form-row { display: flex; gap: var(--space-12); align-items: flex-end; }
