@@ -341,8 +341,18 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   }
   .booking-popover--dates, .booking-popover--guests { padding: var(--space-16); }
   .calendar__months { flex-direction: column; align-items: center; gap: var(--space-24); }
-  .calendar__nav--prev { left: max(0px, calc(50% - 140px)); }
-  .calendar__nav--next { right: max(0px, calc(50% - 140px)); }
+  .calendar__nav--prev { left: max(0px, calc(50% - 154px)); }
+  .calendar__nav--next { right: max(0px, calc(50% - 154px)); }
+  .booking-next {
+    display: flex; align-items: center; gap: var(--space-12); width: 100%; min-height: 56px;
+    padding: var(--space-8) var(--space-16); border: 1px solid var(--color-border-control); border-radius: var(--radius-input);
+    background: var(--color-surface-card); text-align: left; cursor: pointer; font: inherit; color: var(--color-text-primary);
+  }
+  .booking-next__text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .booking-next__label { color: var(--color-text-secondary); }
+  .booking-next .icon { color: var(--color-text-secondary); }
+  /* Низкий экран: лист поверх шапки */
+  html.is-booking-open.is-booking-short .booking-widget { z-index: var(--z-modal); }
   .booking-popover--guests { width: auto; }
   html.is-booking-open :is(.messenger-panel, .to-top, .theme-switch) { visibility: hidden; }
   /* Модалка — лист снизу во всю ширину */
@@ -405,4 +415,16 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .checkbox-row { min-height: 44px; }
   .hero__cta-link, .license-strip .link--text, .b31__secondary-item-text .link--text { display: inline-block; padding-block: 10px; }
   .hero-thumb { min-height: 44px; }
+  /* Календарь: дни 44 px, где хватает ширины (на 320 ячейка ужимается) */
+  .cal-month { width: min(308px, 100%); }
+  .cal-month__dow, .cal-month__grid { grid-template-columns: repeat(7, minmax(0, 44px)); }
+  .cal-day { width: 100%; height: 44px; }
+  .cal-day span { width: min(40px, 100%); height: 40px; }
+}
+
+/* Телефон в альбомной ориентации (680–767): два месяца календаря рядом, как на планшете */
+@media (min-width: 680px) and (max-width: 767px) {
+  .calendar__months { flex-direction: row; justify-content: center; align-items: flex-start; }
+  .calendar__nav--prev { left: max(0px, calc(50% - 320px)); }
+  .calendar__nav--next { right: max(0px, calc(50% - 320px)); }
 }

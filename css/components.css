@@ -741,6 +741,8 @@ form.is-sent .form-sent { display: flex; }
 .cal-day:disabled:hover span { background: none; }
 .calendar__hint { color: var(--color-text-secondary); }
 .calendar__reset { padding: 0; border: 0; background: none; cursor: pointer; }
+/* Переход «Гости» из листа календаря — только телефон (responsive.css) */
+.booking-next { display: none; }
 
 /* ---------- Stepper + гости ---------- */
 .booking-popover--guests { width: 360px; }

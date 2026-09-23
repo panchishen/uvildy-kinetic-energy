@@ -2007,6 +2007,14 @@
       <p class="calendar__hint text-caption">Программа — от 7 ночей</p>
       <button class="link--text text-body calendar__reset" type="button" data-cal-reset>Сбросить даты</button>
     </div>
+    <!-- Телефон: поле «Гости» в панели скрыто — переход к гостям из листа календаря -->
+    <button class="booking-next" type="button" data-booking-to-guests>
+      <span class="booking-next__text">
+        <span class="booking-next__label text-caption">Гости</span>
+        <span class="booking-next__value text-body" data-booking-guests-alt>2 взрослых</span>
+      </span>
+      <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+    </button>
   </div>
 
   <div class="popover booking-popover booking-popover--guests" data-booking-pop="guests" role="dialog" aria-labelledby="booking-guests-title" hidden>

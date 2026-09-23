@@ -360,6 +360,8 @@
       }
       setValue('out', state.out ? fmtDay(state.out) : 'Выбрать', !state.out);
       setValue('guests', fmtGuests(false), false);
+      var alt = booking.querySelector('[data-booking-guests-alt]');
+      if (alt) alt.textContent = fmtGuests(false);
     };
 
     /* Календарь: DOM месяцев строится при смене месяца, состояние дней — в paint() */
@@ -450,9 +452,12 @@
         pops.guests.style.setProperty('--pop-left', fields.guests.offsetLeft + 'px');
       }
       setActiveField(popKey === 'dates' ? (mqPhone.matches ? 'in' : mode) : key);
-      // На телефоне поповер — лист снизу: не выше низа шапки (топбар может быть закрыт)
+      // На телефоне поповер — лист снизу: не выше низа шапки (топбар может быть закрыт).
+      // На низком экране (телефон в альбомной ориентации) лист встаёт поверх шапки — иначе календарю не хватает высоты.
       if (mqPhone.matches) {
-        var headerBottom = header ? Math.max(header.getBoundingClientRect().bottom, 0) : 0;
+        var short = window.innerHeight < 500;
+        var headerBottom = header && !short ? Math.max(header.getBoundingClientRect().bottom, 0) : 0;
+        document.documentElement.classList.toggle('is-booking-short', short);
         pops[popKey].style.maxHeight = (window.innerHeight - headerBottom - booking.offsetHeight - 8) + 'px';
       } else {
         pops[popKey].style.maxHeight = '';
@@ -512,9 +517,12 @@
         paint();
       } else {
         state.out = d;
-        closePops();
+        // На телефоне поля гостей в панели нет — после дат сразу выбор гостей
+        if (mqPhone.matches) openPop('guests'); else closePops();
       }
     });
+    var toGuests = booking.querySelector('[data-booking-to-guests]');
+    if (toGuests) toGuests.addEventListener('click', function () { openPop('guests'); });
     monthsBox.addEventListener('mouseover', function (e) {
       var b = e.target.closest('.cal-day');
       if (mode !== 'out' || !state.in || state.out || !b || b.disabled) return;
