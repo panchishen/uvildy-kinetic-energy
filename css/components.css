@@ -521,7 +521,11 @@
 
 /* ---------- Checkbox ---------- */
 .checkbox-row { display: flex; gap: var(--space-12); align-items: flex-start; cursor: pointer; }
-.checkbox-row input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+/* Согласие на обработку данных по умолчанию не отмечено (152-ФЗ) и обязательно: без галочки форма не отправится.
+   Скрытый input стоит под квадратиком — подсказка браузера о пустом поле появляется у него. */
+.checkbox-row { position: relative; }
+.checkbox-row input { position: absolute; left: 0; top: 2px; opacity: 0; width: var(--size-checkbox); height: var(--size-checkbox); margin: 0; }
+.checkbox-row input:focus-visible ~ .checkbox-row__box { box-shadow: var(--focus-ring); }
 .checkbox-row__box {
   width: var(--size-checkbox); height: var(--size-checkbox); flex-shrink: 0;
   border: 1.5px solid var(--color-border-control); border-radius: var(--radius-checkbox);
