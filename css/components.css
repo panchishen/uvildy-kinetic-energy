@@ -33,6 +33,7 @@
   font-size: var(--font-size-button);
   line-height: var(--font-lh-button);
   white-space: nowrap;
+  width: fit-content; /* в колонках кнопка не растягивается (как в макете); --full = 100% */
   cursor: pointer;
   transition: background-color var(--motion-fast) var(--motion-ease),
     color var(--motion-fast) var(--motion-ease),
@@ -78,7 +79,6 @@
 .btn--ghost {
   background: transparent;
   color: var(--color-action-primary);
-  height: auto;
   padding-inline: 0;
 }
 .btn--ghost:hover { color: var(--color-action-primary-hover); text-decoration: underline; }
@@ -105,7 +105,7 @@
 .icon-btn--light {
   background: var(--color-surface-card);
   border: 1px solid var(--color-border-control);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
 }
 .icon-btn--light:hover { background: var(--color-action-soft); color: var(--color-action-on-soft); border-color: transparent; }
 
@@ -128,12 +128,12 @@
   overflow: hidden;
 }
 .icon-btn--brand:hover { box-shadow: var(--shadow-popover); }
-.icon-btn--brand img { width: 100%; height: 100%; object-fit: cover; }
+.icon-btn--brand img { width: 24px; height: 24px; }
 .icon-btn--phone    { background: var(--color-action-primary); }
 .icon-btn--vk       { background: var(--color-social-vk); }
 .icon-btn--telegram { background: var(--color-messenger-telegram); }
 .icon-btn--ok       { background: var(--color-social-ok); }
-.icon-btn--rutube   { background: var(--color-social-rutube); padding: 0; }
+.icon-btn--rutube   { background: var(--color-social-rutube); }
 .icon-btn--max      { background: var(--color-messenger-max); }
 
 /* ---------- Link ---------- */
@@ -184,7 +184,7 @@
 .rating {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-4);
 }
 .rating .icon { width: 16px; height: 16px; color: var(--color-rating); }
 .rating__value {
@@ -210,7 +210,7 @@
 .anchor-chip:hover,
 .anchor-chip.is-active {
   background: var(--color-action-soft);
-  color: var(--color-heading-accent);
+  color: var(--color-action-on-soft);
 }
 
 /* ---------- Badge ---------- */
@@ -220,6 +220,7 @@
   padding: var(--space-4) var(--space-12);
   border-radius: var(--radius-tag);
   white-space: nowrap;
+  width: fit-content;
 }
 .badge-pill--included { background: var(--color-accent-soft); color: var(--color-state-success); }
 .badge-pill--prescribed { background: var(--color-surface-section); color: var(--color-text-secondary); }
@@ -281,12 +282,16 @@
   cursor: pointer;
   transition: background-color var(--motion-fast) var(--motion-ease);
 }
+.list-item { position: relative; display: flex; flex-direction: column; gap: var(--space-4); }
 .list-item__title { color: var(--color-text-primary); }
 .list-item__text { color: var(--color-text-secondary); }
 .list-item.is-active {
   background: var(--color-action-soft);
-  box-shadow: inset 3px 0 0 var(--color-action-primary);
-  padding-left: 13px;
+  padding-left: 28px; /* 13 + полоса 3 + 12, как в макете */
+}
+.list-item.is-active::before {
+  content: ""; position: absolute; left: 13px; top: 16px; bottom: 16px; width: 3px;
+  background: var(--color-action-primary);
 }
 .list-item.is-active .list-item__title { color: var(--color-action-on-soft); }
 
@@ -316,6 +321,10 @@
   justify-content: space-between;
   width: 100%;
 }
+.slider-row--tall { height: 100px; }
+.slider-wrap--gap { display: flex; flex-direction: column; gap: var(--space-12); }
+.accordion--price .accordion__panel { padding-top: var(--space-24); }
+.accordion--price .accordion__row.is-open { padding-bottom: var(--space-24); }
 .slider-track {
   display: flex;
   gap: var(--grid-gutter);
@@ -347,7 +356,8 @@
 .accordion__row.is-open .accordion__panel { display: block; }
 
 /* ---------- Table ---------- */
-.table-card { background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); overflow: hidden; width: 100%; }
+.accordion__panel .table-card { margin-bottom: var(--space-8); } /* после таблицы 32 = 24 + 8, как в макете */
+.table-card { color: var(--color-text-primary); background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); overflow: hidden; width: 100%; }
 .table-row { display: flex; align-items: center; gap: var(--space-16); padding: var(--space-12) var(--space-16); border-bottom: 1px solid var(--color-border); }
 .table-row:last-child { border-bottom: 0; }
 .table-row--head { color: var(--color-text-secondary); }
@@ -387,9 +397,7 @@
 .messenger-inline { display: flex; align-items: center; gap: var(--space-8); }
 .icon-btn--msg { background: var(--color-surface-card); border: 1px solid var(--color-border-control); }
 .icon-btn--msg .icon { width: 24px; height: 24px; }
-.icon-btn--msg--telegram .icon { color: var(--color-messenger-telegram); }
-.icon-btn--msg--whatsapp .icon { color: var(--color-messenger-whatsapp); }
-.icon-btn--msg--max .icon { color: var(--color-messenger-max); }
+.icon-btn--msg .icon { color: var(--color-text-primary); } /* в макете знаки монохромные */
 .icon-btn--msg:hover { background: var(--color-action-soft); }
 
 /* ---------- Stat card (простая) ---------- */
@@ -426,7 +434,7 @@
 
 /* ---------- Card/Checkup, Card/Program (фото-фон) ---------- */
 .photo-card {
-  position: relative; width: 282px; height: 352px; flex-shrink: 0;
+  position: relative; width: 282px; height: 328px; flex-shrink: 0;
   border-radius: var(--radius-media); overflow: hidden;
 }
 .photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--motion-slow) var(--motion-ease); }
@@ -446,7 +454,7 @@
 .video-card .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
 /* ---------- Card/Award ---------- */
-.award-card { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-12); }
+.award-card { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-card-padding); }
 .award-card__logo { width: 64px; height: 64px; border-radius: 12px; background: var(--color-surface-section); }
 .award-card .title { color: var(--color-text-primary); }
 .award-card .text { color: var(--color-text-secondary); }
@@ -644,7 +652,7 @@ form.is-sent .form-sent { display: flex; }
 /* ================= Панель мессенджеров ================= */
 .messenger-panel {
   position: fixed;
-  right: 16px;
+  right: 24px;
   top: 50%;
   transform: translateY(-50%);
   z-index: var(--z-messenger);
@@ -692,15 +700,17 @@ form.is-sent .form-sent { display: flex; }
 .footer__col { display: flex; flex-direction: column; gap: var(--space-8); }
 .footer__col h3 { color: var(--color-text-on-inverse); }
 .footer__pay { display: flex; gap: var(--space-8); padding-top: var(--space-16); }
-.footer__pay img { height: 28px; width: auto; border-radius: 4px; }
+.pay-plate { height: 28px; border-radius: 4px; background: var(--color-surface-card); display: flex; align-items: center; justify-content: center; }
+.pay-plate img { display: block; }
+.list-disc { list-style: disc; padding-left: 25.5px; }
 .footer__rating { display: flex; flex-direction: column; gap: var(--space-4); }
 .footer__rating-row { display: flex; align-items: center; gap: var(--space-8); }
 .footer__rating-row .icon { width: 16px; height: 16px; color: var(--color-rating); }
 .footer__rating-row span { font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-small); color: var(--color-text-on-inverse); }
-.footer__meta { font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-caption); letter-spacing: 0.24px; color: var(--color-text-on-inverse-muted); }
+.footer__meta { font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-caption); line-height: var(--font-lh-caption); letter-spacing: 0.24px; color: var(--color-text-on-inverse-muted); }
 .footer__contact { gap: var(--space-12); }
 .footer__contact-row { display: flex; flex-direction: column; gap: 2px; }
-.footer__contact-row .label { font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-caption); letter-spacing: 0.24px; color: var(--color-text-on-inverse-muted); }
+.footer__contact-row .label { font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-caption); line-height: var(--font-lh-caption); letter-spacing: 0.24px; color: var(--color-text-on-inverse-muted); }
 .footer__contact-row .value { font-family: var(--font-body); font-weight: var(--font-weight-body); font-size: var(--font-size-body); color: var(--color-text-on-inverse); }
 .footer__social { display: flex; gap: var(--space-8); }
 .footer__social .icon-btn--brand { width: 32px; height: 32px; }
@@ -715,6 +725,6 @@ form.is-sent .form-sent { display: flex; }
 .footer__legal {
   display: flex; gap: var(--space-8); justify-content: center; flex-wrap: wrap;
   font-family: var(--font-body); font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-caption); letter-spacing: 0.24px; color: var(--color-text-on-inverse-muted);
+  font-size: var(--font-size-caption); line-height: var(--font-lh-caption); letter-spacing: 0.24px; color: var(--color-text-on-inverse-muted);
 }
 .footer__legal a:hover { color: var(--color-text-on-inverse); }

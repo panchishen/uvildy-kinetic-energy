@@ -23,6 +23,15 @@
   color: var(--color-text-on-inverse);
 }
 
+/* Заголовок секции: H2 + подзаголовок (пара, space/12), ширина — по макету */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  max-width: var(--head-w, 800px);
+}
+.section-head .text-lead { color: var(--color-text-secondary); }
+
 .block-gap {
   margin-top: var(--space-block-gap);
 }

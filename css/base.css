@@ -1,5 +1,9 @@
 /* Сброс и базовые стили. Текст-стили — по 02-design/ui-kit.md §Типографика. */
 
+[hidden] {
+  display: none !important;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

@@ -19,6 +19,11 @@
 .hero__inner {
   display: flex;
   flex-direction: column;
+  gap: var(--space-32);
+}
+.hero__head {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-24);
 }
 .hero__intro {
@@ -146,7 +151,7 @@
   border-bottom: 1px solid var(--color-border);
 }
 .anchor-nav__row {
-  height: var(--size-anchors);
+  height: calc(var(--size-anchors) - 2px); /* 52 вместе с верхней и нижней границей */
   display: flex;
   align-items: center;
   gap: var(--space-8);
@@ -177,7 +182,9 @@
 .b3__who .role { color: var(--color-text-on-inverse-muted); }
 .b3__text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-32); padding-left: var(--space-24); }
 .b3__quote { color: var(--color-heading-accent); }
+.b3__intro { display: flex; flex-direction: column; gap: var(--space-24); }
 .b3__heading { display: flex; flex-direction: column; gap: var(--space-12); }
+.b3__essence { display: flex; flex-direction: column; gap: var(--space-24); }
 .b3__heading .lead { color: var(--color-text-secondary); }
 .b3__cols { display: flex; gap: var(--grid-gutter); }
 .b3__col { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-8); }
@@ -322,12 +329,16 @@
 .b31__secondary-item { display: flex; gap: var(--space-16); padding-block: var(--space-24); }
 .b31__secondary-item:first-child { border-bottom: 1px solid var(--color-border); padding-top: 0; }
 .b31__secondary-item:last-child { padding-bottom: 0; }
-.b31__secondary-item .icon { color: var(--color-text-primary); flex-shrink: 0; }
+.b31__secondary-item .icon { color: var(--color-heading-accent); flex-shrink: 0; }
 .b31__secondary-item-text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-8); }
 .b31__secondary-item-text .title { color: var(--color-text-primary); }
 .b31__secondary-item-text .text { color: var(--color-text-secondary); }
 
 /* ---------- Блок 32. Подписка ---------- */
-.b32__inner { width: 588px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-32); text-align: center; }
+.fact { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+.fact__num { color: var(--color-heading-accent); }
+.fact__label { color: var(--color-text-secondary); }
+
+.b32__inner { width: 588px; padding-inline: 0; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-32); text-align: center; }
 .b32__form { width: 100%; display: flex; flex-direction: column; gap: var(--space-12); text-align: left; }
 .b32__form-row { display: flex; gap: var(--space-12); align-items: flex-end; }
