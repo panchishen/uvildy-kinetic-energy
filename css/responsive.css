@@ -1,0 +1,332 @@
+/*
+  Адаптив. Десктоп 1440 — значения по умолчанию в остальных файлах, здесь только переопределения.
+  Мобильного макета в Figma нет — раскладки по здравому смыслу (decisions.md, 2026-09-23).
+    ≤1247  ноутбук и планшет альбомный (проверка на 1024): контейнер уже 1200, фиксированные колонки → доли
+    ≤1023  планшет (проверка на 768): медиа + текст складываются в колонку
+    ≤767   телефон (проверка на 375): мобильные токены из tokens.css, одна колонка, слайдеры свайпом
+  Доли ширин посчитаны от контейнера 1200: 282 → 23.5 %, 384 → 32 %, 486 → 40.5 %, 588 → 49 %, 690 → 57.5 %.
+*/
+
+/* Якоря не прячутся под липкой шапкой и якорным меню (на всех ширинах) */
+main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + var(--space-16)); }
+
+/* ================================================================
+   ≤1247 — 1024
+   ================================================================ */
+@media (max-width: 1247px) {
+  /* Шапка: 4 ссылки разделов уходят в меню «Всё меню» */
+  .header__nav > .link--nav { display: none; }
+  .mega-menu__extra { display: flex; flex-direction: column; gap: var(--space-24); margin-top: var(--space-32); padding-top: var(--space-24); border-top: 1px solid var(--color-border); }
+  .mega-menu__nav { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-24); }
+  .mega-menu__nav a { font-family: var(--font-body); font-weight: var(--font-weight-semibold); font-size: var(--font-size-button); color: var(--color-text-primary); padding-block: var(--space-12); }
+  .mega-menu__nav a:hover { color: var(--color-action-primary); }
+  .mega-menu__tools { display: none; }
+
+  /* Блок 2 */
+  .hero__gallery { width: 57.5%; }
+  .hero__main-media { width: 100%; height: auto; aspect-ratio: 690 / 518; }
+  .hero-thumb { height: auto; aspect-ratio: 130 / 96; }
+
+  /* Блок 3 */
+  .b3__media { width: 32%; height: auto; aspect-ratio: 4 / 5; }
+  .b3__play { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .b3__cta-line { flex-wrap: wrap; }
+
+  /* Блок 4 */
+  .b4__list { width: 32%; }
+  .b4__card-media { width: 47%; height: auto; aspect-ratio: 362 / 452; align-self: flex-start; }
+  .b4__card-buttons { flex-wrap: wrap; }
+
+  /* Блок 5, плашка блока 7 */
+  .b5__media { width: 32%; height: auto; aspect-ratio: 4 / 5; }
+  .b5__cta { flex-wrap: wrap; }
+  .plaque__item-media { width: 40%; height: auto; aspect-ratio: 4 / 3; }
+
+  /* Блок 9 */
+  .b9__result { width: 40%; }
+  .b9__video { height: auto; aspect-ratio: 690 / 500; }
+  .b9__youth { flex-wrap: wrap; }
+  .b9__youth-text { width: calc(50% - var(--grid-gutter) / 2); }
+  .b9__youth-cta { width: 100%; justify-content: flex-start; }
+
+  /* Блок 10 */
+  .b10__snapshots { width: 50%; }
+  .before-after__item { flex: 1 0 0; width: auto; height: auto; aspect-ratio: 1; }
+
+  /* Блоки 13, 29: фото кадрируется от правого края — главное в кадре справа, слева лежит карточка */
+  .b13__card { max-width: 100%; }
+  .b13__banner img, .b29__banner img { object-position: right center; }
+
+  /* Блок 17 */
+  .b17__text { width: 40%; }
+  .b17__media { height: auto; aspect-ratio: 690 / 518; }
+  .b17__gallery-item { height: auto; aspect-ratio: 336 / 251; }
+
+  /* Блоки 19, 21, 22, 24 */
+  .b19__media { width: 49%; height: auto; aspect-ratio: 588 / 331; }
+  .b21__media { width: 32%; height: auto; aspect-ratio: 4 / 5; }
+  .b22__title { width: 23.5%; }
+  .b24__media { width: 40.5%; }
+  .b24__text { padding-left: var(--space-24); }
+
+  /* Блок 31 */
+  .b31__card { gap: var(--space-32); }
+  .b31__secondary { width: 36%; padding-left: var(--space-32); }
+
+  /* Панель мессенджеров сворачивается в одну кнопку в правом нижнем углу:
+     справа у контейнера меньше 120 px и столбик из 6 кнопок ложится на контент */
+  .messenger-panel { top: auto; bottom: 24px; transform: none; align-items: center; }
+  .messenger-panel__toggle { display: inline-flex; width: 48px; height: 48px; }
+  .messenger-panel__items {
+    visibility: hidden; opacity: 0; transform: translateY(8px);
+    transition: opacity var(--motion-base) var(--motion-ease), transform var(--motion-base) var(--motion-ease), visibility var(--motion-base);
+  }
+  .messenger-panel.is-open .messenger-panel__items { visibility: visible; opacity: 1; transform: none; }
+  .to-top { right: calc(24px + 48px + var(--space-12)); bottom: 24px; }
+}
+
+/* ================================================================
+   ≤1023 — 768
+   ================================================================ */
+@media (max-width: 1023px) {
+  /* Шапка: иконки и EN — в меню */
+  .header__icons, .header__lang { display: none; }
+  .mega-menu__tools { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-16); }
+  .mega-menu__phone { color: var(--color-text-primary); padding-block: var(--space-8); }
+  .mega-menu__icons { display: flex; align-items: center; gap: var(--space-8); }
+  .mega-menu__icons .icon-btn { width: var(--size-touch); height: var(--size-touch); }
+  .mega-menu__lang { display: inline-flex; align-items: center; justify-content: center; min-width: var(--size-touch); height: var(--size-touch); color: var(--color-text-primary); }
+  .mega-menu {
+    max-height: calc(100dvh - var(--mega-top, var(--size-header)));
+    overflow-y: auto; overscroll-behavior: contain;
+  }
+  .mega-menu__grid { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-32); }
+  html.is-menu-open { overflow: hidden; }
+  html.is-menu-open :is(.theme-switch, .booking-widget, .messenger-panel, .to-top) { visibility: hidden; }
+
+  /* Блок 2: галерея во всю ширину, под ней цена и кнопки в две колонки, эффекты ниже */
+  .hero__grid { flex-direction: column; align-items: stretch; }
+  .hero__gallery { width: 100%; }
+  .hero__aside { padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-24) var(--grid-gutter); }
+  .hero__effects { grid-column: 1 / -1; }
+
+  /* Медиа + текст → колонка: фото сверху во всю ширину */
+  .b3__grid, .b5__grid, .plaque__item, .b9__top, .b10__case-body, .b17__grid, .b19__grid, .b22__grid, .b24__grid, .b31__card {
+    flex-direction: column; align-items: stretch;
+  }
+  .b3__media { width: 100%; aspect-ratio: 3 / 2; }
+  .b3__media img { object-position: 50% 20%; }
+  .b3__text, .b5__text, .b10__text, .b24__text { padding-left: 0; }
+  .b5__media { width: 100%; aspect-ratio: 16 / 9; }
+  .b5__stages { flex-direction: column; }
+  .plaque { padding: var(--space-32); }
+  .plaque__item-media { width: 100%; aspect-ratio: 16 / 9; order: -1; }
+  .b9__result { width: 100%; padding-right: 0; }
+  .b9__video { flex: none; width: 100%; aspect-ratio: 16 / 9; }
+  .b9__discs-cards { display: grid; grid-template-columns: 1fr 1fr; }
+  .b9__youth { flex-direction: column; align-items: stretch; }
+  .b9__youth-text, .b9__youth-accordion { width: 100%; flex: none; }
+  .b10__snapshots { width: 100%; }
+  .b17__text { width: 100%; padding-right: 0; }
+  .b17__media { flex: none; width: 100%; aspect-ratio: 16 / 10; }
+  .b19__text { padding-right: 0; }
+  .b19__media { width: 100%; }
+  .b21__media { width: 40%; }
+  .b21__body { padding-left: 0; }
+  .b22__title { width: auto; }
+  .b24__media { width: 100%; aspect-ratio: 16 / 9; }
+  .b31__secondary { width: 100%; border-left: 0; padding-left: 0; border-top: 1px solid var(--color-border); padding-top: var(--space-24); }
+
+  /* Блок 4: показания — ряд вкладок со свайпом, карточка под ним */
+  .b4__grid { flex-direction: column; }
+  .b4__list {
+    width: auto; flex-direction: row; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--container-padding)); padding-inline: var(--container-padding); scroll-padding-inline: var(--container-padding);
+  }
+  .b4__list::-webkit-scrollbar { display: none; }
+  .b4__list .list-item { flex: 0 0 240px; scroll-snap-align: start; }
+
+  /* Блок 26: награды — ряд со свайпом */
+  .b26__grid { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding-bottom: var(--space-4); }
+  .b26__grid::-webkit-scrollbar { display: none; }
+  .b26__grid .award-card { flex: 0 0 220px; scroll-snap-align: start; }
+
+  /* Слайдеры: ряд стрелок без лишней высоты; в подкастах play уходит в угол, чтобы не закрывать подпись */
+  .slider-row--tall { height: auto; padding-top: var(--space-8); }
+  .video-card--podcast .play-btn { top: var(--space-16); left: var(--space-16); transform: none; width: var(--size-touch); height: var(--size-touch); }
+  .video-card--podcast .video-card__caption { left: var(--space-16); right: var(--space-16); bottom: var(--space-16); font-size: var(--font-size-h4); }
+
+  /* Плавающие кнопки поднимаются над виджетом бронирования (на 768 он почти во всю ширину) */
+  .messenger-panel { bottom: calc(24px + 66px + var(--space-16)); }
+  .to-top { bottom: calc(24px + 66px + var(--space-16) + 2px); }
+
+  /* Футер: 3 + 2 колонки */
+  .footer__columns { grid-template-columns: repeat(3, 1fr); row-gap: var(--space-32); }
+}
+
+/* ================================================================
+   ≤767 — 375 (мобильные токены — в tokens.css)
+   ================================================================ */
+@media (max-width: 767px) {
+  /* Топбар */
+  .topbar { gap: var(--space-8); }
+  .topbar .dots { display: none; }
+  .topbar__promo { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Шапка: лого · «Забронировать» · меню */
+  .header__row { gap: var(--space-12); }
+  .header__logo { height: 36px; }
+  .header__phone { display: none; }
+  .header__nav { order: 10; }
+  .header__burger { width: var(--size-touch); height: var(--size-touch); justify-content: center; margin-right: calc(-1 * var(--space-8)); }
+  .header__burger .link--nav { display: none; }
+  .mega-menu { padding: var(--space-24) 0 var(--space-32); }
+  .mega-menu__grid { grid-template-columns: 1fr; row-gap: var(--space-24); }
+  .mega-menu__col a { padding-block: var(--space-8); }
+
+  /* Хлебные крошки */
+  .breadcrumbs { padding-block: var(--space-16); }
+  .breadcrumbs ol { flex-wrap: wrap; row-gap: var(--space-4); }
+
+  /* Ряды со свайпом: край до края экрана, первый элемент по сетке */
+  .slider-track, .hero__tags, .b17__gallery, .b30__tags {
+    margin-inline: calc(-1 * var(--container-padding));
+    padding-inline: var(--container-padding);
+    scroll-padding-inline: var(--container-padding);
+  }
+  .slider-controls { display: none; }
+  .slider-row--tall { height: auto; }
+  .slider-row:has(> span:empty:first-child) { display: none; }
+  .proc-card, .article-card, .review-card, .video-card--podcast { width: min(384px, calc(100vw - 64px)); }
+  .video-card--podcast { height: auto; aspect-ratio: 2 / 1; }
+  .proc-card__media { height: auto; aspect-ratio: 4 / 3; }
+  .video-card--review { width: 240px; height: 406px; }
+  .photo-card, .doctor-card { width: 260px; }
+  .doctor-card__media { height: 325px; }
+
+  /* Блок 2 */
+  .hero { padding-top: var(--space-24); }
+  .hero__inner { gap: var(--space-24); }
+  .hero__tags { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .hero__tags::-webkit-scrollbar { display: none; }
+  .hero__tags .tag { flex-shrink: 0; white-space: nowrap; }
+  .hero__video-btn { top: 12px; right: 12px; }
+  .hero__thumbs { gap: var(--space-8); }
+  .hero__aside { display: flex; flex-direction: column; gap: var(--space-24); }
+
+  /* Блок 3 */
+  .b3__media { aspect-ratio: 4 / 5; }
+  .b3__cols { flex-direction: column; gap: var(--space-16); }
+  .b3__cta-line { flex-direction: column; align-items: flex-start; }
+
+  /* Блок 4: карточка — фото сверху */
+  .b4__card { flex-direction: column; padding: var(--space-card-padding); }
+  .b4__card-media { width: 100%; aspect-ratio: 4 / 3; order: -1; }
+
+  /* Блок 5 */
+  .b5__media { aspect-ratio: 4 / 3; }
+  .stage-block__head { align-items: flex-start; }
+
+  /* Блок 7, 7а */
+  .plaque { padding: var(--space-24); gap: var(--space-24); }
+  .plaque__items { gap: var(--space-32); }
+  .plaque__item-media { aspect-ratio: 4 / 3; }
+  .b7a__head { flex-direction: column; }
+
+  /* Блок 9 */
+  .b9 { gap: var(--space-48); }
+  .b9__video { aspect-ratio: 4 / 3; }
+  .b9__video-caption { padding: var(--space-48) var(--space-16) var(--space-16); }
+  .b9__discs-cards { gap: var(--space-12); }
+  .b9__youth { padding: var(--space-24); }
+
+  /* Блок 10 */
+  .b10__snapshots { padding: var(--space-12); }
+  .before-after { gap: var(--space-12); }
+  .before-after__cap { top: 8px; left: 8px; }
+  .b10__help { flex-direction: column; align-items: flex-start; gap: var(--space-16); }
+
+  /* Блок 11: таблица и лицензия */
+  .table-row { gap: var(--space-8); padding: var(--space-12); }
+  .table-row .col-num { width: 56px; }
+  .accordion__head { gap: var(--space-16); }
+  .license-strip { flex-wrap: wrap; }
+  .license-strip__title { flex-basis: calc(100% - var(--size-control) - var(--space-16)); }
+
+  /* Блоки 13 и 29: фото сверху, карточка наезжает на него снизу */
+  .b13__banner, .b29__banner { display: block; height: auto; padding: 0; overflow: visible; border-radius: 0; }
+  .b13__banner img, .b29__banner img { position: static; z-index: auto; height: auto; aspect-ratio: 4 / 3; border-radius: var(--radius-media); }
+  .b13__card, .b29__panel { position: relative; width: auto; margin: calc(-1 * var(--space-48)) var(--space-12) 0; }
+  .b13__card { padding: var(--space-24); gap: var(--space-24); }
+  .b29__panel { background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: var(--space-24); gap: var(--space-24); }
+  .b29__panel .form-card { padding: 0; border: 0; box-shadow: none; }
+
+  /* Блок 17: галерея — ряд со свайпом, счётчик не нужен */
+  .b17__media { aspect-ratio: 4 / 3; }
+  .b17__gallery { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .b17__gallery::-webkit-scrollbar { display: none; }
+  .b17__gallery-item { flex: 0 0 260px; scroll-snap-align: start; }
+  .b17__gallery .gallery-counter { display: none; }
+
+  /* Блок 21 */
+  .b21__grid { flex-direction: column; align-items: stretch; }
+  .b21__media { width: 100%; aspect-ratio: 4 / 5; }
+  .b21__footer { flex-wrap: wrap; }
+
+  /* Блок 23 */
+  .b23__foot { flex-wrap: wrap; gap: var(--space-12) var(--space-24); }
+
+  /* Блок 24 */
+  .b24__media { aspect-ratio: 4 / 3; }
+  .b24__facts { gap: var(--space-12); }
+
+  /* Блок 25 */
+  .b25__strip { flex-direction: column; align-items: flex-start; padding: var(--space-16); }
+  .b25__search { width: 100%; }
+  .price-row { padding-inline: 0; }
+  .price-row .name { white-space: normal; }
+  .price-row .leader { min-width: var(--space-16); }
+
+  /* Блоки 27, 30: кнопки столбиком */
+  .slider-row { flex-direction: column; align-items: flex-start; gap: var(--space-12); }
+  .btn-row { flex-direction: column; align-items: flex-start; }
+  .b30__tags { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .b30__tags::-webkit-scrollbar { display: none; }
+  .b30__tags .tag { flex-shrink: 0; white-space: nowrap; }
+
+  /* Блок 31 */
+  .b31__card { padding: var(--space-24); gap: var(--space-24); }
+  .b31__phone-number { font-size: 28px; }
+  .b31__form-row { flex-direction: column; align-items: stretch; }
+  .b31__form-row .btn { width: 100%; }
+
+  /* Блок 32 */
+  .b32__inner { width: auto; padding-inline: var(--container-padding); }
+  .b32__form-row { flex-direction: column; align-items: stretch; }
+  .b32__form-row .btn { width: 100%; }
+
+  /* Футер: две колонки ссылок, первая и контакты — во всю ширину */
+  .footer { padding-block: var(--space-48) calc(var(--space-32) + var(--booking-bar-h, 0px)); }
+  .footer__columns { grid-template-columns: 1fr 1fr; }
+  .footer__columns > .footer__col:first-child, .footer__contact { grid-column: 1 / -1; }
+  .footer__disclaimer { font-size: var(--font-size-body); }
+
+  /* Виджет бронирования — нижняя панель: дата заезда + кнопка; остальное уточняется на шаге бронирования */
+  :root { --booking-bar-h: 64px; }
+  .booking-widget {
+    left: 0; right: 0; bottom: 0; transform: none;
+    border-radius: var(--radius-card) var(--radius-card) 0 0; border-bottom: 0;
+    padding: var(--space-8) var(--container-padding) calc(var(--space-8) + env(safe-area-inset-bottom));
+  }
+  .booking-widget .widget-field { flex: 1 0 0; min-width: 0; width: auto; }
+  .booking-widget .widget-field:nth-child(n + 2) { display: none; }
+  .booking-widget .btn { flex-shrink: 0; }
+
+  /* Плавающие кнопки — над панелью бронирования */
+  .messenger-panel { right: var(--container-padding); bottom: calc(var(--booking-bar-h) + var(--space-16)); }
+  .to-top { right: calc(var(--container-padding) + 48px + var(--space-12)); bottom: calc(var(--booking-bar-h) + var(--space-16) + 2px); width: var(--size-touch); height: var(--size-touch); }
+
+  /* Переключатель вариантов (презентация): внизу слева над панелью бронирования, чтобы не закрывать шапку и крошки */
+  .theme-switch { top: auto; right: auto; left: var(--container-padding); bottom: calc(var(--booking-bar-h) + var(--space-16) + 8px); }
+  .theme-switch__opt { padding: 6px 10px; }
+}

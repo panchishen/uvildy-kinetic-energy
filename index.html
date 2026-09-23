@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/blocks.css">
+<link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
@@ -23,6 +24,7 @@
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol>
+<symbol id="icon-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></symbol>
 <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
 <symbol id="icon-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
 <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
@@ -87,8 +89,8 @@
       <a class="link--nav" href="#">Лечение</a>
       <a class="link--nav" href="#">О санатории</a>
       <a class="link--nav" href="#">Информация</a>
-      <button class="header__burger" type="button" aria-haspopup="true" aria-expanded="false" data-mega-toggle>
-        <svg class="icon" width="24" height="24"><use href="#icon-menu"></use></svg>
+      <button class="header__burger" type="button" aria-label="Всё меню" aria-expanded="false" aria-controls="mega-menu" data-mega-toggle>
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-menu"></use></svg>
         <span class="link--nav">Всё меню</span>
       </button>
     </nav>
@@ -108,11 +110,11 @@
         <svg class="icon" width="24" height="24"><use href="#icon-search"></use></svg>
       </button>
     </div>
-    <a class="link--nav" href="#" lang="en">EN</a>
+    <a class="link--nav header__lang" href="#" lang="en">EN</a>
     <a class="btn btn--primary btn--sm" href="#booking-widget">Забронировать</a>
   </div>
 
-  <div class="mega-menu" data-mega-menu>
+  <div class="mega-menu" id="mega-menu" data-mega-menu>
     <div class="container">
       <div class="mega-menu__grid">
         <div class="mega-menu__col">
@@ -152,6 +154,24 @@
           <a href="#">Способы оплаты</a>
           <a href="#">Отзывы</a>
           <a href="#">Новости</a>
+        </div>
+      </div>
+      <!-- Пункты шапки, скрытые на узких экранах (≤1247 / ≤1023 / ≤767) -->
+      <div class="mega-menu__extra">
+        <nav class="mega-menu__nav" aria-label="Разделы сайта">
+          <a href="#">Отдых</a>
+          <a href="#">Лечение</a>
+          <a href="#">О санатории</a>
+          <a href="#">Информация</a>
+        </nav>
+        <div class="mega-menu__tools">
+          <a class="mega-menu__phone text-h4" href="tel:+78005512930">8 (800) 551-29-30</a>
+          <div class="mega-menu__icons">
+            <button class="icon-btn icon-btn--light" type="button" aria-label="Личный кабинет"><svg class="icon" width="24" height="24"><use href="#icon-user"></use></svg></button>
+            <button class="icon-btn icon-btn--light" type="button" aria-label="Версия для слабовидящих"><svg class="icon" width="24" height="24"><use href="#icon-eye"></use></svg></button>
+            <button class="icon-btn icon-btn--light" type="button" aria-label="Поиск"><svg class="icon" width="24" height="24"><use href="#icon-search"></use></svg></button>
+            <a class="mega-menu__lang text-button" href="#" lang="en">EN</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1396,19 +1416,19 @@
             <img src="assets/img/podcast-1-a.webp" alt="Подкаст: грыжа диска" width="384" height="216">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h3">Грыжа диска: когда нужна операция, а когда — нет</span>
-            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста" style="width:56px;height:56px;"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--podcast">
             <img src="assets/img/podcast-2-a.webp" alt="Подкаст: артроз колена" width="384" height="216">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h3">Артроз колена: что реально помогает</span>
-            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста" style="width:56px;height:56px;"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--podcast">
             <img src="assets/img/podcast-3-a.webp" alt="Подкаст: реабилитация после эндопротезирования" width="384" height="216">
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h3">Реабилитация после эндопротезирования: первые 6 месяцев</span>
-            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста" style="width:56px;height:56px;"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
           </div>
         </div>
         <div class="b23__foot">
@@ -1674,7 +1694,7 @@
         <p class="text-lead" style="color: var(--color-text-secondary);">Рассказываем всё, что нужно знать о боли в спине и суставах, остеохондрозе и грыжах диска.</p>
       </div>
       <div style="display:flex; flex-direction:column; gap: var(--space-24);">
-        <ul class="tag-list">
+        <ul class="tag-list b30__tags">
           <li class="tag text-small" style="background: var(--color-action-soft); color: var(--color-action-on-soft);">Все</li>
           <li class="tag text-small">Грыжа позвоночника</li>
           <li class="tag text-small">Боль в спине</li>
@@ -1932,13 +1952,18 @@
 </div>
 
 <!-- Плавающая панель мессенджеров -->
-<div class="messenger-panel" aria-label="Связаться с нами">
+<div class="messenger-panel" data-messenger>
+  <div class="messenger-panel__items" id="messenger-items" role="group" aria-label="Связаться с нами">
   <a class="icon-btn icon-btn--brand icon-btn--phone" href="tel:+78005512930" aria-label="Позвонить"><img src="assets/icons/brand/btn-phone.svg" alt="" width="24" height="24"></a>
   <a class="icon-btn icon-btn--brand icon-btn--vk" href="#" aria-label="VK"><img src="assets/icons/brand/btn-vk.svg" alt="" width="24" height="24"></a>
   <a class="icon-btn icon-btn--brand icon-btn--telegram" href="#" aria-label="Telegram"><img src="assets/icons/brand/btn-telegram.svg" alt="" width="24" height="24"></a>
   <a class="icon-btn icon-btn--brand icon-btn--ok" href="#" aria-label="Одноклассники"><img src="assets/icons/brand/btn-ok.svg" alt="" width="24" height="24"></a>
   <a class="icon-btn icon-btn--brand icon-btn--rutube" href="#" aria-label="Rutube"><img src="assets/icons/brand/btn-rutube.svg" alt="" width="24" height="24"></a>
   <a class="icon-btn icon-btn--brand icon-btn--max" href="#" aria-label="MAX"><img src="assets/icons/brand/btn-max.svg" alt="" width="24" height="24"></a>
+  </div>
+  <button class="messenger-panel__toggle icon-btn icon-btn--brand icon-btn--phone" type="button" aria-label="Связаться с нами" aria-expanded="false" aria-controls="messenger-items" data-messenger-toggle>
+    <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-message-circle"></use></svg>
+  </button>
 </div>
 
 <!-- Кнопка «наверх» -->

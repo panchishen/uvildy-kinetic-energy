@@ -603,6 +603,8 @@ form.is-sent .form-sent { display: flex; }
 .mega-menu__col h3 { color: var(--color-text-primary); }
 .mega-menu__col a { color: var(--color-text-secondary); font-family: var(--font-body); font-weight: var(--font-weight-medium); font-size: var(--font-size-small); }
 .mega-menu__col a:hover { color: var(--color-action-primary); }
+/* Пункты шапки, которые на узких экранах переезжают в меню (см. responsive.css) */
+.mega-menu__extra { display: none; }
 
 /* ================= Виджет бронирования ================= */
 .widget-field {
@@ -660,6 +662,8 @@ form.is-sent .form-sent { display: flex; }
   flex-direction: column;
   gap: var(--space-12);
 }
+.messenger-panel__items { display: flex; flex-direction: column; gap: var(--space-12); }
+.messenger-panel__toggle { display: none; }
 .messenger-panel .icon-btn--brand { width: 40px; height: 40px; }
 .messenger-panel .icon-btn--brand .icon { width: 24px; height: 24px; }
 

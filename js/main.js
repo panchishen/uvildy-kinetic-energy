@@ -68,20 +68,55 @@
   var megaToggle = document.querySelector('[data-mega-toggle]');
   var megaMenu = document.querySelector('[data-mega-menu]');
   if (megaToggle && megaMenu) {
+    var megaIcon = megaToggle.querySelector('use');
+    // На узких экранах меню — панель на всю высоту под шапкой, страница под ней не прокручивается
+    function setMega(isOpen) {
+      if (isOpen) {
+        var bottom = header.getBoundingClientRect().bottom;
+        megaMenu.style.setProperty('--mega-top', Math.max(Math.round(bottom), 0) + 'px');
+      }
+      megaMenu.classList.toggle('is-open', isOpen);
+      megaToggle.setAttribute('aria-expanded', String(isOpen));
+      document.documentElement.classList.toggle('is-menu-open', isOpen);
+      // крестик — только на узких экранах, где меню закрывает страницу; на десктопе иконка как в макете
+      if (megaIcon) megaIcon.setAttribute('href', isOpen && window.matchMedia('(max-width: 1023px)').matches ? '#icon-x' : '#icon-menu');
+    }
     function closeMega() {
-      megaMenu.classList.remove('is-open');
-      megaToggle.setAttribute('aria-expanded', 'false');
+      if (megaMenu.classList.contains('is-open')) setMega(false);
     }
     function toggleMega() {
-      var isOpen = megaMenu.classList.toggle('is-open');
-      megaToggle.setAttribute('aria-expanded', String(isOpen));
+      setMega(!megaMenu.classList.contains('is-open'));
     }
+    megaMenu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeMega();
+    });
     megaToggle.addEventListener('click', toggleMega);
     document.addEventListener('click', function (e) {
       if (!header.contains(e.target)) closeMega();
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMega();
+    });
+  }
+
+  /* ---------- Панель мессенджеров: на узких экранах сворачивается в одну кнопку ---------- */
+  var messenger = document.querySelector('[data-messenger]');
+  if (messenger) {
+    var messengerToggle = messenger.querySelector('[data-messenger-toggle]');
+    var messengerIcon = messengerToggle.querySelector('use');
+    var setMessenger = function (isOpen) {
+      messenger.classList.toggle('is-open', isOpen);
+      messengerToggle.setAttribute('aria-expanded', String(isOpen));
+      messengerIcon.setAttribute('href', isOpen ? '#icon-x' : '#icon-message-circle');
+    };
+    messengerToggle.addEventListener('click', function () {
+      setMessenger(!messenger.classList.contains('is-open'));
+    });
+    document.addEventListener('click', function (e) {
+      if (!messenger.contains(e.target)) setMessenger(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMessenger(false);
     });
   }
 
