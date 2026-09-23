@@ -438,6 +438,13 @@
 .photo-card__caption .text { color: var(--color-text-on-inverse-muted); }
 .photo-card__caption .price { color: var(--color-text-on-inverse); }
 
+/* ---------- Card/Video ---------- */
+.video-card { position: relative; border-radius: var(--radius-media); overflow: hidden; flex-shrink: 0; }
+.video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-card__gradient { position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-overlay-media-start), var(--color-overlay-media-end)); }
+.video-card__caption { position: absolute; left: 24px; right: 24px; bottom: 24px; color: var(--color-text-on-inverse); }
+.video-card .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
 /* ---------- Gallery counter ---------- */
 .gallery-counter { display: flex; flex-direction: column; gap: var(--space-8); align-items: center; width: 120px; flex-shrink: 0; }
 .gallery-counter .count { color: var(--color-text-primary); }

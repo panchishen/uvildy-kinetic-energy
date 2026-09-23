@@ -1159,7 +1159,160 @@
     </div>
   </section>
 
-  <!-- TODO: блоки 19–32 (см. 00-docs/content-map.md) — следующие сессии вёрстки -->
+  <!-- Блок 19. Видеоконференция со специалистом -->
+  <section class="container" id="block-19" style="padding-block: var(--space-section);">
+    <div style="display:flex; gap: var(--grid-gutter); align-items:flex-start;">
+      <div style="flex:1 0 0; min-width:0; padding-right: var(--space-24); display:flex; flex-direction:column; gap: var(--space-32);">
+        <div>
+          <h2 class="text-h2">Видеоконференция со специалистом по комплексному восстановлению</h2>
+          <p class="text-body" style="margin-top: var(--space-16);">Не обязательно приезжать ради первого разговора. Начните с видеоконференции: отправьте снимки и выписки, получите предварительное мнение по вашей ситуации.</p>
+        </div>
+        <div>
+          <p class="text-h4" style="margin-bottom: var(--space-12);">Во время видеоконференции можно:</p>
+          <ul class="text-body">
+            <li>показать снимки и документы</li>
+            <li>обсудить боль, ограничения и диагноз</li>
+            <li>понять, нужна ли операция сейчас</li>
+            <li>получить список анализов</li>
+            <li>задать вопросы по срокам и восстановлению</li>
+          </ul>
+        </div>
+        <a href="#" class="btn btn--primary">Записаться на видеоконференцию</a>
+      </div>
+      <div style="width:588px; height:331px; flex-shrink:0; border-radius: var(--radius-media); overflow:hidden;">
+        <img src="assets/img/video-consult-a.webp" alt="Врач на видеоконсультации" width="588" height="331" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 20. Видеоотзывы пациентов -->
+  <section class="container" id="block-20" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div>
+        <h2 class="text-h2">Видеоотзывы пациентов</h2>
+        <p class="text-lead" style="color: var(--color-text-secondary);">У каждого своя история, и все благодарны специалистам санатория Увильды.</p>
+      </div>
+      <div>
+        <div class="slider-track" data-slider>
+          <div class="video-card" style="width:282px; height:477px;">
+            <img src="assets/img/review-video-1-a.webp" alt="Видеоотзыв пациентки" width="282" height="477">
+            <span class="video-card__gradient"></span>
+            <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+          </div>
+          <div class="video-card" style="width:282px; height:477px;">
+            <img src="assets/img/review-video-2-a.webp" alt="Видеоотзыв пациента" width="282" height="477">
+            <span class="video-card__gradient"></span>
+            <span class="video-card__caption text-h3">«За месяц терапии состояние значительно улучшилось, боль практически ушла. Я оставила трость и сняла ортез.»</span>
+            <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+          </div>
+          <div class="video-card" style="width:282px; height:477px;">
+            <img src="assets/img/review-video-3-a.webp" alt="Видеоотзыв пациентки" width="282" height="477">
+            <span class="video-card__gradient"></span>
+            <span class="video-card__caption text-h3">«Колено абсолютно хорошее, стабильное.»</span>
+            <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+          </div>
+          <div class="video-card" style="width:282px; height:477px;">
+            <img src="assets/img/review-video-4-a.webp" alt="Видеоотзыв пациентов" width="282" height="477">
+            <span class="video-card__gradient"></span>
+            <span class="video-card__caption text-h3">«Спасибо большое!»</span>
+            <button class="play-btn" type="button" aria-label="Смотреть видеоотзыв"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+          </div>
+        </div>
+        <div class="slider-row">
+          <a href="#" class="btn btn--secondary">Смотреть видео</a>
+          <div class="slider-controls">
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущая карточка" disabled data-slider-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующая карточка" data-slider-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 21. Мнение руководителя -->
+  <section class="container" id="block-21" style="padding-block: var(--space-section);">
+    <div style="display:flex; gap: var(--grid-gutter); align-items:flex-start;">
+      <div style="width:384px; height:480px; flex-shrink:0; border-radius: var(--radius-media); overflow:hidden; border:1px solid var(--color-border);">
+        <img src="assets/img/quote-photo-a.webp" alt="Чернова Светлана Евгеньевна" width="384" height="480" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div style="flex:1 0 0; min-width:0; padding-left: var(--space-24); display:flex; flex-direction:column; gap: var(--space-16);">
+        <p class="text-body"><strong>Почему мы создали программу.</strong> К нам приезжают люди, которые годами лечат боль в спине или колене: таблетки, блокады, курс массажа — и снова всё сначала. Так происходит, когда лечат симптом, а не причину.</p>
+        <p class="text-body"><strong>Как работаем.</strong> Сначала 7 видов диагностики — от неврологического осмотра до кинезиологического тестирования. Потом врач собирает схему из 68 процедур под конкретного человека: его сустав, его стопы, его возраст и стресс. Двух одинаковых схем не бывает.</p>
+        <p class="text-body"><strong>Что обещаем.</strong> Не чудо, а измеримый результат: снижение боли на 3–6 баллов по шкале VAS, восстановление подвижности и понимание, как поддерживать результат дома. И снимки до и после, по которым это видно.</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; padding-top: var(--space-16);">
+          <div>
+            <span class="text-overline" style="display:block; color: var(--color-text-secondary);">Руководитель программы «Энергия движения»</span>
+            <span class="text-h4">Чернова Светлана Евгеньевна</span>
+          </div>
+          <div class="slider-controls">
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Предыдущее мнение" data-slider-prev><svg class="icon" width="24" height="24"><use href="#icon-arrow-left"></use></svg></button>
+            <div class="dots"><span class="dots__item is-active"></span><span class="dots__item"></span><span class="dots__item"></span></div>
+            <button type="button" class="icon-btn icon-btn--light" aria-label="Следующее мнение" data-slider-next><svg class="icon" width="24" height="24"><use href="#icon-arrow-right"></use></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 22. Услуги (SEO) -->
+  <section class="b4" id="block-22" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+    <div class="container" style="display:flex; gap: var(--grid-gutter); align-items:flex-start;">
+      <h2 class="text-h2" style="width:282px; flex-shrink:0;">Услуги</h2>
+      <div style="flex:1 0 0; min-width:0; display:flex; flex-direction:column; gap: var(--space-24);">
+        <ul style="display:flex; flex-wrap:wrap; gap: var(--space-8);">
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Консультативный приём ортопеда-травматолога</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Диагностика</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Ортопедическая реабилитация</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Мануальная терапия</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Ортопедические стельки</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Тейпирование</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Лечение последствий травм</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Внутрисуставные инъекции</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Реабилитация после эндопротезирования</li>
+          <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Подология</li>
+        </ul>
+        <a href="#" class="btn btn--secondary" style="align-self:flex-start;">Записаться на консультацию</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 23. Честно о здоровье суставов и позвоночника -->
+  <section class="container" id="block-23" style="padding-block: var(--space-section);">
+    <div style="display:flex; flex-direction:column; gap: var(--space-32);">
+      <div>
+        <h2 class="text-h2">Честно о здоровье суставов и позвоночника</h2>
+        <p class="text-lead" style="color: var(--color-text-secondary);">Вместе с врачами разбираем актуальные темы — понятно и по делу.</p>
+      </div>
+      <div>
+        <div class="slider-track" data-slider>
+          <div class="video-card" style="width:384px; height:216px;">
+            <img src="assets/img/podcast-1-a.webp" alt="Подкаст: грыжа диска" width="384" height="216">
+            <span class="video-card__gradient"></span>
+            <span class="video-card__caption text-h3">Грыжа диска: когда нужна операция, а когда — нет</span>
+            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста" style="width:56px;height:56px;"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+          </div>
+          <div class="video-card" style="width:384px; height:216px;">
+            <img src="assets/img/podcast-2-a.webp" alt="Подкаст: артроз колена" width="384" height="216">
+            <span class="video-card__gradient"></span>
+            <span class="video-card__caption text-h3">Артроз колена: что реально помогает</span>
+            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста" style="width:56px;height:56px;"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+          </div>
+          <div class="video-card" style="width:384px; height:216px;">
+            <img src="assets/img/podcast-3-a.webp" alt="Подкаст: реабилитация после эндопротезирования" width="384" height="216">
+            <span class="video-card__gradient"></span>
+            <span class="video-card__caption text-h3">Реабилитация после эндопротезирования: первые 6 месяцев</span>
+            <button class="play-btn" type="button" aria-label="Смотреть выпуск подкаста" style="width:56px;height:56px;"><svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg></button>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap: var(--space-24);">
+          <span class="text-h4">Подкаст «Честно о здоровье»</span>
+          <a href="#" class="btn btn--secondary btn--sm">Смотреть все</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO: блоки 24–32 (см. 00-docs/content-map.md) — следующие сессии вёрстки -->
 
 </main>
 
