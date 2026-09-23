@@ -69,6 +69,9 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .b24__media { width: 40.5%; }
   .b24__text { padding-left: var(--space-24); }
 
+  /* Блок 26 */
+  .b26__grid > .award-feature { width: 40.5%; }
+
   /* Блок 31 */
   .b31__card { gap: var(--space-32); }
   .b31__secondary { width: 36%; padding-left: var(--space-32); }
@@ -146,10 +149,9 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .b4__list::-webkit-scrollbar { display: none; }
   .b4__list .list-item { flex: 0 0 240px; scroll-snap-align: start; }
 
-  /* Блок 26: награды — ряд со свайпом */
-  .b26__grid { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding-bottom: var(--space-4); }
-  .b26__grid::-webkit-scrollbar { display: none; }
-  .b26__grid .award-card { flex: 0 0 220px; scroll-snap-align: start; }
+  /* Блок 26: премия во всю ширину, рейтинги 2 × 2 под ней */
+  .b26__grid { flex-direction: column; }
+  .b26__grid > .award-feature { width: 100%; }
 
   /* Слайдеры: ряд стрелок без лишней высоты; в подкастах play уходит в угол, чтобы не закрывать подпись */
   .slider-row--tall { height: auto; padding-top: var(--space-8); }
@@ -286,6 +288,13 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .price-row { padding-inline: 0; }
   .price-row .name { white-space: normal; }
   .price-row .leader { min-width: var(--space-16); }
+
+  /* Блок 26: рейтинги в одну колонку, эмблема меньше */
+  .b26__ratings { grid-template-columns: 1fr; gap: var(--space-12); }
+  .award-feature { padding: var(--space-24); gap: var(--space-16); }
+  .award-feature__emblem { width: 96px; height: 96px; }
+  .award-feature__emblem img { width: 66px; height: 66px; }
+  .rating-card { padding: var(--space-16) var(--space-24); }
 
   /* Блоки 27, 30: кнопки столбиком */
   .slider-row { flex-direction: column; align-items: flex-start; gap: var(--space-12); }
