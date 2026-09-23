@@ -330,6 +330,82 @@
 .slider-controls { display: flex; align-items: center; gap: var(--space-16); }
 .slider-controls button:disabled { opacity: .48; cursor: not-allowed; }
 
+/* ---------- Accordion ---------- */
+.accordion__row { border-bottom: 1px solid var(--color-border); padding-block: var(--space-24); }
+.accordion__head {
+  display: flex; align-items: center; gap: var(--space-24);
+  width: 100%; background: none; border: 0; cursor: pointer; text-align: left; padding: 0;
+}
+.accordion__head .title { flex: 1 0 0; min-width: 0; color: var(--color-text-primary); }
+.accordion__toggle {
+  width: 40px; height: 40px; border-radius: 999px; background: var(--color-surface-section);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-text-primary);
+}
+.accordion__panel { display: none; padding-top: var(--space-16); color: var(--color-text-secondary); }
+.accordion__row.is-open .accordion__head .title { color: var(--color-action-primary); }
+.accordion__row.is-open .accordion__toggle { background: var(--color-action-soft); color: var(--color-action-primary); }
+.accordion__row.is-open .accordion__panel { display: block; }
+
+/* ---------- Table ---------- */
+.table-card { background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); overflow: hidden; width: 100%; }
+.table-row { display: flex; align-items: center; gap: var(--space-16); padding: var(--space-12) var(--space-16); border-bottom: 1px solid var(--color-border); }
+.table-row:last-child { border-bottom: 0; }
+.table-row--head { color: var(--color-text-secondary); }
+.table-row .col-name { flex: 1 0 0; min-width: 0; }
+.table-row .col-num { width: 96px; text-align: right; flex-shrink: 0; }
+.table-row.is-highlight { background: var(--color-action-soft); }
+
+/* ---------- License strip ---------- */
+.license-strip {
+  display: flex; align-items: center; gap: var(--space-16);
+  background: var(--color-surface-card); border: 1px solid var(--color-border);
+  border-radius: var(--radius-card); padding: var(--space-16); width: 100%;
+}
+.license-strip__icon {
+  width: var(--size-control); height: var(--size-control); border-radius: var(--radius-input);
+  background: var(--color-surface-section); display: flex; align-items: center; justify-content: center;
+  color: var(--color-heading-accent); flex-shrink: 0;
+}
+.license-strip__title { flex: 1 0 0; min-width: 0; color: var(--color-text-primary); }
+
+/* ---------- Tabs (табы кейсов) ---------- */
+.tabs-row { display: flex; gap: var(--space-8); }
+.tab-chip {
+  height: var(--size-control-sm); min-width: 48px; padding-inline: var(--space-16);
+  border-radius: var(--radius-tag); background: var(--color-surface-section); color: var(--color-text-secondary);
+  display: flex; align-items: center; justify-content: center; border: 0; cursor: pointer;
+}
+.tab-chip.is-active { background: var(--color-action-primary); color: var(--color-text-on-action); }
+
+/* ---------- Before / After ---------- */
+.before-after { display: flex; gap: var(--grid-gutter); }
+.before-after__item { position: relative; width: 282px; height: 282px; border-radius: var(--radius-media); overflow: hidden; flex-shrink: 0; }
+.before-after__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.before-after__cap { position: absolute; top: 16px; left: 16px; }
+
+/* ---------- Иконки-мессенджеры (светлые, на белом) ---------- */
+.messenger-inline { display: flex; align-items: center; gap: var(--space-8); }
+.icon-btn--msg { background: var(--color-surface-card); border: 1px solid var(--color-border-control); }
+.icon-btn--msg .icon { width: 24px; height: 24px; }
+.icon-btn--msg--telegram .icon { color: var(--color-messenger-telegram); }
+.icon-btn--msg--whatsapp .icon { color: var(--color-messenger-whatsapp); }
+.icon-btn--msg--max .icon { color: var(--color-messenger-max); }
+.icon-btn--msg:hover { background: var(--color-action-soft); }
+
+/* ---------- Stat card (простая) ---------- */
+.stat-card { background: var(--color-surface-section); border-radius: var(--radius-card); padding: var(--space-card-padding); display: flex; flex-direction: column; gap: var(--space-12); flex: 1 0 0; }
+.stat-card .num { color: var(--color-heading-accent); }
+.stat-card .desc { color: var(--color-text-primary); }
+
+/* ---------- Check list (пункты с галочкой в кружке) ---------- */
+.check-item { display: flex; gap: var(--space-16); align-items: flex-start; padding-block: var(--space-16); border-top: 1px solid var(--color-border); }
+.check-item__mark {
+  width: 32px; height: 32px; border-radius: 999px; background: var(--color-accent-soft);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-state-success);
+}
+.check-item__mark .icon { width: 16px; height: 16px; }
+.check-item__text { flex: 1 0 0; min-width: 0; color: var(--color-text-primary); }
+
 /* ================= Топбар ================= */
 .topbar {
   height: 40px;

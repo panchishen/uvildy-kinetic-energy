@@ -172,6 +172,44 @@
     updateButtons();
   });
 
+  /* ---------- Аккордеоны (блоки 9, 11, 25, 28) ---------- */
+  document.querySelectorAll('[data-accordion]').forEach(function (group) {
+    var exclusive = group.hasAttribute('data-accordion-exclusive');
+    var rows = group.querySelectorAll('.accordion__row');
+    rows.forEach(function (row) {
+      var head = row.querySelector('.accordion__head');
+      var toggleIcon = row.querySelector('.accordion__toggle use');
+      if (!head) return;
+      head.addEventListener('click', function () {
+        var willOpen = !row.classList.contains('is-open');
+        if (exclusive) {
+          rows.forEach(function (r) {
+            r.classList.remove('is-open');
+            r.querySelector('.accordion__head').setAttribute('aria-expanded', 'false');
+            var icon = r.querySelector('.accordion__toggle use');
+            if (icon) icon.setAttribute('href', '#icon-plus');
+          });
+        }
+        row.classList.toggle('is-open', willOpen);
+        head.setAttribute('aria-expanded', String(willOpen));
+        if (toggleIcon) toggleIcon.setAttribute('href', willOpen ? '#icon-minus' : '#icon-plus');
+      });
+    });
+  });
+
+  /* ---------- Табы кейсов МРТ (блок 10) ---------- */
+  document.querySelectorAll('.tabs-row').forEach(function (tabs) {
+    var buttons = tabs.querySelectorAll('.tab-chip');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-selected', String(b === btn));
+        });
+      });
+    });
+  });
+
   /* ---------- Якорное меню: активный пункт по прокрутке ---------- */
   var anchorLinks = document.querySelectorAll('.anchor-chip');
   if (anchorLinks.length) {

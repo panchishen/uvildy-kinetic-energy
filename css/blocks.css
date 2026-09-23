@@ -226,3 +226,53 @@
 .plaque__item-text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-12); color: var(--color-text-primary); }
 .plaque__item-text ul { list-style: disc; padding-left: 25.5px; }
 .plaque__item-text li { line-height: 1.55; }
+
+/* ---------- Блок 9. Результат + Молодость ---------- */
+.b9 { display: flex; flex-direction: column; gap: var(--space-64); }
+.b9__top { display: flex; gap: var(--grid-gutter); align-items: flex-start; }
+.b9__result { width: 486px; flex-shrink: 0; padding-right: var(--space-24); display: flex; flex-direction: column; gap: var(--space-32); }
+.b9__get-label { color: var(--color-heading-accent); }
+.b9__video { position: relative; flex: 1 0 0; height: 500px; border-radius: var(--radius-media); overflow: hidden; }
+.b9__video img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.b9__video-caption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 72px var(--space-32) var(--space-24);
+  background: linear-gradient(180deg, var(--color-overlay-media-start), var(--color-overlay-media-end));
+  display: flex; flex-direction: column; gap: var(--space-12);
+}
+.b9__video-caption .title { color: var(--color-text-on-inverse); }
+.b9__video-caption .meta { color: var(--color-text-on-inverse-muted); }
+.b9__video-progress { height: 4px; border-radius: 999px; background: var(--color-text-on-inverse); width: 100%; }
+.b9__video .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.b9__discs { display: flex; flex-direction: column; gap: var(--space-24); }
+.b9__discs-cards { display: flex; gap: var(--grid-gutter); align-items: stretch; }
+.b9__youth { background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--space-48); display: flex; gap: var(--grid-gutter); align-items: flex-start; }
+.b9__youth-text { width: 438px; flex-shrink: 0; display: flex; flex-direction: column; gap: var(--space-12); color: var(--color-text-primary); }
+.b9__youth-accordion { flex: 1 0 0; min-width: 0; }
+.b9__youth-cta { width: 220px; flex-shrink: 0; display: flex; justify-content: flex-end; }
+
+/* ---------- Блок 10. МРТ до/после ---------- */
+.b10 { background: var(--color-surface-section); }
+.b10__case { display: flex; flex-direction: column; gap: var(--space-24); }
+.b10__case-body { display: flex; gap: var(--grid-gutter); align-items: flex-start; }
+.b10__snapshots { background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card); padding: 16px; flex-shrink: 0; }
+.b10__text { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-24); padding-left: var(--space-24); color: var(--color-text-primary); }
+.b10__text-group { display: flex; flex-direction: column; gap: var(--space-8); }
+.b10__text-group .label { color: var(--color-heading-accent); }
+.b10__text-group ul { list-style: disc; padding-left: 25.5px; }
+.b10__text-group li { line-height: 1.55; }
+.b10__help { display: flex; gap: var(--space-32); align-items: center; flex-wrap: wrap; }
+.b10__help-msg { display: flex; gap: var(--space-12); align-items: center; flex-wrap: wrap; }
+
+/* ---------- Блок 11+12. Условия + Лицензия ---------- */
+.b11 { display: flex; flex-direction: column; gap: var(--space-48); }
+.b11__accordion { display: flex; flex-direction: column; }
+
+/* ---------- Блок 13. Баннер МРТ ---------- */
+.b13__banner { position: relative; width: 100%; height: 514px; border-radius: var(--radius-media); overflow: hidden; display: flex; align-items: center; padding: var(--space-48); }
+.b13__banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.b13__card {
+  background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card); padding: var(--space-32); width: 588px; display: flex; flex-direction: column; gap: var(--space-32);
+}
+.b13__copy { display: flex; flex-direction: column; gap: var(--space-16); color: var(--color-text-primary); }
+.b13__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-24); }
