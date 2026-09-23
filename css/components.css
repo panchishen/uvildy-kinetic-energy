@@ -252,7 +252,6 @@
   box-shadow: var(--shadow-card);
   transition: box-shadow var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
 }
-.card--hover:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
 
 /* ---------- Card/Procedure ---------- */
 .proc-card {
@@ -438,7 +437,6 @@
   border-radius: var(--radius-media); overflow: hidden;
 }
 .photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--motion-slow) var(--motion-ease); }
-.photo-card:hover img { transform: scale(1.04); }
 .photo-card__gradient { position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-overlay-media-start), var(--color-overlay-media-end)); }
 .photo-card__badge { position: absolute; top: 24px; left: 24px; background: var(--color-surface-card); border: 1px solid var(--color-border); color: var(--color-text-secondary); }
 .photo-card__caption { position: absolute; left: 24px; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: var(--space-4); }
@@ -761,3 +759,26 @@ form.is-sent .form-sent { display: flex; }
   font-size: var(--font-size-caption); line-height: var(--font-lh-caption); letter-spacing: 0.24px; color: var(--color-text-on-inverse-muted);
 }
 .footer__legal a:hover { color: var(--color-text-on-inverse); }
+
+/* ================= Движение: ховеры (уровень «спокойный») =================
+   Только устройства с мышью — на тач-экранах ховер «залипает» после тапа.
+   Появление блоков при прокрутке — js/motion.js (GSAP + ScrollTrigger). */
+.proc-card__media, .doctor-card__media, .article-card__media, .b17__gallery-item, .b17__media { overflow: hidden; }
+.proc-card__media img, .doctor-card__media img, .article-card__media img, .video-card img, .b17__gallery-item img {
+  transition: transform var(--motion-slow) var(--motion-ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card--hover:hover { box-shadow: var(--shadow-card-hover); transform: translateY(var(--hover-lift-card)); }
+  .photo-card:hover img,
+  .card--hover:hover :is(.proc-card__media, .doctor-card__media, .article-card__media) img,
+  .video-card:hover img,
+  .b17__gallery-item:hover img { transform: scale(var(--hover-scale-media)); }
+  .video-card:hover .play-btn, .b9__video:hover .play-btn { background: var(--color-action-primary); color: var(--color-text-on-action); }
+}
+/* Меньше движения: без сдвигов и зума, остаются смены цвета и тени */
+@media (prefers-reduced-motion: reduce) {
+  .card--hover:hover { transform: none; }
+  .photo-card:hover img, .card--hover:hover img, .video-card:hover img, .b17__gallery-item:hover img { transform: none; }
+  .btn:active { transform: none; }
+  .mega-menu, .to-top, .messenger-panel__items { transform: none !important; }
+}
