@@ -1,5 +1,18 @@
 /* Сброс и базовые стили. Текст-стили — по 02-design/ui-kit.md §Типографика. */
 
+/* Запасные шрифты с шириной, подогнанной под веб-шрифты (size-adjust замерен по кириллице):
+   пока грузятся Inter / Manrope / Golos Text / Lora, строки не переносятся иначе — нет сдвига вёрстки (CLS).
+   Arial без 600/800, поэтому по весам отдельные начертания. */
+@font-face { font-family: 'Inter Fallback'; src: local('Arial'); font-weight: 100 450; size-adjust: 106.4%; }
+@font-face { font-family: 'Inter Fallback'; src: local('Arial'); font-weight: 451 550; size-adjust: 107.5%; }
+@font-face { font-family: 'Inter Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'); font-weight: 551 900; size-adjust: 102.5%; }
+@font-face { font-family: 'Manrope Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'); font-weight: 100 700; size-adjust: 100.5%; }
+@font-face { font-family: 'Manrope Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'); font-weight: 800 900; size-adjust: 88.7%; }
+@font-face { font-family: 'Golos Text Fallback'; src: local('Arial'); font-weight: 100 450; size-adjust: 106.3%; }
+@font-face { font-family: 'Golos Text Fallback'; src: local('Arial'); font-weight: 451 550; size-adjust: 107.5%; }
+@font-face { font-family: 'Golos Text Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'); font-weight: 551 900; size-adjust: 101.4%; }
+@font-face { font-family: 'Lora Fallback'; src: local('Times New Roman Bold'), local('TimesNewRomanPS-BoldMT'); font-weight: 100 900; size-adjust: 110.4%; }
+
 [hidden] {
   display: none !important;
 }

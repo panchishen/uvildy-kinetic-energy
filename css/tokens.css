@@ -113,8 +113,8 @@
   --shadow-popover: 0 16px 48px rgba(15, 30, 46, .16);
 
   /* ---------- Типографика — Theme A ---------- */
-  --font-heading: 'Manrope', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Manrope', 'Manrope Fallback', sans-serif;
+  --font-body: 'Inter', 'Inter Fallback', sans-serif;
 
   --font-weight-heading: 800;
   --font-weight-heading-sub: 700;

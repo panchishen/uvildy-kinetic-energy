@@ -71,8 +71,8 @@
   --shadow-popover: 0 16px 48px rgba(30, 77, 59, .18);
 
   /* Типографика — Theme B */
-  --font-heading: 'Lora', serif;
-  --font-body: 'Golos Text', sans-serif;
+  --font-heading: 'Lora', 'Lora Fallback', serif;
+  --font-body: 'Golos Text', 'Golos Text Fallback', sans-serif;
 
   --font-weight-heading: 600;
   --font-weight-heading-sub: 600;
