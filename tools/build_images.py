@@ -20,7 +20,7 @@ SRC_DIR = os.path.normpath(os.path.join(ROOT, '..', 'assets', 'img'))
 OUT_DIR = os.path.join(ROOT, 'assets', 'img')
 MANIFEST = os.path.join(ROOT, 'tools', 'images.json')
 
-QUALITY = 82
+QUALITY = 85
 MIN_GAIN = 1.15  # 2x делается, только если он хотя бы на 15 % больше 1x
 
 
