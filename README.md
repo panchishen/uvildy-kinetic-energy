@@ -25,6 +25,7 @@ css/responsive.css        — адаптив: ≤1247 (1024), ≤1023 (768), ≤
 js/main.js                 — топбар, мега-меню, шапка, слайдеры, аккордеоны, формы, мессенджеры, переключатель тем
 js/motion.js               — появление блоков при прокрутке (GSAP + ScrollTrigger), prefers-reduced-motion
 tools/build-theme-b.js      — собирает b/index.html из index.html
+tools/build_images.py       — собирает assets/img/*.webp (1x и @2x для ретины) из исходников ../assets/img/*.jpg по tools/images.json
 assets/                     — иконки, лого, изображения, видео
 ```
 
@@ -38,6 +39,17 @@ node tools/build-theme-b.js
 
 Скрипт подставляет `data-theme="b"`, шрифты Lora + Golos Text, пути `../` и фото `-b`.
 Переключатель «Вариант 1 / Вариант 2» справа вверху — только для презентации.
+
+## Картинки
+
+Исходники (jpg) лежат вне репозитория, в `../assets/img/`. После замены исходника:
+
+```bash
+python tools/build_images.py
+node tools/build-theme-b.js
+```
+
+У каждой картинки две версии: `name.webp` (под самый большой размер блока на всех ширинах) и `name@2x.webp` для ретины, в разметке — `srcset="… 2x"`. Нужен Pillow с WebP.
 
 ## Локальный просмотр
 

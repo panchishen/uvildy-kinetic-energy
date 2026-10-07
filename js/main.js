@@ -134,6 +134,12 @@
     });
   }
 
+  /* Смена фото с версией для ретины: name.webp + name@2x.webp (tools/build_images.py) */
+  function setPhoto(img, src) {
+    img.src = src;
+    if (img.hasAttribute('srcset')) img.srcset = src.replace(/.webp$/, '@2x.webp') + ' 2x';
+  }
+
   /* ---------- Галерея первого экрана: миниатюры ---------- */
   var heroThumbs = document.querySelectorAll('[data-hero-thumbs] .hero-thumb');
   var heroMain = document.querySelector('#hero-title')
@@ -152,7 +158,7 @@
         thumb.style.border = '2px solid var(--color-action-primary)';
         var thumbImg = thumb.querySelector('img');
         if (thumbImg) {
-          heroMain.src = thumbImg.src.replace('-thumb.webp', '.webp');
+          setPhoto(heroMain, thumbImg.getAttribute('src').replace('-thumb.webp', '.webp'));
         }
       });
     });
@@ -174,7 +180,7 @@
           p.hidden = p.dataset.indicationPanel !== idx;
         });
         if (indicationImage) {
-          indicationImage.src = indicationImage.getAttribute('src').replace(/indications-\d+-/, 'indications-' + (Number(idx) + 1) + '-');
+          setPhoto(indicationImage, indicationImage.getAttribute('src').replace(/indications-\d+-/, 'indications-' + (Number(idx) + 1) + '-'));
         }
       });
     });

@@ -30,13 +30,13 @@ html = html.replace(fontsA, 'https://fonts.googleapis.com/css2?family=Lora:ital,
 
 // 3. Относительные пути: страница лежит на уровень глубже
 html = html
-  .replace(/(href|src)="(css|js|assets)\//g, '$1="../$2/');
+  .replace(/(href|src|srcset)="(css|js|assets)\//g, '$1="../$2/');
 
 // 4. Фото темы B. Исключения: у review-video-1 нет кадра B (в макете B стоит кадр A),
 //    снимки МРТ без суффикса темы.
-html = html.replace(/assets\/img\/([a-z0-9-]+?)-a(-thumb)?\.webp/g, function (m, slot, thumb) {
+html = html.replace(/assets\/img\/([a-z0-9-]+?)-a(-thumb)?(@2x)?\.webp/g, function (m, slot, thumb, retina) {
   if (slot === 'review-video-1') return m;
-  return 'assets/img/' + slot + '-b' + (thumb || '') + '.webp';
+  return 'assets/img/' + slot + '-b' + (thumb || '') + (retina || '') + '.webp';
 });
 
 // 4a. Open Graph и canonical: адрес темы B и её превью-картинка
@@ -60,7 +60,7 @@ html = html.replace('<!DOCTYPE html>', '<!DOCTYPE html>\n<!-- Сгенериро
 fs.mkdirSync(path.join(root, 'b'), { recursive: true });
 fs.writeFileSync(path.join(root, 'b', 'index.html'), html);
 
-const missing = [...html.matchAll(/(?:src|href)="\.\.\/(assets\/[^"]+)"/g)]
+const missing = [...html.matchAll(/(?:src|href|srcset)="\.\.\/(assets\/[^" ]+)/g)]
   .map(m => m[1])
   .filter(p => !fs.existsSync(path.join(root, p)));
 if (missing.length) {
