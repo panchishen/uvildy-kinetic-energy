@@ -228,21 +228,9 @@
 .badge-pill--new { background: var(--color-action-soft); color: var(--color-action-on-soft); }
 .badge-pill--result { background: var(--color-accent); color: var(--color-text-on-accent); }
 
-/* ---------- Play button ---------- */
-.play-btn {
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  background: var(--color-surface-card);
-  box-shadow: var(--shadow-sticky);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-primary);
-  cursor: pointer;
-  transition: background-color var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease);
-}
-.play-btn:hover { background: var(--color-action-primary); color: var(--color-text-on-action); }
+/* ---------- Кнопка «Видео» на медиа: как на первом экране, в левом верхнем углу, не перекрывает подписи ---------- */
+.video-btn { position: absolute; top: var(--space-16); left: var(--space-16); z-index: 1; box-shadow: var(--shadow-sticky); }
+.video-btn--lg { top: 20px; left: 20px; }
 
 /* ---------- Card (база) ---------- */
 .card {
@@ -449,7 +437,6 @@
 .video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .video-card__gradient { position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-overlay-media-start), var(--color-overlay-media-end)); }
 .video-card__caption { position: absolute; left: 24px; right: 24px; bottom: 24px; color: var(--color-text-on-inverse); }
-.video-card .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
 /* ---------- Card/Award ---------- */
 /* ---------- Award feature (премия) ---------- */
@@ -914,7 +901,7 @@ html.is-modal-open { overflow: hidden; }
   .card--hover:hover :is(.proc-card__media, .doctor-card__media, .article-card__media) img,
   .video-card:hover img,
   .b17__gallery-item:hover img { transform: scale(var(--hover-scale-media)); }
-  .video-card:hover .play-btn, .b9__video:hover .play-btn { background: var(--color-action-primary); color: var(--color-text-on-action); }
+  .video-card:hover .video-btn, .b9__video:hover .video-btn { background: var(--color-action-soft); }
 }
 /* Меньше движения: без сдвигов и зума, остаются смены цвета и тени */
 @media (prefers-reduced-motion: reduce) {

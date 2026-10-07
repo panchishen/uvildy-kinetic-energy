@@ -29,7 +29,6 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
 
   /* Блок 3 */
   .b3__media { width: 32%; height: auto; aspect-ratio: 4 / 5; }
-  .b3__play { top: 50%; left: 50%; transform: translate(-50%, -50%); }
   .b3__cta-line { flex-wrap: wrap; }
 
   /* Блок 4 */
@@ -155,7 +154,6 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
 
   /* Слайдеры: ряд стрелок без лишней высоты; в подкастах play уходит в угол, чтобы не закрывать подпись */
   .slider-row--tall { height: auto; padding-top: var(--space-8); }
-  .video-card--podcast .play-btn { top: var(--space-16); left: var(--space-16); transform: none; width: var(--size-touch); height: var(--size-touch); }
   .video-card--podcast .video-card__caption { left: var(--space-16); right: var(--space-16); bottom: var(--space-16); font-size: var(--font-size-h4); }
 
   /* Плавающие кнопки поднимаются над виджетом бронирования (на 768 он почти во всю ширину) */
@@ -212,7 +210,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .hero__tags { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .hero__tags::-webkit-scrollbar { display: none; }
   .hero__tags .tag { flex-shrink: 0; white-space: nowrap; }
-  .hero__video-btn { top: 12px; right: 12px; }
+  .video-btn--lg { top: 12px; left: 12px; }
   .hero__thumbs { gap: var(--space-8); }
   .hero__aside { display: flex; flex-direction: column; gap: var(--space-24); }
 
