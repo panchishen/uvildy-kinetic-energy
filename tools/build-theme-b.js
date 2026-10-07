@@ -30,14 +30,14 @@ html = html.replace(fontsA, 'https://fonts.googleapis.com/css2?family=Lora:ital,
 
 // 3. Относительные пути: страница лежит на уровень глубже
 html = html
-  .replace(/(href|src|srcset)="(css|js|assets)\//g, '$1="../$2/');
+  .replace(/(href|src|srcset|data-video-src)="(css|js|assets)\//g, '$1="../$2/');
 
-// 4. Фото темы B. Исключения: у review-video-1 нет кадра B (в макете B стоит кадр A),
-//    снимки МРТ без суффикса темы.
+// 4. Фото и ролики темы B (снимки МРТ без суффикса темы).
+//    Обложка review-video-1-b — первый кадр ролика B (tools/images.json).
 html = html.replace(/assets\/img\/([a-z0-9-]+?)-a(-thumb)?(@2x)?\.webp/g, function (m, slot, thumb, retina) {
-  if (slot === 'review-video-1') return m;
   return 'assets/img/' + slot + '-b' + (thumb || '') + (retina || '') + '.webp';
 });
+html = html.replace(/assets\/video\/([a-z0-9-]+?)-a\.mp4/g, 'assets/video/$1-b.mp4');
 
 // 4a. Open Graph и canonical: адрес темы B и её превью-картинка
 replaceOnce('<link rel="canonical" href="https://panchishen.github.io/uvildy-kinetic-energy/">',
@@ -60,7 +60,7 @@ html = html.replace('<!DOCTYPE html>', '<!DOCTYPE html>\n<!-- Сгенериро
 fs.mkdirSync(path.join(root, 'b'), { recursive: true });
 fs.writeFileSync(path.join(root, 'b', 'index.html'), html);
 
-const missing = [...html.matchAll(/(?:src|href|srcset)="\.\.\/(assets\/[^" ]+)/g)]
+const missing = [...html.matchAll(/(?:src|href|srcset|data-video-src)="\.\.\/(assets\/[^" ]+)/g)]
   .map(m => m[1])
   .filter(p => !fs.existsSync(path.join(root, p)));
 if (missing.length) {

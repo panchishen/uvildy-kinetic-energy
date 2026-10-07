@@ -237,10 +237,7 @@
         <div class="hero__gallery">
           <div class="hero__main-media">
             <img src="assets/img/hero-1-a.webp" srcset="assets/img/hero-1-a@2x.webp 2x" alt="Гости на прогулке у озера Увильды" width="690" height="518" fetchpriority="high">
-            <button class="btn btn--inverse btn--sm video-btn video-btn--lg" type="button" data-hero-video>
-              Видео
-              <svg class="icon" width="24" height="24"><use href="#icon-play"></use></svg>
-            </button>
+            <video class="media-video" data-video-autoplay data-video-src="assets/video/hero-1-a.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           </div>
           <div class="hero__thumbs" data-hero-thumbs>
             <button type="button" class="hero-thumb is-active" aria-label="Фото 1 из 5">
@@ -319,7 +316,8 @@
     <div class="b3__grid">
       <div class="b3__media">
         <img src="assets/img/doctor-lead-a.webp" srcset="assets/img/doctor-lead-a@2x.webp 2x" alt="Чернова Светлана Евгеньевна, руководитель программы «Энергия движения»" width="384" height="480" loading="lazy" decoding="async">
-        <button class="btn btn--inverse btn--sm video-btn video-btn--lg" type="button" aria-label="Видео: обращение руководителя программы">Видео<svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-play"></use></svg></button>
+        <video class="media-video" data-video-src="assets/video/doctor-lead-a.mp4" muted playsinline preload="none" aria-hidden="true"></video>
+        <button class="btn btn--inverse btn--sm video-btn video-btn--lg" type="button" data-video-play aria-label="Видео: обращение руководителя программы">Видео<svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-play"></use></svg></button>
         <div class="b3__who">
           <span class="name text-h4">Чернова Светлана Евгеньевна</span>
           <span class="role text-small">Руководитель программы «Энергия движения»</span>
@@ -796,7 +794,7 @@
       </div>
       <div class="b9__video">
         <img src="assets/img/result-bg-a.webp" srcset="assets/img/result-bg-a@2x.webp 2x" alt="Гостья на тёплой лежанке после процедуры" width="690" height="500" loading="lazy" decoding="async">
-        <button class="btn btn--inverse btn--sm video-btn video-btn--lg" type="button" aria-label="Видео о программе">Видео<svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-play"></use></svg></button>
+        <video class="media-video" data-video-autoplay data-video-src="assets/video/program-video-a.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
         <div class="b9__video-caption">
           <div>
             <p class="title text-h4">Видео о программе</p>
@@ -1314,15 +1312,17 @@
         <div class="slider-track" data-slider>
           <div class="video-card video-card--review">
             <img src="assets/img/review-video-1-a.webp" srcset="assets/img/review-video-1-a@2x.webp 2x" alt="Видеоотзыв пациентки" width="282" height="477" loading="lazy" decoding="async">
+            <video class="media-video" data-video-src="assets/video/review-video-1-a.mp4" muted playsinline preload="none" aria-hidden="true"></video>
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h4">«За месяц терапии боль практически ушла. Я оставила трость и сняла ортез.»</span>
-            <button class="btn btn--inverse btn--sm video-btn" type="button" aria-label="Видео: отзыв гостя">Видео<svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-play"></use></svg></button>
+            <button class="btn btn--inverse btn--sm video-btn" type="button" data-video-play aria-label="Видео: отзыв гостя">Видео<svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--review">
             <img src="assets/img/review-video-2-a.webp" srcset="assets/img/review-video-2-a@2x.webp 2x" alt="Видеоотзыв пациента" width="282" height="477" loading="lazy" decoding="async">
+            <video class="media-video" data-video-src="assets/video/review-video-2-a.mp4" muted playsinline preload="none" aria-hidden="true"></video>
             <span class="video-card__gradient"></span>
             <span class="video-card__caption text-h4">«Приехал с грыжей, не мог долго сидеть. Через две недели сам сел за руль.»</span>
-            <button class="btn btn--inverse btn--sm video-btn" type="button" aria-label="Видео: отзыв гостя">Видео<svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-play"></use></svg></button>
+            <button class="btn btn--inverse btn--sm video-btn" type="button" data-video-play aria-label="Видео: отзыв гостя">Видео<svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-play"></use></svg></button>
           </div>
           <div class="video-card video-card--review">
             <img src="assets/img/review-video-3-a.webp" srcset="assets/img/review-video-3-a@2x.webp 2x" alt="Видеоотзыв пациентки" width="282" height="477" loading="lazy" decoding="async">

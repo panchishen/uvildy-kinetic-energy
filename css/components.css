@@ -231,6 +231,16 @@
 /* ---------- Кнопка «Видео» на медиа: как на первом экране, в левом верхнем углу, не перекрывает подписи ---------- */
 .video-btn { position: absolute; top: var(--space-16); left: var(--space-16); z-index: 1; box-shadow: var(--shadow-sticky); }
 .video-btn--lg { top: 20px; left: 20px; }
+/* Ролик поверх обложки: картинка остаётся (чёткая, грузится сразу), видео проявляется, когда пошло воспроизведение */
+.media-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+  opacity: 0; transition: opacity var(--motion-slow) var(--motion-ease); pointer-events: none;
+}
+.media-video.is-playing { opacity: 1; }
+/* Ролик с речью запущен: кнопку прячем, клик по карточке — пауза */
+.is-video-playing > .video-btn { opacity: 0; pointer-events: none; }
+.is-video-playing { cursor: pointer; }
+.video-btn { transition: opacity var(--motion-base) var(--motion-ease), background-color var(--motion-fast) var(--motion-ease); }
 
 /* ---------- Card (база) ---------- */
 .card {

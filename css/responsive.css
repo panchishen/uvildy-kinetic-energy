@@ -117,7 +117,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
     flex-direction: column; align-items: stretch;
   }
   .b3__media { width: 100%; aspect-ratio: 3 / 2; }
-  .b3__media img { object-position: 50% 20%; }
+  .b3__media img, .b3__media .media-video { object-position: 50% 20%; }
   .b3__text, .b5__text, .b10__text, .b24__text { padding-left: 0; }
   .b5__media { width: 100%; aspect-ratio: 16 / 9; }
   .b5__stages { flex-direction: column; }

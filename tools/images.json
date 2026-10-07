@@ -943,31 +943,35 @@
  },
  {
   "out": "review-video-1-a",
-  "src": "review-video-1-a.jpg",
+  "src": "review-video-1-a-poster.jpg",
   "w": 282,
   "h": 476,
-  "need": 283
+  "need": 283,
+  "focus_x": 0.66
  },
  {
   "out": "review-video-1-b",
-  "src": "review-video-1-a.jpg",
+  "src": "review-video-1-b-poster.jpg",
   "w": 282,
   "h": 476,
-  "need": 283
+  "need": 283,
+  "focus_x": 0.66
  },
  {
   "out": "review-video-2-a",
-  "src": "review-video-2-a.jpg",
+  "src": "review-video-2-a-poster.jpg",
   "w": 282,
   "h": 476,
-  "need": 283
+  "need": 283,
+  "focus_x": 0.52
  },
  {
   "out": "review-video-2-b",
-  "src": "review-video-2-b.jpg",
+  "src": "review-video-2-b-poster.jpg",
   "w": 282,
   "h": 476,
-  "need": 283
+  "need": 283,
+  "focus_x": 0.52
  },
  {
   "out": "review-video-3-a",

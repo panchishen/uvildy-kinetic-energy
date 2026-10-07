@@ -25,6 +25,7 @@ css/responsive.css        — адаптив: ≤1247 (1024), ≤1023 (768), ≤
 js/main.js                 — топбар, мега-меню, шапка, слайдеры, аккордеоны, формы, мессенджеры, переключатель тем
 js/motion.js               — появление блоков при прокрутке (GSAP + ScrollTrigger), prefers-reduced-motion
 tools/build-theme-b.js      — собирает b/index.html из index.html
+tools/build_videos.py       — пережимает ролики ../assets/video/*.mp4 в assets/video/ (без звука, под размер блока)
 tools/build_images.py       — собирает assets/img/*.webp (1x и @2x для ретины) из исходников ../assets/img/*.jpg по tools/images.json
 assets/                     — иконки, лого, изображения, видео
 ```
@@ -50,6 +51,12 @@ node tools/build-theme-b.js
 ```
 
 У каждой картинки две версии: `name.webp` (под самый большой размер блока на всех ширинах) и `name@2x.webp` для ретины, в разметке — `srcset="… 2x"`. Нужен Pillow с WebP.
+
+## Видео
+
+Исходные ролики — в `../assets/video/`. Для сайта: `python tools/build_videos.py` (ffmpeg из PATH или переменной `FFMPEG`), затем `node tools/build-theme-b.js`.
+Видео лежит поверх обложки-картинки и грузится только при первом запуске. Без речи (первый экран, блок 9) — по кругу, пока блок на экране;
+с речью (блок 3, отзывы 1–2) — по кнопке «Видео». Звук выключен везде.
 
 ## Локальный просмотр
 

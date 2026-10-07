@@ -140,6 +140,53 @@
     if (img.hasAttribute('srcset')) img.srcset = src.replace(/.webp$/, '@2x.webp') + ' 2x';
   }
 
+  /* ---------- Видео на медиа (ролики — tools/build_videos.py) ----------
+     Все ролики без звука. Без речи (data-video-autoplay) — играют по кругу, пока блок на экране;
+     с речью — по кнопке «Видео» (data-video-play), клик по карточке — пауза, в конце — снова обложка.
+     Файл грузится только при первом запуске: preload="none" + data-video-src. */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function playVideo(video) {
+    if (!video.getAttribute('src')) video.src = video.dataset.videoSrc;
+    var started = video.play();
+    if (started && started.catch) started.catch(function () {});
+  }
+  document.querySelectorAll('.media-video').forEach(function (video) {
+    video.muted = true; // звук из генератора на сайте не нужен
+    video.addEventListener('playing', function () { video.classList.add('is-playing'); });
+  });
+  var autoVideos = document.querySelectorAll('[data-video-autoplay]');
+  if (autoVideos.length && 'IntersectionObserver' in window && !reduceMotion.matches) {
+    var videoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) playVideo(entry.target);
+        else if (!entry.target.paused) entry.target.pause();
+      });
+    }, { threshold: 0.25 });
+    autoVideos.forEach(function (video) { videoObserver.observe(video); });
+  }
+  document.querySelectorAll('[data-video-play]').forEach(function (button) {
+    var box = button.parentElement;
+    var video = box.querySelector('.media-video');
+    if (!video) return;
+    var showCover = function () {
+      box.classList.remove('is-video-playing');
+      video.classList.remove('is-playing');
+    };
+    button.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (video.ended) video.currentTime = 0;
+      box.classList.add('is-video-playing');
+      playVideo(video);
+    });
+    box.addEventListener('click', function (e) {
+      if (!box.classList.contains('is-video-playing') || e.target.closest('[data-video-play]')) return;
+      video.pause();
+      showCover();
+      button.focus();
+    });
+    video.addEventListener('ended', showCover);
+  });
+
   /* ---------- Галерея первого экрана: миниатюры ---------- */
   var heroThumbs = document.querySelectorAll('[data-hero-thumbs] .hero-thumb');
   var heroMain = document.querySelector('#hero-title')
@@ -159,6 +206,17 @@
         var thumbImg = thumb.querySelector('img');
         if (thumbImg) {
           setPhoto(heroMain, thumbImg.getAttribute('src').replace('-thumb.webp', '.webp'));
+          // ролик кадра: hero-3-a-thumb.webp → video/hero-3-a.mp4; если ролики уже играют — сразу новый
+          var heroVideo = heroMain.parentElement.querySelector('.media-video');
+          if (heroVideo) {
+            var videoSrc = thumbImg.getAttribute('src').replace('/img/', '/video/').replace('-thumb.webp', '.mp4');
+            heroVideo.dataset.videoSrc = videoSrc;
+            heroVideo.classList.remove('is-playing');
+            if (heroVideo.getAttribute('src')) {
+              heroVideo.src = videoSrc;
+              playVideo(heroVideo);
+            }
+          }
         }
       });
     });

@@ -4,7 +4,7 @@
   name.webp     — 1x: под самый большой размер блока на странице (замер на 1440 / 1024 / 768 / 375),
   name@2x.webp  — 2x: для экранов с повышенной плотностью пикселей (ретина); если исходник
                   не даёт хотя бы +15 % к 1x, версия 2x не делается.
-Кадрирование — по центру, в пропорциях текущего слота (как в макете).
+Кадрирование — по центру (или по focus_x из манифеста), в пропорциях текущего слота.
 
 Запуск из 03-code:  python tools/build_images.py
 Нужен Pillow с поддержкой WebP.
@@ -24,11 +24,12 @@ QUALITY = 85
 MIN_GAIN = 1.15  # 2x делается, только если он хотя бы на 15 % больше 1x
 
 
-def center_crop(img, aspect):
+def center_crop(img, aspect, focus_x=0.5):
+    """Вырез нужных пропорций; focus_x — центр выреза по горизонтали в долях (по умолчанию середина)."""
     w, h = img.size
     if w / h > aspect:
         nw = round(h * aspect)
-        left = (w - nw) // 2
+        left = min(max(round(w * focus_x - nw / 2), 0), w - nw)
         return img.crop((left, 0, left + nw, h))
     nh = round(w / aspect)
     top = (h - nh) // 2
@@ -65,7 +66,7 @@ def main():
         img = Image.open(src_path).convert('RGB')
         img = apply_ops(img, slot.get('ops'))
         aspect = slot['w'] / slot['h']
-        img = center_crop(img, aspect)
+        img = center_crop(img, aspect, slot.get('focus_x', 0.5))
         max_w = img.size[0]
         need = slot['need']  # нужная ширина в CSS-пикселях (максимум по всем экранам)
         w1 = min(max(need, slot['w']), max_w)
