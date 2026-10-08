@@ -136,8 +136,11 @@
 
   /* Смена фото с версией для ретины: name.webp + name@2x.webp (tools/build_images.py) */
   function setPhoto(img, src) {
+    var oldBase = img.getAttribute('src').replace(/.webp$/, '');
+    var newBase = src.replace(/.webp$/, '');
     img.src = src;
-    if (img.hasAttribute('srcset')) img.srcset = src.replace(/.webp$/, '@2x.webp') + ' 2x';
+    // srcset бывает «name@2x.webp 2x» или «name.webp 705w, name@2x.webp 1194w» — меняем имя, форма та же
+    if (img.hasAttribute('srcset')) img.srcset = img.getAttribute('srcset').split(oldBase).join(newBase);
   }
 
   /* ---------- Видео на медиа (ролики — tools/build_videos.py) ----------
@@ -187,40 +190,32 @@
     video.addEventListener('ended', showCover);
   });
 
-  /* ---------- Галерея первого экрана: миниатюры ---------- */
-  var heroThumbs = document.querySelectorAll('[data-hero-thumbs] .hero-thumb');
-  var heroMain = document.querySelector('#hero-title')
-    ? document.querySelector('main img[width="690"]')
-    : null;
-  if (heroThumbs.length && heroMain) {
+  /* ---------- Галерея первого экрана: миниатюры (в каждом варианте — своя) ---------- */
+  document.querySelectorAll('[data-hero-thumbs]').forEach(function (strip) {
+    var hero = strip.closest('.hero');
+    var heroMain = hero && hero.querySelector('[data-hero-main]');
+    if (!heroMain) return;
+    var heroThumbs = strip.querySelectorAll('.hero-thumb');
+    var heroVideo = heroMain.parentElement.querySelector('.media-video');
     heroThumbs.forEach(function (thumb) {
       thumb.addEventListener('click', function () {
-        heroThumbs.forEach(function (t) {
-          t.classList.remove('is-active');
-          t.style.opacity = '.6';
-          t.style.border = '0';
-        });
-        thumb.classList.add('is-active');
-        thumb.style.opacity = '1';
-        thumb.style.border = '2px solid var(--color-action-primary)';
+        heroThumbs.forEach(function (t) { t.classList.toggle('is-active', t === thumb); });
         var thumbImg = thumb.querySelector('img');
-        if (thumbImg) {
-          setPhoto(heroMain, thumbImg.getAttribute('src').replace('-thumb.webp', '.webp'));
-          // ролик кадра: hero-3-a-thumb.webp → video/hero-3-a.mp4; если ролики уже играют — сразу новый
-          var heroVideo = heroMain.parentElement.querySelector('.media-video');
-          if (heroVideo) {
-            var videoSrc = thumbImg.getAttribute('src').replace('/img/', '/video/').replace('-thumb.webp', '.mp4');
-            heroVideo.dataset.videoSrc = videoSrc;
-            heroVideo.classList.remove('is-playing');
-            if (heroVideo.getAttribute('src')) {
-              heroVideo.src = videoSrc;
-              playVideo(heroVideo);
-            }
+        if (!thumbImg) return;
+        setPhoto(heroMain, thumbImg.getAttribute('src').replace('-thumb.webp', '.webp'));
+        // ролик кадра: hero-3-a-thumb.webp → video/hero-3-a.mp4; если ролик уже играет — сразу новый
+        if (heroVideo) {
+          var videoSrc = thumbImg.getAttribute('src').replace('/img/', '/video/').replace('-thumb.webp', '.mp4');
+          heroVideo.dataset.videoSrc = videoSrc;
+          heroVideo.classList.remove('is-playing');
+          if (heroVideo.getAttribute('src')) {
+            heroVideo.src = videoSrc;
+            playVideo(heroVideo);
           }
         }
       });
     });
-  }
+  });
 
   /* ---------- Блок 4: список показаний ---------- */
   var indicationButtons = document.querySelectorAll('[data-indication]');

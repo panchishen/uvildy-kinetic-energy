@@ -3,6 +3,7 @@
 <html lang="ru" data-theme="b">
 <head>
 <meta charset="UTF-8">
+<script>/* вариант первого экрана из настроек (панель с шестерёнкой) — до отрисовки, без мигания */try{var heroVariant=localStorage.getItem("heroVariant");if(/^[123]$/.test(heroVariant))document.documentElement.setAttribute("data-hero",heroVariant);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Энергия движения — программа реабилитации позвоночника и суставов | Санаторий Увильды</title>
 <meta name="description" content="«Энергия движения» — программа реабилитации позвоночника и суставов на курорте Увильды: 7 видов диагностики, индивидуальная схема из 68 процедур, результат подтверждаем на МРТ до и после.">
@@ -210,13 +211,172 @@
     </ol>
   </nav>
 
-  <!-- Блок 2. Первый экран -->
-  <section class="hero container" id="block-2" aria-labelledby="hero-title">
+  <!-- Блок 2. Первый экран — вариант 1: кадр во весь экран -->
+  <section class="hero hero--v1" id="block-2" data-hero-variant="1" aria-labelledby="hero-title-1">
+    <div class="hero-v1__stage">
+      <img class="hero-v1__photo" data-hero-main src="../assets/img/hero-1-b.webp" srcset="../assets/img/hero-1-b.webp 705w, assets/img/hero-1-b@2x.webp 1194w" sizes="100vw" alt="Гости на прогулке у озера Увильды" width="1440" height="760" fetchpriority="high">
+      <video class="media-video" data-video-autoplay data-video-src="../assets/video/hero-1-b.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <span class="hero-v1__scrim" aria-hidden="true"></span>
+      <div class="container hero-v1__inner">
+        <div class="hero-v1__left">
+          <div class="hero-v1__intro">
+            <span class="badge text-overline">Новая программа</span>
+            <h1 id="hero-title-1" class="hero-v1__title text-h1">Энергия движения</h1>
+            <p class="hero-v1__lead text-lead">Программа реабилитации позвоночника и суставов. 7 видов диагностики, индивидуальная схема из 68 процедур, результат — на МРТ до и после.</p>
+            <ul class="hero__tags hero-v1__tags">
+              <li class="tag text-small">Здоровая спина</li>
+              <li class="tag text-small">Суставы и позвоночник</li>
+              <li class="tag text-small">Кинезиотерапия</li>
+              <li class="tag text-small">Мануальная терапия</li>
+              <li class="tag text-small">Мышечный корсет</li>
+              <li class="tag text-small">Подвижность и гибкость</li>
+              <li class="tag text-small">Осанка и координация</li>
+            </ul>
+          </div>
+          <div class="hero__thumbs hero-v1__thumbs" data-hero-thumbs>
+            <button type="button" class="hero-thumb is-active" aria-label="Фото 1 из 5">
+            <img src="../assets/img/hero-1-b-thumb.webp" alt="" width="130" height="96">
+            </button>
+            <button type="button" class="hero-thumb" aria-label="Фото 2 из 5">
+            <img src="../assets/img/hero-2-b-thumb.webp" alt="" width="130" height="96">
+            </button>
+            <button type="button" class="hero-thumb" aria-label="Фото 3 из 5">
+            <img src="../assets/img/hero-3-b-thumb.webp" alt="" width="130" height="96">
+            </button>
+            <button type="button" class="hero-thumb" aria-label="Фото 4 из 5">
+            <img src="../assets/img/hero-4-b-thumb.webp" alt="" width="130" height="96">
+            </button>
+            <button type="button" class="hero-thumb" aria-label="Фото 5 из 5">
+            <img src="../assets/img/hero-5-b-thumb.webp" alt="" width="130" height="96">
+            </button>
+          </div>
+        </div>
+        <div class="hero-v1__card">
+          <div class="hero-v1__price">
+            <div class="hero__price-top">
+            <span class="label text-overline">Стоимость</span>
+            <p class="hero__price-value"><span class="amount text-h2">от 8 000 ₽</span> <span class="period text-lead">/ сутки</span></p>
+            <span class="hero__price-note text-caption">* только с проживанием</span>
+            </div>
+            <div class="hero__price-term">
+            <span class="label text-overline">Срок</span>
+            <span class="value text-h4">от 7 дней</span>
+            </div>
+          </div>
+          <div class="hero__cta">
+          <a href="#booking-widget" class="btn btn--primary btn--full" data-booking-open>Забронировать</a>
+          <a href="#" class="btn btn--secondary btn--full">Скачать описание (PDF)</a>
+          <a href="#block-13" class="link--text text-body hero__cta-link">Есть МРТ? Отправьте — врач посмотрит до приезда</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-v1__effects-band">
+      <div class="container hero-v1__effects">
+        <span class="label text-overline">Эффект</span>
+        <div class="hero__effect-item">
+        <svg class="icon" width="20" height="20"><use href="#icon-check"></use></svg>
+        <span class="text-h4">Снижение боли</span>
+        </div>
+        <div class="hero__effect-item">
+        <svg class="icon" width="20" height="20"><use href="#icon-check"></use></svg>
+        <span class="text-h4">Снятие мышечных зажимов</span>
+        </div>
+        <div class="hero__effect-item">
+        <svg class="icon" width="20" height="20"><use href="#icon-check"></use></svg>
+        <span class="text-h4">Коррекция нарушений опорно-двигательного аппарата</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 2. Первый экран — вариант 2: текст слева, кадр справа -->
+  <section class="hero hero--v2" data-hero-variant="2" aria-labelledby="hero-title-2">
+    <div class="container hero-v2__inner">
+      <div class="hero-v2__left">
+        <div class="hero-v2__intro">
+          <span class="badge text-overline">Новая программа</span>
+          <h1 id="hero-title-2" class="text-h1">Энергия движения</h1>
+          <p class="hero-v2__lead text-lead">Программа реабилитации позвоночника и суставов. 7 видов диагностики, индивидуальная схема из 68 процедур, результат — на МРТ до и после.</p>
+        </div>
+        <div class="hero-v2__facts">
+          <div class="hero__price-top">
+          <span class="label text-overline">Стоимость</span>
+          <p class="hero__price-value"><span class="amount text-h2">от 8 000 ₽</span> <span class="period text-lead">/ сутки</span></p>
+          <span class="hero__price-note text-caption">* только с проживанием</span>
+          </div>
+          <div class="hero-v2__term">
+            <span class="label text-overline">Срок</span>
+            <span class="value text-h3">от 7 дней</span>
+          </div>
+        </div>
+        <div class="hero-v2__cta">
+          <div class="hero-v2__buttons">
+            <a href="#booking-widget" class="btn btn--primary" data-booking-open>Забронировать</a>
+            <a href="#" class="btn btn--secondary">Скачать описание (PDF)</a>
+          </div>
+          <a href="#block-13" class="link--text text-body hero__cta-link">Есть МРТ? Отправьте — врач посмотрит до приезда</a>
+        </div>
+        <div class="hero__effects hero-v2__effects">
+          <span class="label text-overline">Эффект</span>
+          <div class="hero__effect-item">
+          <svg class="icon" width="20" height="20"><use href="#icon-check"></use></svg>
+          <span class="text-h4">Снижение боли</span>
+          </div>
+          <div class="hero__effect-item">
+          <svg class="icon" width="20" height="20"><use href="#icon-check"></use></svg>
+          <span class="text-h4">Снятие мышечных зажимов</span>
+          </div>
+          <div class="hero__effect-item">
+          <svg class="icon" width="20" height="20"><use href="#icon-check"></use></svg>
+          <span class="text-h4">Коррекция нарушений опорно-двигательного аппарата</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-v2__right">
+        <div class="hero-v2__media">
+          <div class="hero-v2__photo">
+            <img data-hero-main src="../assets/img/hero-1-b.webp" srcset="../assets/img/hero-1-b@2x.webp 2x" alt="Гости на прогулке у озера Увильды" width="690" height="518" loading="lazy">
+            <video class="media-video" data-video-autoplay data-video-src="../assets/video/hero-1-b.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+          </div>
+          <ul class="hero__tags hero-v2__tags">
+            <li class="tag text-small">Здоровая спина</li>
+            <li class="tag text-small">Суставы и позвоночник</li>
+            <li class="tag text-small">Кинезиотерапия</li>
+            <li class="tag text-small">Мануальная терапия</li>
+            <li class="tag text-small">Мышечный корсет</li>
+            <li class="tag text-small">Подвижность и гибкость</li>
+            <li class="tag text-small">Осанка и координация</li>
+          </ul>
+        </div>
+        <div class="hero__thumbs hero-v2__thumbs" data-hero-thumbs>
+          <button type="button" class="hero-thumb is-active" aria-label="Фото 1 из 5">
+          <img src="../assets/img/hero-1-b-thumb.webp" alt="" width="130" height="96">
+          </button>
+          <button type="button" class="hero-thumb" aria-label="Фото 2 из 5">
+          <img src="../assets/img/hero-2-b-thumb.webp" alt="" width="130" height="96">
+          </button>
+          <button type="button" class="hero-thumb" aria-label="Фото 3 из 5">
+          <img src="../assets/img/hero-3-b-thumb.webp" alt="" width="130" height="96">
+          </button>
+          <button type="button" class="hero-thumb" aria-label="Фото 4 из 5">
+          <img src="../assets/img/hero-4-b-thumb.webp" alt="" width="130" height="96">
+          </button>
+          <button type="button" class="hero-thumb" aria-label="Фото 5 из 5">
+          <img src="../assets/img/hero-5-b-thumb.webp" alt="" width="130" height="96">
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 2. Первый экран — вариант 3: галерея слева, цена справа -->
+  <section class="hero hero--v3 container" data-hero-variant="3" aria-labelledby="hero-title-3">
     <div class="hero__inner">
       <div class="hero__head">
       <div class="hero__intro">
         <div class="hero__title-row">
-          <h1 id="hero-title" class="text-h1">Энергия движения</h1>
+          <h1 id="hero-title-3" class="text-h1">Энергия движения</h1>
           <span class="badge text-overline">Новая программа</span>
         </div>
         <p class="hero__offer text-lead">Программа реабилитации позвоночника и суставов. 7 видов диагностики, индивидуальная схема из 68 процедур, результат — на МРТ до и после.</p>
@@ -237,7 +397,7 @@
         <!-- Галерея -->
         <div class="hero__gallery">
           <div class="hero__main-media">
-            <img src="../assets/img/hero-1-b.webp" srcset="../assets/img/hero-1-b@2x.webp 2x" alt="Гости на прогулке у озера Увильды" width="690" height="518" fetchpriority="high">
+            <img src="../assets/img/hero-1-b.webp" srcset="../assets/img/hero-1-b@2x.webp 2x" alt="Гости на прогулке у озера Увильды" width="690" height="518" data-hero-main loading="lazy">
             <video class="media-video" data-video-autoplay data-video-src="../assets/video/hero-1-b.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           </div>
           <div class="hero__thumbs" data-hero-thumbs>

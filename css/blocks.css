@@ -158,6 +158,71 @@
 }
 .anchor-nav__row::-webkit-scrollbar { display: none; }
 
+/* ---------- Блок 2: варианты первого экрана (выбор — панель настроек, html[data-hero]) ---------- */
+.hero[data-hero-variant] { display: none; }
+html:not([data-hero]) .hero[data-hero-variant="1"],
+html[data-hero="1"] .hero[data-hero-variant="1"],
+html[data-hero="2"] .hero[data-hero-variant="2"],
+html[data-hero="3"] .hero[data-hero-variant="3"] { display: block; }
+
+/* Вариант 1: кадр во весь экран, затемнение слева, карточка цены справа, полоса эффектов */
+.hero--v1 { padding: 0; }
+.hero-v1__stage { position: relative; height: 760px; overflow: hidden; }
+.hero-v1__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-v1__scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(10, 23, 38, .82) 0%, rgba(10, 23, 38, .6) 42%, rgba(10, 23, 38, 0) 74%);
+}
+.hero-v1__inner {
+  position: relative; z-index: 1; height: 100%;
+  display: flex; align-items: center; gap: var(--grid-gutter);
+  padding-top: 72px; padding-bottom: 40px;
+}
+.hero-v1__left { flex: 1 0 0; min-width: 0; height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-24); }
+.hero-v1__intro { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-24); }
+.hero-v1__title { margin: 0; font-size: 72px; line-height: 1.05; letter-spacing: -0.01em; color: var(--color-text-on-inverse); }
+.hero-v1__lead { width: 620px; max-width: 100%; color: var(--color-text-on-inverse-muted); }
+.hero-v1__tags { list-style: none; margin: 0; padding: 0; }
+.hero-v1__thumbs { gap: var(--space-8); }
+.hero-v1__thumbs .hero-thumb { flex: 0 0 88px; height: 66px; opacity: .8; }
+.hero-v1__thumbs .hero-thumb.is-active { opacity: 1; }
+.hero-v1__card {
+  width: 384px; flex-shrink: 0; display: flex; flex-direction: column; gap: var(--space-24);
+  padding: var(--space-24); border-radius: var(--radius-card);
+  background: var(--color-surface-card); color: var(--color-text-primary);
+  box-shadow: 0 20px 48px rgba(10, 23, 38, .28);
+}
+.hero-v1__price { display: flex; flex-direction: column; gap: var(--space-16); }
+.hero-v1__effects-band { border-bottom: 1px solid var(--color-border); }
+.hero-v1__effects { display: flex; align-items: center; gap: var(--space-48); min-height: 120px; }
+.hero-v1__effects .label { color: var(--color-heading-accent); }
+.hero-v1__effects .hero__effect-item { flex-shrink: 0; align-items: center; }
+.hero-v1__effects .hero__effect-item .text-h4 { color: var(--color-text-primary); white-space: nowrap; }
+
+/* Вариант 2: текст слева, кадр с тегами справа, лента кадров под ним */
+.hero--v2 { padding-block: 64px; }
+.hero-v2__inner { display: flex; align-items: stretch; gap: var(--space-48); }
+.hero-v2__left { width: 462px; flex-shrink: 0; display: flex; flex-direction: column; gap: var(--space-32); }
+.hero-v2__intro { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-16); }
+.hero-v2__intro h1 { margin: 0; color: var(--color-text-primary); }
+.hero-v2__lead { color: var(--color-text-secondary); }
+.hero-v2__facts {
+  display: flex; gap: var(--space-48); padding-block: 20px;
+  border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);
+}
+.hero-v2__term { display: flex; flex-direction: column; gap: var(--space-4); }
+.hero-v2__term .label { color: var(--color-text-secondary); }
+.hero-v2__term .value { color: var(--color-text-primary); }
+.hero-v2__cta { display: flex; flex-direction: column; gap: var(--space-16); }
+.hero-v2__buttons { display: flex; flex-wrap: wrap; gap: var(--space-12); }
+.hero-v2__effects { padding-top: 0; }
+.hero-v2__right { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-16); }
+.hero-v2__media { position: relative; flex: 1 0 0; display: flex; flex-direction: column; }
+.hero-v2__photo { position: relative; flex: 1 0 0; min-height: 0; border-radius: var(--radius-media); overflow: hidden; }
+.hero-v2__photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-v2__tags { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 1; margin: 0; padding: 0; list-style: none; }
+.hero-v2__thumbs .hero-thumb { height: 88px; }
+
 /* ---------- Блок 3. Руководитель и методика ---------- */
 .b3__grid { display: flex; gap: var(--grid-gutter); align-items: flex-start; }
 .b3__media {

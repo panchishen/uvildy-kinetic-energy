@@ -22,6 +22,14 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .mega-menu__nav a:hover { color: var(--color-action-primary); }
   .mega-menu__tools { display: none; }
 
+  /* Блок 2, варианты 1 и 2 */
+  .hero-v1__title { font-size: var(--font-size-h1); }
+  .hero-v1__card { width: 340px; }
+  .hero-v1__effects { gap: var(--space-24) var(--space-32); flex-wrap: wrap; padding-block: var(--space-24); min-height: 0; }
+  .hero-v1__effects .hero__effect-item .text-h4 { white-space: normal; }
+  .hero-v1__effects .hero__effect-item { flex-shrink: 1; }
+  .hero-v2__left { width: 40.5%; }
+
   /* Блок 2 */
   .hero__gallery { width: 57.5%; }
   .hero__main-media { width: 100%; height: auto; aspect-ratio: 690 / 518; }
@@ -105,6 +113,17 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .mega-menu__grid { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-32); }
   html.is-menu-open { overflow: hidden; }
   html.is-menu-open :is(.theme-switch, .booking-widget, .messenger-panel, .to-top) { visibility: hidden; }
+
+  /* Блок 2, вариант 1: всё в колонку поверх кадра, затемнение равномерное */
+  .hero-v1__stage { height: auto; }
+  .hero-v1__scrim { background: linear-gradient(180deg, rgba(10, 23, 38, .78) 0%, rgba(10, 23, 38, .6) 100%); }
+  .hero-v1__inner { flex-direction: column; align-items: stretch; height: auto; padding-top: var(--space-48); padding-bottom: var(--space-32); gap: var(--space-32); }
+  .hero-v1__left { height: auto; }
+  .hero-v1__card { width: 100%; }
+  /* Блок 2, вариант 2: текст, под ним кадр */
+  .hero-v2__inner { flex-direction: column; }
+  .hero-v2__left { width: 100%; }
+  .hero-v2__photo { flex: none; aspect-ratio: 690 / 518; }
 
   /* Блок 2: галерея во всю ширину, под ней цена и кнопки в две колонки, эффекты ниже */
   .hero__grid { flex-direction: column; align-items: stretch; }
@@ -203,6 +222,20 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .video-card--review { width: 240px; height: 406px; }
   .photo-card, .doctor-card { width: 260px; }
   .doctor-card__media { height: 325px; }
+
+  /* Блок 2, варианты 1 и 2 */
+  .hero--v1 { padding: 0; }
+  .hero--v2 { padding-block: var(--space-24) var(--space-section); }
+  .hero-v1__inner { padding-top: var(--space-32); gap: var(--space-24); }
+  .hero-v1__intro { gap: var(--space-16); }
+  .hero-v1__thumbs .hero-thumb, .hero-v2__thumbs .hero-thumb { flex: 1 0 0; height: auto; aspect-ratio: 4 / 3; }
+  .hero-v1__effects { flex-direction: column; align-items: flex-start; gap: var(--space-12); }
+  .hero-v2__facts { gap: var(--space-24); flex-wrap: wrap; }
+  .hero-v2__buttons { flex-direction: column; align-items: stretch; }
+  .hero-v2__buttons .btn { width: 100%; }
+  .hero-v2__photo { aspect-ratio: 4 / 3; }
+  /* теги на телефоне закрыли бы кадр — под ним */
+  .hero-v2__tags { position: static; margin-top: var(--space-12); }
 
   /* Блок 2 */
   .hero { padding-top: var(--space-24); }
