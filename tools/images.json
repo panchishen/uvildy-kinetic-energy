@@ -754,7 +754,7 @@
  },
  {
   "out": "podcast-2-b",
-  "src": "podcast-2-b.jpg",
+  "src": "podcast-2-b-poster.jpg",
   "w": 384,
   "h": 216,
   "need": 384
@@ -978,14 +978,16 @@
   "src": "review-video-3-a.jpg",
   "w": 282,
   "h": 476,
-  "need": 283
+  "need": 283,
+  "focus_x": 0.64
  },
  {
   "out": "review-video-3-b",
   "src": "review-video-3-b.jpg",
   "w": 282,
   "h": 476,
-  "need": 283
+  "need": 283,
+  "focus_x": 0.64
  },
  {
   "out": "review-video-4-a",
