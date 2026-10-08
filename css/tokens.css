@@ -153,7 +153,7 @@
   --z-dropdown: 70;
   --z-side-panel: 80;
   --z-modal: 90;
-  --z-theme-switch: 100;
+  --z-settings: 100;
 
   /* ---------- Только CSS ---------- */
   --focus-ring: 0 0 0 2px var(--color-surface-page), 0 0 0 4px var(--color-focus);

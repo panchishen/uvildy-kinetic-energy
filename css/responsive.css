@@ -112,7 +112,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   }
   .mega-menu__grid { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-32); }
   html.is-menu-open { overflow: hidden; }
-  html.is-menu-open :is(.theme-switch, .booking-widget, .messenger-panel, .to-top) { visibility: hidden; }
+  html.is-menu-open :is(.settings, .booking-widget, .messenger-panel, .to-top) { visibility: hidden; }
 
   /* Блок 2, вариант 1: всё в колонку поверх кадра, затемнение равномерное */
   .hero-v1__stage { height: auto; }
@@ -177,6 +177,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
 
   /* Плавающие кнопки поднимаются над виджетом бронирования (на 768 он почти во всю ширину) */
   .messenger-panel { bottom: calc(24px + 66px + var(--space-16)); }
+  .settings { bottom: calc(24px + 66px + var(--space-16)); }
   .to-top { bottom: calc(24px + 66px + var(--space-16) + 2px); }
 
   /* Футер: 3 + 2 колонки */
@@ -388,7 +389,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   /* Низкий экран: лист поверх шапки */
   html.is-booking-open.is-booking-short .booking-widget { z-index: var(--z-modal); }
   .booking-popover--guests { width: auto; }
-  html.is-booking-open :is(.messenger-panel, .to-top, .theme-switch) { visibility: hidden; }
+  html.is-booking-open :is(.messenger-panel, .to-top, .settings) { visibility: hidden; }
   /* Модалка — лист снизу во всю ширину */
   .modal { width: 100%; max-width: 100%; margin: auto 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); border-radius: var(--radius-modal) var(--radius-modal) 0 0; max-height: 92dvh; }
 
@@ -397,8 +398,8 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .to-top { right: calc(var(--container-padding) + 48px + var(--space-12)); bottom: calc(var(--booking-bar-h) + var(--space-16) + 2px); width: var(--size-touch); height: var(--size-touch); }
 
   /* Переключатель вариантов (презентация): внизу слева над панелью бронирования, чтобы не закрывать шапку и крошки */
-  .theme-switch { top: auto; right: auto; left: var(--container-padding); bottom: calc(var(--booking-bar-h) + var(--space-16) + 8px); }
-  .theme-switch__opt { padding: 6px 10px; }
+  .settings { left: var(--container-padding); bottom: calc(var(--booking-bar-h) + var(--space-16)); }
+  .settings__panel { width: min(340px, calc(100vw - 2 * var(--container-padding))); max-height: calc(100dvh - var(--booking-bar-h) - 160px); }
 }
 
 /* Телефон: длинные подписи кнопок переносятся, а не вылезают за экран */
@@ -444,7 +445,8 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .footer__col > a.link--footer, .footer__legal a { min-height: 44px; display: flex; align-items: center; }
   .footer__col h2 { margin-bottom: var(--space-4); }
   .footer__social .icon-btn--brand, .messenger-panel__items .icon-btn--brand, .messenger-inline .icon-btn { width: 44px; height: 44px; }
-  .theme-switch__opt { min-height: 44px; display: inline-flex; align-items: center; }
+  .settings__chip { min-height: 44px; }
+  .settings__chip--square { width: 44px; }
   .accordion__head { min-height: 44px; }
   .checkbox-row { min-height: 44px; }
   .hero__cta-link, .license-strip .link--text, .b31__secondary-item-text .link--text { display: inline-block; padding-block: 10px; }

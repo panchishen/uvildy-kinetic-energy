@@ -46,10 +46,10 @@ replaceOnce('<meta property="og:url" content="https://panchishen.github.io/uvild
             '<meta property="og:url" content="https://panchishen.github.io/uvildy-kinetic-energy/b/">');
 replaceOnce('assets/img/og-a.jpg', 'assets/img/og-b.jpg');
 
-// 5. Переключатель тем: активен «Вариант 2»
+// 5. Настройки образца: активна тема «Тёплый курорт»
 replaceOnce(
-  '<a class="theme-switch__opt is-active" href="./" aria-current="page">Вариант 1</a>\n  <a class="theme-switch__opt" href="b/">Вариант 2</a>',
-  '<a class="theme-switch__opt" href="../">Вариант 1</a>\n  <a class="theme-switch__opt is-active" href="./" aria-current="page">Вариант 2</a>'
+  '<a class="settings__chip is-active" href="./" aria-current="page" data-theme-link>Клиника у озера</a>\n        <a class="settings__chip" href="b/" data-theme-link>Тёплый курорт</a>',
+  '<a class="settings__chip" href="../" data-theme-link>Клиника у озера</a>\n        <a class="settings__chip is-active" href="./" aria-current="page" data-theme-link>Тёплый курорт</a>'
 );
 
 // 6. Логотип ведёт на тему A (корень сайта образца)

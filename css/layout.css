@@ -50,7 +50,7 @@
 .z-dropdown     { z-index: var(--z-dropdown); }
 .z-side-panel   { z-index: var(--z-side-panel); }
 .z-modal        { z-index: var(--z-modal); }
-.z-theme-switch { z-index: var(--z-theme-switch); }
+.z-settings { z-index: var(--z-settings); }
 
 .visually-hidden {
   position: absolute !important;

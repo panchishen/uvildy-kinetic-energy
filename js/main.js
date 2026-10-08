@@ -672,23 +672,45 @@
     }
   }
 
-  /* ---------- Переключатель тем (презентация): под шапкой + сохранение прокрутки ---------- */
-  var themeSwitch = document.querySelector('[data-theme-switch]');
-  if (themeSwitch) {
-    var placeSwitch = function () {
-      var headerEl = document.getElementById('site-header');
-      var bottom = headerEl ? Math.max(headerEl.getBoundingClientRect().bottom, 0) : 0;
-      themeSwitch.style.setProperty('--theme-switch-top', Math.round(bottom + 12) + 'px');
+  /* ---------- Настройки образца (презентация): тема и вариант первого экрана ----------
+     Тема — переход между / и /b/ с сохранением прокрутки; панель после перехода остаётся открытой.
+     Вариант первого экрана — html[data-hero] + localStorage (тот же ключ читает скрипт в <head>). */
+  var settings = document.querySelector('[data-settings]');
+  if (settings) {
+    var settingsToggle = settings.querySelector('[data-settings-toggle]');
+    var settingsPanel = settings.querySelector('.settings__panel');
+    var setSettingsOpen = function (isOpen) {
+      settingsPanel.hidden = !isOpen;
+      settingsToggle.setAttribute('aria-expanded', String(isOpen));
     };
-    placeSwitch();
-    window.addEventListener('scroll', placeSwitch, { passive: true });
-    window.addEventListener('resize', placeSwitch);
-    var closeTopbarBtn = document.querySelector('[data-topbar-close]');
-    if (closeTopbarBtn) closeTopbarBtn.addEventListener('click', function () { requestAnimationFrame(placeSwitch); });
+    settingsToggle.addEventListener('click', function () { setSettingsOpen(settingsPanel.hidden); });
+    document.addEventListener('click', function (e) {
+      if (!settingsPanel.hidden && !settings.contains(e.target)) setSettingsOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !settingsPanel.hidden) { setSettingsOpen(false); settingsToggle.focus(); }
+    });
 
-    themeSwitch.querySelectorAll('a').forEach(function (link) {
+    var heroOptions = settings.querySelectorAll('[data-hero-option]');
+    var markHero = function (value) {
+      heroOptions.forEach(function (o) { o.setAttribute('aria-checked', String(o.dataset.heroOption === value)); });
+    };
+    markHero(document.documentElement.getAttribute('data-hero') || '1');
+    heroOptions.forEach(function (option) {
+      option.addEventListener('click', function () {
+        var value = option.dataset.heroOption;
+        document.documentElement.setAttribute('data-hero', value);
+        try { localStorage.setItem('heroVariant', value); } catch (e) {}
+        markHero(value);
+      });
+    });
+
+    settings.querySelectorAll('[data-theme-link]').forEach(function (link) {
       link.addEventListener('click', function () {
-        try { sessionStorage.setItem('themeSwitchY', String(window.scrollY)); } catch (e) {}
+        try {
+          sessionStorage.setItem('themeSwitchY', String(window.scrollY));
+          sessionStorage.setItem('settingsOpen', '1');
+        } catch (e) {}
       });
     });
     try {
@@ -696,7 +718,10 @@
       if (savedY !== null) {
         sessionStorage.removeItem('themeSwitchY');
         window.scrollTo({ top: parseInt(savedY, 10) || 0, behavior: 'instant' });
-        placeSwitch();
+      }
+      if (sessionStorage.getItem('settingsOpen')) {
+        sessionStorage.removeItem('settingsOpen');
+        setSettingsOpen(true);
       }
     } catch (e) {}
   }
