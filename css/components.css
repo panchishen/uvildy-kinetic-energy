@@ -956,6 +956,8 @@ html.is-modal-open { overflow: hidden; }
   background: url("../assets/img/honeycomb-cluster.svg") no-repeat 0 0 / 100% 100%;
   opacity: .7;
 }
+/* Блок 22 «Услуги»: соты по высоте секции (поля 12), центр грозди на правом крае — видна наполовину */
+[data-theme="deep"] .tone[data-honey-fit]::before { top: calc(50% - var(--honey-size) / 2); right: calc(var(--honey-size) * -.5); }
 /* Блок 32 «Подписка»: сверху 32 (с отступом 72 у блока 31 — 104 до заголовка); гроздь сот крупнее (0,85),
    верх круга на 40 px выше секции, вниз уходит под подвал — подвал лежит выше по z-index. По горизонтали обрезаем (clip) */
 [data-theme="deep"] .b32 { padding-top: var(--space-32); overflow: clip visible; }

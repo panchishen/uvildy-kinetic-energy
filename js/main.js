@@ -755,7 +755,11 @@
   if (toneSections.length && 'ResizeObserver' in window) {
     var honeyObserver = new ResizeObserver(function (entries) {
       entries.forEach(function (entry) {
-        var scale = Math.min(1, (entry.target.offsetHeight - 48) / 660);
+        var height = entry.target.offsetHeight;
+        // data-honey-fit: соты (346 px при масштабе 1) — по высоте секции с полями по 12, круги уходят за край
+        var scale = entry.target.hasAttribute('data-honey-fit')
+          ? Math.min(1, (height - 24) / 346.4)
+          : Math.min(1, (height - 48) / 660);
         entry.target.style.setProperty('--honey-scale', Math.max(scale, 0).toFixed(3));
       });
     });
