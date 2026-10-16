@@ -937,12 +937,13 @@ html.is-modal-open { overflow: hidden; }
 }
 
 /* ================= Тема «Глубокий синий»: соты ================= */
-/* Фон страницы — бесшовная плитка сот (60 %); секции с подложкой surface/section её перекрывают */
+/* Фон страницы — бесшовная плитка сот; секции с подложкой surface/section её перекрывают.
+   В Figma слой 60 %, но в браузере общие края сот рисуются дважды и узор плотнее — 0.35 совпадает с макетом на глаз */
 [data-theme="deep"] body { position: relative; }
 [data-theme="deep"] body::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: url("../assets/img/honeycomb-tile.svg") repeat 0 0 / 468px 360px;
-  opacity: .6;
+  opacity: .35;
 }
 /* Секции на подложке: гроздь сот с кругами справа сверху, частично за краем, под контентом */
 [data-theme="deep"] .tone { position: relative; overflow: hidden; isolation: isolate; }
