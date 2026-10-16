@@ -932,3 +932,22 @@ html.is-modal-open { overflow: hidden; }
   .btn:active { transform: none; }
   .mega-menu, .to-top, .messenger-panel__items { transform: none !important; }
 }
+
+/* ================= Тема «Глубокий синий»: соты ================= */
+/* Фон страницы — бесшовная плитка сот (60 %); секции с подложкой surface/section её перекрывают */
+[data-theme="deep"] body { position: relative; }
+[data-theme="deep"] body::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url("../assets/img/honeycomb-tile.svg") repeat 0 0 / 468px 360px;
+  opacity: .6;
+}
+/* Секции на подложке: гроздь сот с кругами справа сверху, частично за краем, под контентом */
+[data-theme="deep"] .tone { position: relative; overflow: hidden; isolation: isolate; }
+[data-theme="deep"] .tone::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  top: -150px; left: calc(100% - 470px); width: 720px; height: 560px;
+  background: url("../assets/img/honeycomb-cluster.svg") no-repeat 0 0 / 720px 560px;
+  opacity: .7;
+}
+/* Рамка «Уникальность методики» в этой теме — на белом, не прозрачная */
+[data-theme="deep"] .b3__unique { background: var(--color-surface-card); }

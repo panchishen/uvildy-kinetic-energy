@@ -87,6 +87,13 @@
   --color-state-error: #B42A4F;
   --color-rating: #F2A900;
 
+  /* Бейджи: сплошной фон + белый текст (ui-kit, 2026-10-15) */
+  --color-badge-new: #0067A8;
+  --color-badge-included: #0F7B61;
+  --color-badge-prescribed: #5B6B7A;
+  --color-badge-extra: #6B4FBB;
+  --color-badge-result: #0A6FA8;
+
   --color-messenger-telegram: #2AABEE;
   --color-messenger-whatsapp: #25D366;
   --color-messenger-max: #8114FF;
@@ -103,6 +110,7 @@
   --radius-input: 10px;
   --radius-modal: 16px;
   --radius-checkbox: 4px;
+  --radius-badge: 6px;
 
   --border-card: 1px;
   --border-secondary: 0px;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="deep">
 <head>
 <meta charset="UTF-8">
 <script>/* вариант первого экрана из настроек (панель с шестерёнкой) — до отрисовки, без мигания */try{var heroVariant=localStorage.getItem("heroVariant");if(/^[123]$/.test(heroVariant))document.documentElement.setAttribute("data-hero",heroVariant);}catch(e){}</script>
@@ -29,6 +29,7 @@
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/themes/b.css">
+<link rel="stylesheet" href="css/themes/deep.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/components.css">
@@ -523,7 +524,7 @@
   </section>
 
   <!-- Блок 4. «Эффективно» — показания -->
-  <section class="b4" id="block-4" style="padding-block: var(--space-section);">
+  <section class="b4 tone" id="block-4" style="padding-block: var(--space-section);">
     <div class="container" style="display:flex; flex-direction:column; gap: var(--space-block-gap);">
       <div class="section-head" style="--head-w:800px">
         <h2 class="text-h2">Эффективно</h2>
@@ -817,7 +818,7 @@
   </section>
 
   <!-- Блок 7а. Регенеративная медицина -->
-  <section class="b4" id="block-7a" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+  <section class="b4 tone" id="block-7a" style="padding-block: var(--space-section); background: var(--color-surface-section);">
     <div class="container" style="display:flex; flex-direction:column; gap: var(--space-32);">
       <div class="b7a__head">
         <div class="section-head" style="--head-w:820px">
@@ -1004,7 +1005,7 @@
   </section>
 
   <!-- Блок 10. МРТ «до — после» -->
-  <section class="b10" id="block-10" style="padding-block: var(--space-section);">
+  <section class="b10 tone" id="block-10" style="padding-block: var(--space-section);">
     <div class="container" style="display:flex; flex-direction:column; gap: var(--space-32);">
       <div class="section-head" style="--head-w:900px">
         <h2 class="text-h2">Подтверждаем результаты лечения на МРТ «до — после»</h2>
@@ -1285,7 +1286,7 @@
   </section>
 
   <!-- Блок 15. Комплексный подход -->
-  <section class="b4" id="block-15" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+  <section class="b4 tone" id="block-15" style="padding-block: var(--space-section); background: var(--color-surface-section);">
     <div class="container" style="display:flex; flex-direction:column; gap: var(--space-32);">
       <div style="display:flex; flex-direction:column; gap: var(--space-24);">
         <div class="section-head" style="--head-w:800px">
@@ -1366,7 +1367,7 @@
   </section>
 
   <!-- Блок 17. Здоровье и впечатления для всей семьи -->
-  <section class="b4" id="block-17" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+  <section class="b4 tone" id="block-17" style="padding-block: var(--space-section); background: var(--color-surface-section);">
     <div class="container" style="display:flex; flex-direction:column; gap: var(--space-block-gap);">
       <div class="b17__grid">
         <div class="b17__text">
@@ -1561,7 +1562,7 @@
   </section>
 
   <!-- Блок 22. Услуги (SEO) -->
-  <section class="b4" id="block-22" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+  <section class="b4 tone" id="block-22" style="padding-block: var(--space-section); background: var(--color-surface-section);">
     <div class="container b22__grid">
       <h2 class="text-h2 b22__title">Услуги</h2>
       <div class="b22__body">
@@ -1704,7 +1705,7 @@
   </section>
 
   <!-- Блок 26. Награды и рейтинги -->
-  <section class="b26" id="block-26">
+  <section class="b26 tone" id="block-26">
     <div class="container b26__grid">
       <div class="award-feature card">
         <span class="award-feature__emblem"><img src="assets/logo/rha-2025.png" alt="Russian Hospitality Awards" width="88" height="88" loading="lazy"></span>
@@ -1816,7 +1817,7 @@
   </section>
 
   <!-- Блок 28. Часто задаваемые вопросы -->
-  <section class="b4" id="block-28" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+  <section class="b4 tone" id="block-28" style="padding-block: var(--space-section); background: var(--color-surface-section);">
     <div class="container" style="display:flex; flex-direction:column; gap: var(--space-24);">
       <h2 class="text-h2">Часто задаваемые вопросы</h2>
       <div data-accordion data-accordion-exclusive>
@@ -2003,7 +2004,7 @@
   </section>
 
   <!-- Блок 32. Подпишитесь на нас -->
-  <section id="block-32" style="padding-block: var(--space-section); background: var(--color-surface-section);">
+  <section class="tone" id="block-32" style="padding-block: var(--space-section); background: var(--color-surface-section);">
     <div class="container b32__inner">
       <div class="section-head" style="--head-w:588px">
         <h2 class="text-h2">Подпишитесь на нас</h2>

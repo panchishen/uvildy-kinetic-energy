@@ -1,0 +1,59 @@
+/*
+  Тема «Глубокий синий» — основная тема сайта (решение Евгения 2026-10-16).
+  Переопределения коллекции Theme (режим «Глубокий синий», Figma modeId 304:0) поверх базы темы A
+  (css/tokens.css): шрифты, радиусы, тени — как в A. Источник значений: 02-design/ui-kit.md,
+  раздел «Тема «Глубокий синий» — значения переменных».
+*/
+
+[data-theme="deep"] {
+  --color-surface-page: #FFFFFF;
+  --color-surface-section: #EEF3FA;
+  --color-surface-card: #FFFFFF;
+  --color-surface-inverse: #014597;
+  --color-surface-header: #01336F;
+  --color-surface-topbar: #012857;
+  --color-surface-scrim: rgba(11, 31, 58, .56);
+
+  --color-text-primary: #0B1F3A;
+  --color-text-secondary: #4C6080;
+  --color-text-tertiary: #5F7190; /* в макете #6A7C97 — контраст 4.3:1, затемнён до 4.5:1 */
+  --color-text-on-action: #FFFFFF;
+  --color-text-on-inverse: #FFFFFF;
+  --color-text-on-inverse-muted: rgba(255, 255, 255, .84);
+  --color-text-on-accent: #0B1F3A;
+  --color-text-on-cta: #FFFFFF;
+
+  --color-heading-accent: #014597;
+
+  --color-action-cta: #CC4E00;
+  --color-action-cta-hover: #A83F00;
+  --color-action-primary: #014597;
+  --color-action-primary-hover: #01377A;
+  --color-action-secondary: #6A7C97;
+  --color-action-secondary-bg: #E4EDF8;
+  --color-action-secondary-bg-hover: #D2E1F3;
+  --color-action-secondary-bg-active: #C0D4EE;
+  --color-action-secondary-text: #014597;
+  --color-action-soft: #E4EDF8;
+  --color-action-on-soft: #014597;
+
+  --color-accent: #36A9E1;
+  --color-accent-soft: #E3F2FB;
+
+  --color-border: #D3DEEC;
+  --color-border-strong: #AFC1D8;
+  --color-border-control: #6A7C97;
+  --color-focus: #36A9E1;
+
+  --color-surface-inverse-button: #FFFFFF;
+
+  --color-overlay-media-start: rgba(15, 30, 46, 0);
+  --color-overlay-media-end: rgba(15, 30, 46, .72);
+
+  --color-badge-new: #014597;
+  --color-badge-included: #0F7B61;
+  --color-badge-prescribed: #4C6080;
+  --color-badge-extra: #6B4FBB;
+  --color-badge-result: #1675A8;
+  --radius-badge: 6px;
+}

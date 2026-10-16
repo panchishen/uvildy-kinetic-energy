@@ -53,6 +53,12 @@
   --color-state-error: #B42A4F;
   --color-rating: #F2A900;
 
+  --color-badge-new: #1E4D3B;
+  --color-badge-included: #4F7A3A;
+  --color-badge-prescribed: #66705F;
+  --color-badge-extra: #8E4223;
+  --color-badge-result: #A9512C;
+
   /* Форма и глубина — Theme B */
   --radius-button: 999px;
   --radius-tag: 999px;
@@ -61,6 +67,7 @@
   --radius-input: 12px;
   --radius-modal: 24px;
   --radius-checkbox: 6px;
+  --radius-badge: 999px;
 
   --border-card: 0px;
   --border-secondary: 1.5px;

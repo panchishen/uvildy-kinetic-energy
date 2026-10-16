@@ -20,7 +20,7 @@ function replaceOnce(from, to) {
 }
 
 // 1. Тема
-replaceOnce('<html lang="ru">', '<html lang="ru" data-theme="b">');
+replaceOnce('<html lang="ru" data-theme="deep">', '<html lang="ru" data-theme="b">');
 
 // 2. Шрифты темы B: Lora 600 (+ курсив для цитаты), Golos Text 400/500/600
 //    Адрес встречается трижды: preload, неблокирующий stylesheet и <noscript>.
