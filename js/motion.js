@@ -15,7 +15,7 @@
     '.b3__media', '.b3__text',
     '.b5__media', '.b5__text',
     '.b9__result', '.b9__video', '.b9__youth',
-    '.b10__case', '.b10__help',
+    '.b10__case',
     '.b11__accordion', '.license-strip',
     '.b13__banner', '.b17__text', '.b17__media',
     '.b19__text', '.b19__media',

@@ -283,7 +283,6 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .b10__snapshots { padding: var(--space-12); }
   .before-after { gap: var(--space-12); }
   .before-after__cap { top: 8px; left: 8px; }
-  .b10__help { flex-direction: column; align-items: flex-start; gap: var(--space-16); }
 
   /* Блок 11: таблица и лицензия */
   .table-row { gap: var(--space-8); padding: var(--space-12); }
