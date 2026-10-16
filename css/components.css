@@ -966,6 +966,8 @@ html.is-modal-open { overflow: hidden; }
 [data-theme="deep"] .b31 { padding-bottom: 72px; }
 /* Блок 7: отступ между слайдером процедур и плашкой «Уникальные процедуры» 80 (32 gap + 48) */
 [data-theme="deep"] #block-7 .plaque { margin-top: var(--space-48); }
+/* Блок 21: текст мнения в белой плашке */
+[data-theme="deep"] .b21__text { padding: var(--space-32); background: var(--color-surface-card); border: var(--border-card) solid var(--color-border); border-radius: var(--radius-card); }
 /* Блок 7a: бейдж «Дополнительно» над заголовком слева (в A и B — справа в строке с заголовком) */
 [data-theme="deep"] .b7a__head { flex-direction: column-reverse; align-items: flex-start; justify-content: flex-start; }
 /* Контурные кнопки с иконкой (закрыть, календарь, степпер) — синий контур + синяя иконка (правило Евгения) */
