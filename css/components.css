@@ -956,6 +956,11 @@ html.is-modal-open { overflow: hidden; }
   background: url("../assets/img/honeycomb-cluster.svg") no-repeat 0 0 / 100% 100%;
   opacity: .7;
 }
+/* Блок 32 «Подписка»: сверху 32 (с отступом 72 у блока 31 — 104 до заголовка); гроздь сот крупнее (0,85),
+   верх круга на 40 px выше секции, вниз уходит под подвал — подвал лежит выше по z-index. По горизонтали обрезаем (clip) */
+[data-theme="deep"] .b32 { padding-top: var(--space-32); overflow: clip visible; }
+[data-theme="deep"] .b32::before { --honey-scale: .85; top: -40px; }
+[data-theme="deep"] .footer { position: relative; z-index: 1; }
 /* Баннер подкаста (блок 23): тёмная гроздь сот справа, частично за краем */
 [data-theme="deep"] .b23__banner::before {
   content: ""; position: absolute; z-index: -1; pointer-events: none;
