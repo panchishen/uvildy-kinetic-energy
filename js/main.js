@@ -749,4 +749,16 @@
     setActive();
     window.addEventListener('scroll', setActive, { passive: true });
   }
+
+  /* ---------- Декор сот в секциях на подложке: масштаб по высоте секции (тема «Глубокий синий») ---------- */
+  var toneSections = document.querySelectorAll('.tone');
+  if (toneSections.length && 'ResizeObserver' in window) {
+    var honeyObserver = new ResizeObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var scale = Math.min(1, (entry.target.offsetHeight - 48) / 660);
+        entry.target.style.setProperty('--honey-scale', Math.max(scale, 0).toFixed(3));
+      });
+    });
+    toneSections.forEach(function (section) { honeyObserver.observe(section); });
+  }
 })();

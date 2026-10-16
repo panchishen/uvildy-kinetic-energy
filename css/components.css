@@ -945,12 +945,15 @@ html.is-modal-open { overflow: hidden; }
   background: url("../assets/img/honeycomb-tile.svg") repeat 0 0 / 468px 360px;
   opacity: .22;
 }
-/* Секции на подложке: гроздь сот с кругами справа сверху, частично за краем, под контентом */
+/* Секции на подложке: гроздь сот с кругами справа сверху, под контентом.
+   Внешний круг (d 660) — на 24 px ниже верха секции, центр — в 0,55 радиуса от правого края:
+   за край уходит только вправо. В низких секциях уменьшается: --honey-scale = min(1, (высота − 48) / 660), считает main.js */
 [data-theme="deep"] .tone { position: relative; overflow: hidden; isolation: isolate; }
 [data-theme="deep"] .tone::before {
+  --honey-size: calc(660px * var(--honey-scale, 1));
   content: ""; position: absolute; z-index: -1; pointer-events: none;
-  top: -150px; left: calc(100% - 470px); width: 720px; height: 560px;
-  background: url("../assets/img/honeycomb-cluster.svg") no-repeat 0 0 / 720px 560px;
+  top: 24px; right: calc(var(--honey-size) * -.225); width: var(--honey-size); height: var(--honey-size);
+  background: url("../assets/img/honeycomb-cluster.svg") no-repeat 0 0 / 100% 100%;
   opacity: .7;
 }
 /* Баннер подкаста (блок 23): тёмная гроздь сот справа, частично за краем */
