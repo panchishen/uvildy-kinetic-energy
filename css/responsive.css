@@ -228,6 +228,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
   .video-card--review { width: 240px; height: 406px; }
   .photo-card, .doctor-card { width: 260px; }
   .doctor-card__media { height: 325px; }
+  [data-theme="deep"] .doctor-card__media { height: 277px; }
 
   /* Блок 2, варианты 1 и 2 */
   .hero--v1 { padding: 0; }
