@@ -518,7 +518,7 @@
           <a href="#" class="btn btn--ghost">Подробнее о методике</a>
         </div>
         <div class="b3__cta-line">
-          <a href="#" class="btn btn--secondary">Бесплатная консультация</a>
+          <a href="#consult-modal" class="btn btn--secondary" data-modal-open="consult-modal">Бесплатная консультация</a>
           <p class="note text-small">Узнайте у специалиста, как программа работает при вашем диагнозе</p>
         </div>
       </div>
@@ -638,7 +638,7 @@
           <p class="text-h4">В итоге каждый гость получает свою комбинацию из 68 процедур — под его случай.</p>
           <div class="b5__cta">
             <a href="#" class="btn btn--secondary">Скачать описание</a>
-            <a href="#" class="btn btn--primary">Бесплатная консультация</a>
+            <a href="#consult-modal" class="btn btn--primary" data-modal-open="consult-modal">Бесплатная консультация</a>
           </div>
         </div>
       </div>
@@ -1580,7 +1580,7 @@
           <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Реабилитация после эндопротезирования</li>
           <li class="text-small" style="background: var(--color-surface-card); padding: var(--space-8) var(--space-12); border-radius: var(--radius-tag); color: var(--color-text-secondary);">Подология</li>
         </ul>
-        <a href="#" class="btn btn--secondary" style="align-self:flex-start;">Записаться на консультацию</a>
+        <a href="#consult-modal" class="btn btn--secondary" style="align-self:flex-start;" data-modal-open="consult-modal">Записаться на консультацию</a>
       </div>
     </div>
   </section>
@@ -2273,6 +2273,51 @@
       <p class="text-body">Менеджер перезвонит с вариантами номеров в ближайшее время.</p>
     </div>
   </form>
+</dialog>
+
+<dialog class="modal modal--consult" id="consult-modal" aria-labelledby="consult-modal-title">
+  <div class="consult__info">
+    <h2 class="text-h3" id="consult-modal-title">Бесплатная консультация по подбору программы</h2>
+    <ul class="consult__meta">
+      <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-clock"></use></svg>15 минут</li>
+      <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-phone"></use></svg>Телефонный звонок</li>
+    </ul>
+    <p class="text-body">Консультацию ведёт врач-реабилитолог. Задайте вопросы заранее — так проще составить план лечения и восстановления.</p>
+    <div class="consult__questions">
+      <p class="text-h4">О чём можно спросить врача</p>
+      <ul>
+        <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>Какая программа подходит при моём диагнозе и состоянии?</li>
+        <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>Есть ли противопоказания к процедурам?</li>
+        <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>Как подготовиться к заезду?</li>
+        <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>Что входит в программу: модули, чекапы и зачем они?</li>
+        <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>Можно ли совмещать программу с моими лекарствами?</li>
+        <li class="text-small"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"></use></svg>Какая длительность программы оптимальна?</li>
+      </ul>
+    </div>
+    <p class="consult__note text-small">Консультация информационная: окончательные назначения врач даст после очного осмотра на курорте.</p>
+  </div>
+  <div class="consult__form">
+    <div class="consult__close">
+      <button class="icon-btn icon-btn--light" type="button" aria-label="Закрыть" data-modal-close><svg class="icon" width="24" height="24"><use href="#icon-x"></use></svg></button>
+    </div>
+    <form class="modal__form" data-decorative-form>
+      <p class="text-h4">Оставьте телефон — врач перезвонит</p>
+      <label class="field"><span class="field__label text-small">Имя</span><input class="field__control" type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>
+      <label class="field"><span class="field__label text-small">Телефон</span><input class="field__control" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required></label>
+      <label class="checkbox-row text-small">
+        <input type="checkbox" name="consent" required>
+        <span class="checkbox-row__box"><svg class="icon" width="16" height="16"><use href="#icon-check"></use></svg></span>
+        <span class="checkbox-row__label">Я даю <a href="#" class="link--text">согласие на обработку моих персональных данных</a> и ознакомлен с <a href="#" class="link--text">политикой конфиденциальности</a></span>
+      </label>
+      <button type="submit" class="btn btn--primary btn--full">Получить консультацию</button>
+      <p class="modal__note text-small">Перезвоним с 9:00 до 19:00</p>
+      <div class="form-sent" hidden>
+        <span class="form-sent__icon"><svg class="icon" width="24" height="24"><use href="#icon-check"></use></svg></span>
+        <h3 class="text-h3">Заявка отправлена</h3>
+        <p class="text-body">Врач перезвонит вам в ближайшее время.</p>
+      </div>
+    </form>
+  </div>
 </dialog>
 
 <!-- Плавающая панель мессенджеров -->

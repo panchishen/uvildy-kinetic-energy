@@ -776,7 +776,7 @@ form.is-sent .form-sent { display: flex; }
   overscroll-behavior: contain;
 }
 .modal[open] { display: flex; flex-direction: column; gap: var(--space-16); animation: modal-in var(--motion-slow) var(--motion-ease); }
-.modal::backdrop { background: rgba(15, 30, 46, .48); }
+.modal::backdrop { background: var(--color-surface-scrim); }
 @keyframes modal-in { from { opacity: 0; transform: translateY(16px); } }
 .modal__head { display: flex; align-items: flex-start; gap: var(--space-16); }
 .modal__title { flex: 1 0 0; min-width: 0; color: var(--color-text-primary); }
@@ -1038,3 +1038,22 @@ html.is-modal-open { overflow: hidden; }
 [data-theme="deep"] .messenger-btn.icon-btn--ok:hover, [data-theme="deep"] .messenger-btn.icon-btn--ok:focus-visible { background: var(--color-social-ok); border-color: var(--color-social-ok); }
 [data-theme="deep"] .messenger-btn.icon-btn--rutube:hover, [data-theme="deep"] .messenger-btn.icon-btn--rutube:focus-visible { background: var(--color-social-rutube); border-color: var(--color-social-rutube); }
 [data-theme="deep"] .messenger-btn.icon-btn--max:hover, [data-theme="deep"] .messenger-btn.icon-btn--max:focus-visible { background: var(--color-messenger-max); border-color: var(--color-messenger-max); }
+
+/* ================= Поп-ап «Бесплатная консультация» — 960, две колонки (Figma 344-3737) ================= */
+.modal.modal--consult { width: min(960px, calc(100vw - 2 * var(--space-16))); padding: 0; overflow-y: auto; }
+.modal--consult[open] { flex-direction: row; align-items: stretch; gap: 0; }
+.consult__info {
+  width: 520px; flex-shrink: 0; display: flex; flex-direction: column; gap: var(--space-24);
+  padding: var(--space-48); background: var(--color-surface-section); color: var(--color-text-primary);
+}
+.consult__info h2 { margin: 0; }
+.consult__meta { display: flex; gap: var(--space-24); margin: 0; padding: 0; list-style: none; }
+.consult__meta li, .consult__questions li { display: flex; gap: var(--space-8); align-items: center; color: var(--color-text-primary); }
+.consult__questions { display: flex; flex-direction: column; gap: var(--space-12); }
+.consult__questions ul { display: flex; flex-direction: column; gap: var(--space-12); margin: 0; padding: 0; list-style: none; }
+.consult__questions li { gap: var(--space-12); align-items: flex-start; }
+.consult__info .icon { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-action-primary); }
+.consult__note { color: var(--color-text-secondary); }
+.consult__form { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; gap: var(--space-16); padding: 32px var(--space-48) var(--space-48); }
+.consult__close { display: flex; justify-content: flex-end; }
+.checkbox-row__label .link--text { text-decoration: underline; }

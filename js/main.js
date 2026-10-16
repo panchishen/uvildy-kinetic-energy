@@ -672,6 +672,33 @@
     }
   }
 
+  /* ---------- Прочие модальные окна (поп-ап консультации и др.): [data-modal-open="id"] ---------- */
+  document.querySelectorAll('[data-modal-open]').forEach(function (opener) {
+    var dialog = document.getElementById(opener.dataset.modalOpen);
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    opener.addEventListener('click', function (e) {
+      e.preventDefault();
+      var form = dialog.querySelector('form');
+      if (form && form.classList.contains('is-sent')) {
+        form.classList.remove('is-sent');
+        form.reset();
+      }
+      dialog.showModal();
+      document.documentElement.classList.add('is-modal-open');
+    });
+  });
+  document.querySelectorAll('dialog.modal:not(#booking-modal)').forEach(function (dialog) {
+    dialog.querySelectorAll('[data-modal-close]').forEach(function (b) {
+      b.addEventListener('click', function () { dialog.close(); });
+    });
+    dialog.addEventListener('click', function (e) {
+      if (e.target !== dialog) return;
+      var r = dialog.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', function () { document.documentElement.classList.remove('is-modal-open'); });
+  });
+
   /* ---------- Настройки образца (презентация): тема и вариант первого экрана ----------
      Тема — переход между / и /b/ с сохранением прокрутки; панель после перехода остаётся открытой.
      Вариант первого экрана — html[data-hero] + localStorage (тот же ключ читает скрипт в <head>). */
