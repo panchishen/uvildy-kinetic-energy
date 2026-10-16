@@ -159,13 +159,6 @@ svg {
   letter-spacing: var(--font-ls-small);
 }
 
-.text-caption {
-  font-family: var(--font-body);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-caption);
-  line-height: var(--font-lh-caption);
-  letter-spacing: var(--font-ls-caption);
-}
 
 .text-overline {
   font-family: var(--font-body);
@@ -176,14 +169,6 @@ svg {
   text-transform: uppercase;
 }
 
-.text-number {
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-heading-sub);
-  font-size: var(--font-size-number);
-  line-height: var(--font-lh-number);
-  letter-spacing: var(--font-ls-number);
-  font-variant-numeric: tabular-nums;
-}
 
 .text-button {
   font-family: var(--font-body);
@@ -193,14 +178,6 @@ svg {
   letter-spacing: var(--font-ls-button);
 }
 
-.text-quote {
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-quote);
-  font-style: var(--font-style-quote);
-  font-size: var(--font-size-quote);
-  line-height: var(--font-lh-quote);
-  letter-spacing: var(--font-ls-quote);
-}
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;

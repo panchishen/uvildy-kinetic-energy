@@ -140,7 +140,8 @@
   --font-size-lead: 20px;    --font-lh-lead: 1.45; --font-ls-lead: 0em;
   --font-size-body: 17px;    --font-lh-body: 1.55; --font-ls-body: 0em;
   --font-size-small: 14px;   --font-lh-small: 1.4; --font-ls-small: 0em;
-  --font-size-caption: 12px; --font-lh-caption: 1.4; --font-ls-caption: 0.02em;
+  /* Caption, Number, Quote из системы убраны (ui-kit 2026-10-15): Caption → Small, Number → H2, Quote → H3 */
+  --font-size-caption: var(--font-size-small); --font-lh-caption: var(--font-lh-small); --font-ls-caption: var(--font-ls-small);
   --font-size-overline: 12px; --font-lh-overline: 1.2; --font-ls-overline: 0.1em;
   --font-size-number: 48px;  --font-lh-number: 1.0; --font-ls-number: -0.01em;
   --font-size-button: 15px;  --font-lh-button: 1.0; --font-ls-button: 0em;
@@ -191,7 +192,7 @@
     --font-size-lead: 17px;
     --font-size-body: 16px;
     --font-size-small: 13px;
-    --font-size-caption: 12px;
+    --font-size-caption: var(--font-size-small);
     --font-size-overline: 12px;
     --font-size-number: 36px;
     --font-size-button: 15px;

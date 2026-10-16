@@ -648,7 +648,7 @@ form.is-sent .form-sent { display: flex; }
 .widget-field__content { display: flex; flex-direction: column; gap: 2px; flex: 1 0 0; overflow: hidden; }
 .widget-field__label {
   font-family: var(--font-body); font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-caption); letter-spacing: 0.24px; color: var(--color-text-secondary);
+  font-size: var(--font-size-caption); color: var(--color-text-secondary);
 }
 .widget-field__value {
   font-family: var(--font-body); font-weight: var(--font-weight-medium);
@@ -749,7 +749,7 @@ form.is-sent .form-sent { display: flex; }
 .guests-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); }
 .guests-row__text { display: flex; flex-direction: column; gap: 2px; }
 .guests-row__text .text-body { color: var(--color-text-primary); }
-.guests-row__text .text-caption { color: var(--color-text-secondary); }
+.guests-row__text .text-small { color: var(--color-text-secondary); }
 .stepper { display: flex; align-items: center; gap: var(--space-12); }
 .stepper__value { width: 24px; text-align: center; font-family: var(--font-body); font-weight: var(--font-weight-body); font-size: var(--font-size-body); color: var(--color-text-primary); font-variant-numeric: tabular-nums; }
 .stepper .icon-btn:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }

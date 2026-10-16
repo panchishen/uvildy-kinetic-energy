@@ -431,7 +431,7 @@
       title.className = 'cal-month__title text-h4';
       title.textContent = MONTHS[first.getMonth()].charAt(0).toUpperCase() + MONTHS[first.getMonth()].slice(1) + ' ' + first.getFullYear();
       var dow = document.createElement('div');
-      dow.className = 'cal-month__dow text-caption';
+      dow.className = 'cal-month__dow text-small';
       dow.setAttribute('aria-hidden', 'true');
       ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'].forEach(function (t) { var s = document.createElement('span'); s.textContent = t; dow.appendChild(s); });
       var grid = document.createElement('div');
