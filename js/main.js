@@ -246,6 +246,11 @@
     var prevBtn = row.querySelector('[data-slider-prev]');
     var nextBtn = row.querySelector('[data-slider-next]');
     if (!prevBtn || !nextBtn) return;
+    var controls = prevBtn.parentElement;
+    // Строка без другого содержимого (только пустой распорный span) скрывается вместе со стрелками
+    var rowOnlyControls = Array.prototype.every.call(row.children, function (el) {
+      return el === controls || (el.tagName === 'SPAN' && !el.textContent.trim());
+    });
 
     function step() {
       var card = track.firstElementChild;
@@ -253,6 +258,10 @@
       return card ? card.getBoundingClientRect().width + gap : 300;
     }
     function updateButtons() {
+      // Листать нечего — стрелки не показываем
+      var noScroll = track.scrollWidth <= track.clientWidth + 4;
+      controls.hidden = noScroll;
+      if (rowOnlyControls) row.hidden = noScroll;
       prevBtn.disabled = track.scrollLeft <= 4;
       nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
     }
@@ -263,6 +272,7 @@
       track.scrollBy({ left: step(), behavior: 'smooth' });
     });
     track.addEventListener('scroll', updateButtons, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(updateButtons).observe(track);
     updateButtons();
   });
 
