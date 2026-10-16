@@ -851,7 +851,7 @@ html.is-modal-open { overflow: hidden; }
   animation: popover-in var(--motion-base) var(--motion-ease);
 }
 .settings__group { display: flex; flex-direction: column; gap: var(--space-12); padding-block: var(--space-16); }
-.settings__group + .settings__group { border-top: 1px solid var(--color-border); }
+.settings__group:not([hidden]) + .settings__group { border-top: 1px solid var(--color-border); }
 .settings__title { margin: 0; color: var(--color-text-primary); }
 .settings__label { margin: 0; color: var(--color-text-secondary); }
 .settings__options { display: flex; flex-wrap: wrap; gap: var(--space-8); }
