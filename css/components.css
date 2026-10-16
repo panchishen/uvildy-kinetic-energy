@@ -953,6 +953,13 @@ html.is-modal-open { overflow: hidden; }
   background: url("../assets/img/honeycomb-cluster.svg") no-repeat 0 0 / 720px 560px;
   opacity: .7;
 }
+/* Баннер подкаста (блок 23): тёмная гроздь сот справа, частично за краем */
+[data-theme="deep"] .b23__banner::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  top: 50%; right: -260px; width: 720px; height: 560px; transform: translateY(-50%);
+  background: url("../assets/img/honeycomb-cluster-dark.svg") no-repeat 0 0 / 720px 560px;
+  opacity: .35;
+}
 /* Рамка «Уникальность методики» в этой теме — на белом, не прозрачная */
 [data-theme="deep"] .b3__unique { background: var(--color-surface-card); }
 /* Блок 7a: бейдж «Дополнительно» над заголовком слева (в A и B — справа в строке с заголовком) */
