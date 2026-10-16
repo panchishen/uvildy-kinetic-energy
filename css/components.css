@@ -992,6 +992,25 @@ html.is-modal-open { overflow: hidden; }
 .brand-glyph--rutube   { -webkit-mask-image: url("../assets/icons/brand/btn-rutube.svg");   mask-image: url("../assets/icons/brand/btn-rutube.svg"); }
 .brand-glyph--max      { -webkit-mask-image: url("../assets/icons/brand/btn-max.svg");      mask-image: url("../assets/icons/brand/btn-max.svg"); }
 .messenger-btn__label { display: none; }
+.footer__socials, .footer__divider--socials { display: none; }
+
+/* ================= «Глубокий синий»: подвал — кнопки-таблетки соцсетей над дисклеймером ================= */
+[data-theme="deep"] .footer__social { display: none; }
+[data-theme="deep"] .footer__divider--socials { display: block; }
+[data-theme="deep"] .footer__socials { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-12); }
+.social-pill {
+  display: inline-flex; align-items: center; gap: var(--space-8); height: 44px; padding: 0 22px 0 18px;
+  border: 1px solid rgba(255, 255, 255, .45); border-radius: 999px; color: var(--color-text-on-inverse);
+  font-family: var(--font-body); font-weight: var(--font-weight-semibold); font-size: var(--font-size-button); line-height: 1;
+  transition: background-color 150ms var(--motion-ease), border-color 150ms var(--motion-ease);
+}
+.social-pill .brand-glyph { width: 20px; height: 20px; }
+.social-pill--vk:hover       { background: var(--color-social-vk);         border-color: var(--color-social-vk); }
+.social-pill--telegram:hover { background: var(--color-messenger-telegram); border-color: var(--color-messenger-telegram); }
+.social-pill--max:hover      { background: var(--color-messenger-max);      border-color: var(--color-messenger-max); }
+.social-pill--ok:hover       { background: var(--color-social-ok);         border-color: var(--color-social-ok); }
+.social-pill--rutube:hover   { background: var(--color-social-rutube);     border-color: var(--color-social-rutube); }
+.social-pill:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-surface-inverse), 0 0 0 4px var(--color-text-on-inverse); }
 
 /* ================= «Глубокий синий»: боковая панель мессенджеров — белые круги, при наведении таблетка влево ================= */
 [data-theme="deep"] .messenger-panel__items { align-items: flex-end; }
