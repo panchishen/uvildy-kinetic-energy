@@ -979,3 +979,43 @@ html.is-modal-open { overflow: hidden; }
 [data-theme="deep"] .b18__help-icon .icon { width: 28px; height: 28px; }
 /* Шапки этапов (блоки 6–8): без номеров 01–03 */
 [data-theme="deep"] .stage-block__num { display: none; }
+
+/* ================= Фирменные значки маской: один файл — любой цвет (currentColor) ================= */
+.brand-glyph {
+  display: block; flex-shrink: 0; width: 24px; height: 24px; background: currentColor;
+  -webkit-mask: no-repeat center / contain; mask: no-repeat center / contain;
+}
+.brand-glyph--phone    { -webkit-mask-image: url("../assets/icons/brand/btn-phone.svg");    mask-image: url("../assets/icons/brand/btn-phone.svg"); }
+.brand-glyph--vk       { -webkit-mask-image: url("../assets/icons/brand/btn-vk.svg");       mask-image: url("../assets/icons/brand/btn-vk.svg"); }
+.brand-glyph--telegram { -webkit-mask-image: url("../assets/icons/brand/btn-telegram.svg"); mask-image: url("../assets/icons/brand/btn-telegram.svg"); }
+.brand-glyph--ok       { -webkit-mask-image: url("../assets/icons/brand/btn-ok.svg");       mask-image: url("../assets/icons/brand/btn-ok.svg"); }
+.brand-glyph--rutube   { -webkit-mask-image: url("../assets/icons/brand/btn-rutube.svg");   mask-image: url("../assets/icons/brand/btn-rutube.svg"); }
+.brand-glyph--max      { -webkit-mask-image: url("../assets/icons/brand/btn-max.svg");      mask-image: url("../assets/icons/brand/btn-max.svg"); }
+.messenger-btn__label { display: none; }
+
+/* ================= «Глубокий синий»: боковая панель мессенджеров — белые круги, при наведении таблетка влево ================= */
+[data-theme="deep"] .messenger-panel__items { align-items: flex-end; }
+[data-theme="deep"] .messenger-panel .messenger-btn {
+  width: auto; min-width: 44px; height: 44px; padding: 0 11px; gap: 0; justify-content: flex-start;
+  background: var(--color-surface-card); color: var(--color-action-primary);
+  border: 1px solid var(--color-action-primary); border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(11, 31, 58, .12);
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out, padding 180ms ease-out, gap 180ms ease-out;
+}
+[data-theme="deep"] .messenger-btn .brand-glyph { width: 20px; height: 20px; }
+[data-theme="deep"] .messenger-btn__label {
+  display: block; max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
+  font-family: var(--font-body); font-weight: var(--font-weight-semibold); font-size: var(--font-size-button); line-height: 1;
+  transition: max-width 180ms ease-out, opacity 180ms ease-out;
+}
+[data-theme="deep"] .messenger-btn:hover, [data-theme="deep"] .messenger-btn:focus-visible {
+  padding: 0 17px 0 11px; gap: var(--space-8); color: var(--color-text-on-action); box-shadow: var(--shadow-popover);
+}
+[data-theme="deep"] .messenger-btn:hover .messenger-btn__label,
+[data-theme="deep"] .messenger-btn:focus-visible .messenger-btn__label { max-width: 220px; opacity: 1; }
+[data-theme="deep"] .messenger-btn.icon-btn--phone:hover, [data-theme="deep"] .messenger-btn.icon-btn--phone:focus-visible { background: var(--color-action-primary); border-color: var(--color-action-primary); }
+[data-theme="deep"] .messenger-btn.icon-btn--vk:hover, [data-theme="deep"] .messenger-btn.icon-btn--vk:focus-visible { background: var(--color-social-vk); border-color: var(--color-social-vk); }
+[data-theme="deep"] .messenger-btn.icon-btn--telegram:hover, [data-theme="deep"] .messenger-btn.icon-btn--telegram:focus-visible { background: var(--color-messenger-telegram); border-color: var(--color-messenger-telegram); }
+[data-theme="deep"] .messenger-btn.icon-btn--ok:hover, [data-theme="deep"] .messenger-btn.icon-btn--ok:focus-visible { background: var(--color-social-ok); border-color: var(--color-social-ok); }
+[data-theme="deep"] .messenger-btn.icon-btn--rutube:hover, [data-theme="deep"] .messenger-btn.icon-btn--rutube:focus-visible { background: var(--color-social-rutube); border-color: var(--color-social-rutube); }
+[data-theme="deep"] .messenger-btn.icon-btn--max:hover, [data-theme="deep"] .messenger-btn.icon-btn--max:focus-visible { background: var(--color-messenger-max); border-color: var(--color-messenger-max); }
