@@ -966,3 +966,16 @@ html.is-modal-open { overflow: hidden; }
 [data-theme="deep"] .slider-controls .icon-btn--light:hover { background: var(--color-action-secondary-bg-hover); }
 [data-theme="deep"] .accordion__toggle,
 [data-theme="deep"] .accordion__row.is-open .accordion__toggle { background: var(--color-action-soft); color: var(--color-action-on-soft); }
+/* Соты, оставшиеся в теме: галочки эффектов первого экрана — контурная сота 36×31 */
+.hex-icon { display: none; }
+[data-theme="deep"] .hero__effect-item { align-items: center; }
+[data-theme="deep"] .hero__effect-item .hex-icon { display: block; flex-shrink: 0; color: var(--color-action-primary); }
+[data-theme="deep"] .hero__effect-item .icon { display: none; }
+/* Плашка помощи (блок 18): вместо круга — контурная сота 76×66, телефон action/primary */
+[data-theme="deep"] .b18__help-icon {
+  width: 76px; height: 66px; border-radius: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 76 66'%3E%3Cpolygon points='0.75,33 19.4,0.75 56.6,0.75 75.25,33 56.6,65.25 19.4,65.25' fill='%23fff' stroke='%23014597' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+[data-theme="deep"] .b18__help-icon .icon { width: 28px; height: 28px; }
+/* Шапки этапов (блоки 6–8): без номеров 01–03 */
+[data-theme="deep"] .stage-block__num { display: none; }
