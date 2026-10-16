@@ -307,29 +307,6 @@
     });
   });
 
-  /* ---------- Мнения врачей (блок 21) ---------- */
-  var opinions = document.querySelector('[data-opinions]');
-  if (opinions) {
-    var opinionParts = opinions.querySelectorAll('[data-opinion-slide]');
-    var opinionDots = opinions.querySelectorAll('.dots__item');
-    var opinionPrev = opinions.querySelector('[data-opinion-prev]');
-    var opinionNext = opinions.querySelector('[data-opinion-next]');
-    var opinionIndex = 0;
-    var showOpinion = function (i) {
-      opinionIndex = i;
-      opinionParts.forEach(function (el) {
-        el.hidden = Number(el.dataset.opinionSlide) !== i;
-      });
-      opinionDots.forEach(function (d, idx) {
-        d.classList.toggle('is-active', idx === i);
-      });
-      opinionPrev.disabled = i === 0;
-      opinionNext.disabled = i === opinionDots.length - 1;
-    };
-    opinionPrev.addEventListener('click', function () { showOpinion(Math.max(opinionIndex - 1, 0)); });
-    opinionNext.addEventListener('click', function () { showOpinion(Math.min(opinionIndex + 1, opinionDots.length - 1)); });
-  }
-
   /* ---------- Декоративные формы: имитация отправки (без бэкенда) ---------- */
   document.querySelectorAll('[data-decorative-form]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
