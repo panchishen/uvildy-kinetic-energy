@@ -214,19 +214,22 @@
 }
 
 /* ---------- Badge ---------- */
+/* Бейдж: сплошной фон + белый Overline, 8/14, radius/badge (ui-kit 2026-10-15, все темы) */
 .badge-pill {
   display: inline-flex;
   align-items: center;
-  padding: var(--space-4) var(--space-12);
-  border-radius: var(--radius-tag);
+  padding: var(--space-8) 14px;
+  border-radius: var(--radius-badge);
+  background: var(--color-badge-new);
+  color: var(--color-text-on-action);
   white-space: nowrap;
   width: fit-content;
 }
-.badge-pill--included { background: var(--color-accent-soft); color: var(--color-state-success); }
-.badge-pill--prescribed { background: var(--color-surface-section); color: var(--color-text-secondary); }
-.badge-pill--extra { border: 1px solid var(--color-border); color: var(--color-text-secondary); }
-.badge-pill--new { background: var(--color-action-soft); color: var(--color-action-on-soft); }
-.badge-pill--result { background: var(--color-accent); color: var(--color-text-on-accent); }
+.badge-pill--included { background: var(--color-badge-included); }
+.badge-pill--prescribed { background: var(--color-badge-prescribed); }
+.badge-pill--extra { background: var(--color-badge-extra); }
+.badge-pill--new { background: var(--color-badge-new); }
+.badge-pill--result { background: var(--color-badge-result); }
 
 /* ---------- Кнопка «Видео» на медиа: как на первом экране, в левом верхнем углу, не перекрывает подписи ---------- */
 .video-btn { position: absolute; top: var(--space-16); left: var(--space-16); z-index: 1; box-shadow: var(--shadow-sticky); }
@@ -436,7 +439,7 @@
 }
 .photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--motion-slow) var(--motion-ease); }
 .photo-card__gradient { position: absolute; inset: 0; background: linear-gradient(180deg, var(--color-overlay-media-start), var(--color-overlay-media-end)); }
-.photo-card__badge { position: absolute; top: 24px; left: 24px; background: var(--color-surface-card); border: 1px solid var(--color-border); color: var(--color-text-secondary); }
+.photo-card__badge { position: absolute; top: 24px; left: 24px; }
 .photo-card__caption { position: absolute; left: 24px; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: var(--space-4); }
 .photo-card__caption .title { color: var(--color-text-on-inverse); }
 .photo-card__caption .text { color: var(--color-text-on-inverse-muted); }
@@ -951,3 +954,5 @@ html.is-modal-open { overflow: hidden; }
 }
 /* Рамка «Уникальность методики» в этой теме — на белом, не прозрачная */
 [data-theme="deep"] .b3__unique { background: var(--color-surface-card); }
+/* Блок 7a: бейдж «Дополнительно» над заголовком слева (в A и B — справа в строке с заголовком) */
+[data-theme="deep"] .b7a__head { flex-direction: column-reverse; align-items: flex-start; justify-content: flex-start; }

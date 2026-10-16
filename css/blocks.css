@@ -40,10 +40,10 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: var(--space-4) var(--space-12);
-  border-radius: var(--radius-tag);
-  background: var(--color-action-soft);
-  color: var(--color-action-on-soft);
+  padding: var(--space-8) 14px;
+  border-radius: var(--radius-badge);
+  background: var(--color-badge-new);
+  color: var(--color-text-on-action);
 }
 .hero__offer {
   color: var(--color-text-secondary);
