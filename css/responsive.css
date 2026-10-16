@@ -347,6 +347,7 @@ main [id] { scroll-margin-top: calc(var(--size-header) + var(--size-anchors) + v
 
   /* Блок 31 */
   .b31__card { padding: var(--space-24); gap: var(--space-24); }
+  [data-theme="deep"] :is(.b5__text, .b21__body) { padding: var(--space-24); }
   .b31__phone-number { font-size: 28px; }
   .b31__form-row { flex-direction: column; align-items: stretch; }
   .b31__form-row .btn { width: 100%; }
